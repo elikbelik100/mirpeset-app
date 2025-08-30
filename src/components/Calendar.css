@@ -1,0 +1,673 @@
+.calendar-container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  direction: rtl;
+}
+
+.calendar-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-btn {
+  padding: 0.5rem;
+  background: none;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+.calendar-title {
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin: 0;
+  min-width: 200px;
+  text-align: center;
+}
+
+.calendar-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.today-btn {
+  padding: 0.5rem 1rem;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.today-btn:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+.view-buttons {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 0.25rem;
+}
+
+.view-btn {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.view-btn.active {
+  background: white;
+  color: #4f46e5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-select {
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  background: white;
+  color: #374151;
+  cursor: pointer;
+}
+
+.calendar-content {
+  padding: 1rem;
+}
+
+/* Month View */
+.calendar-month {
+  width: 100%;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.calendar-weekday {
+  padding: 1rem 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  color: #64748b;
+  background: #f8fafc;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: #e2e8f0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.calendar-day {
+  background: white;
+  min-height: 120px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-day:hover {
+  background: #f8fafc;
+}
+
+.calendar-day.other-month {
+  background: #f8fafc;
+  color: #94a3b8;
+}
+
+.calendar-day.today {
+  background: #fef3c7;
+  border: 2px solid #f59e0b;
+}
+
+.calendar-day.selected {
+  background: #ede9fe;
+  border: 2px solid #7c3aed;
+}
+
+.day-number {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.day-number .h-day {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: #6b7280;
+  background: #f1f5f9;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+.calendar-day.other-month .day-number {
+  color: #94a3b8;
+}
+
+.day-lessons {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lesson-indicator {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.lesson-indicator:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}
+
+.lesson-indicator.conflict {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  box-shadow: 0 0 0 1px #fee2e2 inset;
+}
+
+.lesson-time {
+  font-weight: 600;
+  font-size: 0.65rem;
+}
+
+.lesson-title {
+  font-size: 0.65rem;
+  opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.more-lessons {
+  font-size: 0.7rem;
+  color: #64748b;
+  text-align: center;
+  padding: 2px;
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.add-lesson-btn {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 20px;
+  height: 20px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.calendar-day:hover .add-lesson-btn {
+  display: flex;
+}
+
+.add-lesson-btn:hover {
+  background: #059669;
+  transform: scale(1.1);
+}
+
+/* Week View */
+.calendar-week {
+  width: 100%;
+}
+
+.week-header {
+  display: grid;
+  grid-template-columns: 80px repeat(7, 1fr);
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.time-column {
+  background: #f8fafc;
+}
+
+.week-day-header {
+  padding: 1rem 0.5rem;
+  text-align: center;
+  background: #f8fafc;
+  border-left: 1px solid #e2e8f0;
+}
+
+.week-day-header.today {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.day-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.day-date {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.week-grid {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.hour-row {
+  display: grid;
+  grid-template-columns: 80px repeat(7, 1fr);
+  border-bottom: 1px solid #f1f5f9;
+  min-height: 50px;
+}
+
+.time-slot {
+  padding: 0.5rem;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 0.8rem;
+  text-align: center;
+  border-left: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.week-time-slot {
+  border-left: 1px solid #e2e8f0;
+  padding: 0.25rem;
+  position: relative;
+}
+
+.week-lesson {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.week-lesson:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.week-lesson.conflict {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+.lesson-info strong {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.lesson-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+.lesson-details span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Day View */
+.calendar-day-view {
+  width: 100%;
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.day-header h2 {
+  margin: 0;
+  color: #1e293b;
+}
+
+.day-stats {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.day-schedule {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.day-hour {
+  display: flex;
+  border-bottom: 1px solid #f1f5f9;
+  min-height: 80px;
+}
+
+.hour-label {
+  width: 80px;
+  padding: 1rem 0.5rem;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 0.9rem;
+  text-align: center;
+  border-left: 1px solid #e2e8f0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.hour-content {
+  flex: 1;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.day-lesson {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-right: 4px solid #4f46e5;
+}
+
+.day-lesson.conflict {
+  background: #fef2f2;
+  border-color: #dc2626;
+  border-right-color: #dc2626;
+}
+
+.day-lesson:hover {
+  border-color: #7c3aed;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+  transform: translateY(-1px);
+}
+
+.lesson-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-titles {
+  flex: 1;
+}
+
+.lesson-titles h4 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.lesson-titles h4:hover {
+  color: #4f46e5;
+}
+
+.lesson-titles .lesson-rabbi {
+  margin: 0.25rem 0 0 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lesson-titles .lesson-rabbi:hover {
+  color: #4f46e5;
+}
+
+.lesson-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lesson-status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.lesson-action-btn {
+  padding: 0.25rem;
+  background: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lesson-action-btn.edit {
+  color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.lesson-action-btn.edit:hover {
+  background: #4f46e5;
+  color: white;
+}
+
+.lesson-action-btn.delete {
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.lesson-action-btn.delete:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.lesson-details {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.lesson-details > div {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.lesson-description {
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.empty-hour {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+
+.add-lesson-empty {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-lesson-empty:hover {
+  background: #f1f5f9;
+  border-color: #4f46e5;
+  color: #4f46e5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .calendar-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .calendar-nav {
+    justify-content: center;
+  }
+
+  .calendar-controls {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .calendar-title {
+    font-size: 1.2rem;
+    min-width: auto;
+  }
+
+  .calendar-day {
+    min-height: 80px;
+  }
+
+  .week-header,
+  .hour-row {
+    grid-template-columns: 60px repeat(7, 1fr);
+  }
+
+  .time-slot,
+  .hour-label {
+    width: 60px;
+    font-size: 0.7rem;
+  }
+
+  .lesson-indicator {
+    font-size: 0.6rem;
+  }
+
+  .lesson-title {
+    display: none;
+  }
+
+  .day-lesson {
+    padding: 0.75rem;
+  }
+
+  .lesson-details {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-content {
+    padding: 0.5rem;
+  }
+
+  .calendar-day {
+    min-height: 60px;
+    padding: 0.25rem;
+  }
+
+  .lesson-indicator {
+    padding: 1px 4px;
+  }
+
+  .lesson-time {
+    font-size: 0.6rem;
+  }
+
+  .week-header,
+  .hour-row {
+    grid-template-columns: 40px repeat(7, 1fr);
+  }
+
+  .view-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+}

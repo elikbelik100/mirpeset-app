@@ -1,0 +1,23 @@
+{
+  "name": "המרפסת - מערכת ניהול שיעורים",
+  "short_name": "המרפסת",
+  "description": "אפליקציה לניהול ופרסום שיעורים",
+  "theme_color": "#4f46e5",
+  "background_color": "#f5f7fa",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

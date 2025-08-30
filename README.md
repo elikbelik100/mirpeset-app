@@ -1,0 +1,219 @@
+# המרפסת - אפליקציה לניהול שיעורים
+
+אפליקציה React TypeScript לניהול ופרסום שיעורים עם ממשק משתמש רספונסיבי בעברית.
+
+## תכונות עיקריות
+
+### 📚 ניהול שיעורים
+- יצירה, עריכה ומחיקת שיעורים
+- לוח זמנים אינטראקטיבי עם תאריכים עבריים וגריגוריים
+- חיפוש וסינון שיעורים
+- ייבוא שיעורים מקבצי PDF ו-DOCX
+
+### 📅 לוח זמנים חכם
+- תצוגת חודש/שבוע/יום
+- זיהוי אוטומטי של זמנים עבריים וגריגוריים
+- התמודדות עם שיעורים בשעות לילה (00:00-04:00)
+- תמיכה בתאריכים דו-ספרתיים (25 → 2025, 85 → 1985)
+
+### 🔔 מערכת תזכורות
+- תזכורות מקומיות בדפדפן
+- הגדרת זמנים מותאמים אישית
+- התראות חכמות לפני השיעורים
+
+### 🎨 עיצוב מודעות
+- תבניות מוכנות למודעות
+- עיצוב אוטומטי עם פרטי השיעור
+- הורדה כקבצי תמונה
+
+### 📁 ארכיון ושמירה
+- אינטגרציה עם Google Drive
+- שמירת הקלטות שיעורים
+- ארכיון מסודר של תכנים
+
+### 👥 ניהול משתמשים
+- הבחנה בין מנהלים למשתמשים רגילים
+- הגבלת הרשאות לפי סוג משתמש
+- ממשק מותאם לכל סוג משתמש
+
+## טכנולוגיות
+
+- **Frontend**: React 19 + TypeScript
+- **Styling**: CSS Modules with RTL support
+- **Storage**: LocalStorage for data persistence
+- **APIs**: Web Notifications API, Google Drive API
+- **Build Tool**: Vite
+- **Icons**: Lucide React
+
+## התקנה והרצה
+
+### דרישות מוקדמות
+- Node.js 18+
+- npm או yarn
+
+### הוראות התקנה
+
+1. שכפול הפרויקט:
+```bash
+git clone [repository-url]
+cd mirpesetApp
+```
+
+2. התקנת תלויות:
+```bash
+npm install
+```
+
+3. הרצת שרת פיתוח:
+```bash
+npm run dev
+```
+
+4. פתיחת האפליקציה בדפדפן:
+```
+http://localhost:5173
+```
+
+## שימוש
+
+### התחברות
+- **מנהל**: `admin@mirpeset.com` (גישה מלאה)
+- **משתמש**: `user@example.com` (צפיה בלבד)
+
+### ייבוא שיעורים
+1. עבור לעמוד "ייבוא"
+2. בחר קובץ PDF או DOCX
+3. הקובץ ייפרס אוטומטית והשיעורים ייווספו ללוח הזמנים
+
+### יצירת מודעות
+1. עבור לעמוד "מודעות"
+2. לחץ על "יצירת מודעה חדשה"
+3. בחר תבנית ושיעור
+4. התאם את העיצוב והורד את התוצאה
+
+## תכונות מתקדמות
+
+### פרסור תאריכים חכם
+- תמיכה בפורמטים: DD/MM/YYYY, DD.MM.YYYY, DD MM YYYY
+- זיהוי אוטומטי של שנים דו-ספרתיות
+- הכחנים לתקופות שונות (00-50 = 2000s, 51-99 = 1900s)
+
+### טיפול בזמנים מיוחדים
+- שיעורים בשעות 00:00-04:00 מועברים ליום הקודם
+- תמיכה בכל סוגי המקפים: -, –, —
+- זיהוי אוטומטי של שמות רבנים ונושאי שיעורים
+
+### תמיכה בעברית
+- ממשק RTL מלא
+- תאריכים עבריים וגריגוריים
+- גופנים מותאמים לעברית
+
+---
+
+נוצר עם ❤️ עבור קהילת המרפסת
+npm install
+```
+
+### הרצה במצב פיתוח
+```bash
+npm run dev
+```
+
+### בנייה לפרודקשן
+```bash
+npm run build
+```
+
+### תצוגה מקדימה של הבנייה
+```bash
+npm run preview
+```
+
+## מבנה הפרויקט
+
+```
+src/
+├── components/          # רכיבי UI
+│   ├── Layout.tsx      # מבנה עמוד ראשי
+│   └── LessonCard.tsx  # כרטיס שיעור
+├── pages/              # דפי האפליקציה
+│   └── LessonsPage.tsx # דף ניהול שיעורים
+├── services/           # שירותי נתונים
+│   ├── lessonService.ts      # ניהול שיעורים
+│   ├── notificationService.ts # תזכורות
+│   ├── googleDriveService.ts  # Google Drive
+│   └── posterService.ts      # מודעות
+├── types/              # הגדרות TypeScript
+│   └── index.ts        # טיפוסי נתונים
+└── utils/              # כלים ונתוני דוגמה
+    └── sampleData.ts   # נתוני דוגמה
+```
+
+## טכנולוגיות
+
+- **React 18** - ספריית UI מתקדמת
+- **TypeScript** - פיתוח מהיר ובטוח
+- **Vite** - כלי בנייה מהיר
+- **React Router** - ניהול ניווט
+- **Lucide React** - אייקונים מעוצבים
+- **Date-fns** - עיבוד תאריכים
+
+## פונקציונליות נתמכת
+
+### אחסון מקומי
+הנתונים נשמרים ב-localStorage של הדפדפן, כך שהמידע נשמר בין הפעלות.
+
+### תזכורות בדפדפן
+האפליקציה משתמשת ב-Web Notifications API לשליחת תזכורות מקומיות.
+
+### Google Drive (הדגמה)
+הוטמעה סימולציה של חיבור ל-Google Drive לצורך ההדגמה.
+
+## הוראות פיתוח
+
+### הוספת תכונות חדשות
+1. הוסף טיפוסים חדשים ב-`src/types/`
+2. צור שירותים חדשים ב-`src/services/`
+3. בנה רכיבים חדשים ב-`src/components/`
+4. הוסף דפים חדשים ב-`src/pages/`
+
+### שפה וגלובליזציה
+האפליקציה מותאמת לעברית עם תמיכה ב-RTL. 
+ניתן להוסיף תמיכה בשפות נוספות בקלות.
+
+## רישיון
+
+MIT License - ניתן לשימוש חופשי ופיתוח נוסף.
+
+---
+
+פותח עם ❤️ לקהילת המרפסת
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```

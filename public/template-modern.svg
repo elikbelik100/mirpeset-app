@@ -1,0 +1,13 @@
+<!-- Modern template preview -->
+<svg width="200" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#1e293b"/>
+  <circle cx="100" cy="60" r="25" fill="#4f46e5"/>
+  <text x="100" y="110" text-anchor="middle" fill="white" font-size="18" font-weight="bold">כותרת מודרנית</text>
+  <text x="100" y="130" text-anchor="middle" fill="#cbd5e1" font-size="12">מרצה</text>
+  <line x1="40" y1="150" x2="160" y2="150" stroke="#4f46e5" stroke-width="2"/>
+  <text x="100" y="175" text-anchor="middle" fill="#e2e8f0" font-size="10">תיאור השיעור</text>
+  <text x="100" y="190" text-anchor="middle" fill="#e2e8f0" font-size="10">בסגנון מודרני</text>
+  <rect x="50" y="220" width="100" height="30" fill="#4f46e5" rx="15"/>
+  <text x="100" y="240" text-anchor="middle" fill="white" font-size="12">הרשמה</text>
+  <text x="100" y="280" text-anchor="middle" fill="#64748b" font-size="10">המרפסת</text>
+</svg>
