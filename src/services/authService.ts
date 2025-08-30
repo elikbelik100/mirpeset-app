@@ -20,11 +20,14 @@ class AuthService {
   // Mock login for demo purposes
   public async login(email: string, _password: string): Promise<AuthUser> {
     // In real app, this would call an API
+    const adminEmails = ['admin@mirpeset.com', 'jeliyahu@gmail.com', 'hagbibig@gmail.com'];
+    const isAdmin = adminEmails.includes(email);
+    
     const user: AuthUser = {
       id: '1',
-      name: email === 'admin@mirpeset.com' ? 'מנהל המערכת' : 'משתמש רגיל',
+      name: isAdmin ? 'מנהל המערכת' : 'משתמש רגיל',
       email,
-      role: email === 'admin@mirpeset.com' ? 'admin' : 'user',
+      role: isAdmin ? 'admin' : 'user',
       avatar: '',
       preferences: {
         notifications: true,
