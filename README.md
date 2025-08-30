@@ -31,10 +31,11 @@
 - שמירת הקלטות שיעורים
 - ארכיון מסודר של תכנים
 
-### 👥 ניהול משתמשים
-- הבחנה בין מנהלים למשתמשים רגילים
-- הגבלת הרשאות לפי סוג משתמש
-- ממשק מותאם לכל סוג משתמש
+### 👥 מערכת הרשאות
+- **הרשאות אדמין**: jeliyahu@gmail.com, hagbibig@gmail.com, admin@mirpeset.com
+- **יכולות מנהל**: יצירה, עריכה, מחיקה של שיעורים ומודעות
+- **יכולות משתמש**: צפייה וחיפוש בשיעורים
+- **הגנה על פעולות רגישות**
 
 ## טכנולוגיות
 
@@ -177,9 +178,41 @@ src/
 3. בנה רכיבים חדשים ב-`src/components/`
 4. הוסף דפים חדשים ב-`src/pages/`
 
-### שפה וגלובליזציה
-האפליקציה מותאמת לעברית עם תמיכה ב-RTL. 
-ניתן להוסיף תמיכה בשפות נוספות בקלות.
+## 🚀 גירסת פרסום ובדיקה
+
+הפרויקט מוכן לפרסום ושיתוף לבדיקות השתמשות:
+
+### דרכי פרסום מומלצות
+
+#### 1. Netlify (מומלץ - חינמי וקל)
+1. הרשם ל-[Netlify](https://netlify.com)
+2. חבר את repository: `elikbelik100/mirpeset-app`
+3. הגדרות Build:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+4. קבל URL ציבורי לשיתוף
+
+#### 2. Vercel (אלטרנטיבה טובה)
+1. הרשם ל-[Vercel](https://vercel.com)
+2. חבר את ה-GitHub repository
+3. פרסום אוטומטי
+
+#### 3. GitHub Pages
+1. עבור ל-Settings של ה-repository
+2. בחר Pages → Deploy from branch
+3. בחר branch: `main`, folder: `/dist`
+
+### למשתמשי בדיקה
+- משתמשים רגילים: כל אימייל (ללא הרשאות עריכה)
+- מנהלים: `jeliyahu@gmail.com`, `hagbibig@gmail.com`
+- סיסמה: כל טקסט (זוהי גירסת דמו)
+
+### איסוף תגובות
+1. צור Issues ב-GitHub לבאגים ובקשות תכונות
+2. השתמש בטאב "Issues" בrepository
+3. תייג כל בעיה עם תוויות מתאימות
+
+---
 
 ## רישיון
 
@@ -187,33 +220,4 @@ MIT License - ניתן לשימוש חופשי ופיתוח נוסף.
 
 ---
 
-פותח עם ❤️ לקהילת המרפסת
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**פותח עם ❤️ לקהילת המרפסת**
