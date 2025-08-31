@@ -1,9 +1,11 @@
 import type { Lesson } from '../types';
+import GitHubService from './githubService';
 
 const LESSONS_STORAGE_KEY = 'mirpeset-lessons';
 const LESSONS_JSON_URL = '/data/lessons.json';
 
 export class LessonService {
+  private static githubService = GitHubService.getInstance();
   static async getAllLessons(): Promise<Lesson[]> {
     // Check localStorage first (this is where imported/edited lessons are stored)
     const data = localStorage.getItem(LESSONS_STORAGE_KEY);
@@ -132,5 +134,100 @@ export class LessonService {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
+  }
+
+  // GitHub Integration Functions
+  static async updateLessonAndSync(lesson: Lesson): Promise<boolean> {
+    try {
+      // Update lesson locally
+      await this.updateLesson(lesson.id, lesson);
+      
+      // Sync to GitHub if configured
+      if (this.githubService.isConfigured()) {
+        const allLessons = await this.getAllLessons();
+        await this.githubService.updateLessonsFile(
+          allLessons, 
+          `עדכון שיעור: ${lesson.title}`
+        );
+        return true;
+      }
+      
+      return false; // Updated locally but not synced
+    } catch (error) {
+      console.error('Error updating lesson and syncing:', error);
+      throw error;
+    }
+  }
+
+  static async createLessonAndSync(lessonData: Omit<Lesson, 'id' | 'createdAt' | 'updatedAt'>): Promise<Lesson> {
+    try {
+      // Create lesson locally
+      const newLesson = await this.createLesson(lessonData);
+      
+      // Sync to GitHub if configured
+      if (this.githubService.isConfigured()) {
+        const allLessons = await this.getAllLessons();
+        await this.githubService.updateLessonsFile(
+          allLessons, 
+          `הוספת שיעור חדש: ${newLesson.title}`
+        );
+      }
+      
+      return newLesson;
+    } catch (error) {
+      console.error('Error creating lesson and syncing:', error);
+      throw error;
+    }
+  }
+
+  static async deleteLessonAndSync(id: string): Promise<boolean> {
+    try {
+      // Get lesson title for commit message
+      const lesson = await this.getLessonById(id);
+      const lessonTitle = lesson?.title || 'שיעור לא ידוע';
+      
+      // Delete lesson locally
+      const deleted = await this.deleteLesson(id);
+      
+      if (deleted && this.githubService.isConfigured()) {
+        const allLessons = await this.getAllLessons();
+        await this.githubService.updateLessonsFile(
+          allLessons, 
+          `מחיקת שיעור: ${lessonTitle}`
+        );
+      }
+      
+      return deleted;
+    } catch (error) {
+      console.error('Error deleting lesson and syncing:', error);
+      throw error;
+    }
+  }
+
+  static async syncAllLessonsToGitHub(commitMessage?: string): Promise<boolean> {
+    try {
+      if (!this.githubService.isConfigured()) {
+        throw new Error('GitHub not configured');
+      }
+      
+      const allLessons = await this.getAllLessons();
+      await this.githubService.updateLessonsFile(
+        allLessons, 
+        commitMessage || `סנכרון כל השיעורים - ${new Date().toLocaleString('he-IL')}`
+      );
+      
+      return true;
+    } catch (error) {
+      console.error('Error syncing all lessons to GitHub:', error);
+      throw error;
+    }
+  }
+
+  static isGitHubConfigured(): boolean {
+    return this.githubService.isConfigured();
+  }
+
+  static async testGitHubConnection(): Promise<boolean> {
+    return await this.githubService.testConnection();
   }
 }

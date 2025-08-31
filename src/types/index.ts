@@ -93,6 +93,7 @@ export interface AuthUser {
   name: string;
   email: string;
   role: 'admin' | 'user';
+  isAdmin: boolean;
   avatar?: string;
   preferences: {
     notifications: boolean;

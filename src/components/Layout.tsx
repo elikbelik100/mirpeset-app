@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { Calendar, Book, Archive, Settings, Upload, Megaphone, Bell, LogOut, LogIn } from 'lucide-react';
+import { Calendar, Archive, Settings, Upload, Megaphone, Bell, LogOut, LogIn, UserCog } from 'lucide-react';
 import './Layout.css';
 import AuthService from '../services/authService';
 import LoginModal from './LoginModal';
@@ -51,8 +51,8 @@ const Layout: React.FC = () => {
               לוח זמנים
             </NavLink>
             {userRole === 'admin' && (
-              <NavLink to="/lessons" className="nav-link">
-                <Book size={16} />
+              <NavLink to="/admin" className="nav-link">
+                <UserCog size={16} />
                 ניהול שיעורים
               </NavLink>
             )}
@@ -67,7 +67,7 @@ const Layout: React.FC = () => {
             {userRole === 'admin' && (
               <NavLink to="/import" className="nav-link">
                 <Upload size={16} />
-                ייבוא
+                ייבוא מקבצים
               </NavLink>
             )}
             <NavLink to="/archive" className="nav-link">

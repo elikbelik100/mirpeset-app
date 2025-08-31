@@ -28,6 +28,7 @@ class AuthService {
       name: isAdmin ? 'מנהל המערכת' : 'משתמש רגיל',
       email,
       role: isAdmin ? 'admin' : 'user',
+      isAdmin: isAdmin,
       avatar: '',
       preferences: {
         notifications: true,
