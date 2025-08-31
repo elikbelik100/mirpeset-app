@@ -89,8 +89,21 @@ export class LessonService {
     return true;
   }
 
-  static deleteAllLessons(): void {
+  static async deleteAllLessons(): Promise<void> {
+    // מחק מה-LocalStorage
     localStorage.removeItem(LESSONS_STORAGE_KEY);
+    
+    // מחק גם מה-GitHub אם יש הרשאה
+    try {
+      const authService = (await import('../services/authService')).default.getInstance();
+      if (authService.hasPermission('delete_lesson')) {
+        const GitHubService = (await import('../services/githubService')).default;
+        const githubService = GitHubService.getInstance();
+        await githubService.updateLessonsFile([], 'מחק את כל השיעורים');
+      }
+    } catch (error) {
+      console.log('לא ניתן לעדכן ב-GitHub:', error);
+    }
   }
 
   static async getLessonById(id: string): Promise<Lesson | null> {

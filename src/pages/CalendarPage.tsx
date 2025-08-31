@@ -12,10 +12,10 @@ const CalendarPage: React.FC = () => {
     window.location.reload(); // רענון העמוד כדי לראות את השינויים
   };
 
-  const handleDeleteAllLessons = () => {
-    if (confirm('האם אתה בטוח שברצונך למחוק את כל השיעורים? פעולה זו אינה הפיכה!')) {
+  const handleDeleteAllLessons = async () => {
+    if (confirm('האם אתה בטוח שברצונך למחוק את כל השיעורים?')) {
       if (confirm('אישור נוסף: פעולה זו תמחק את כל השיעורים מהמערכת!')) {
-        LessonService.deleteAllLessons();
+        await LessonService.deleteAllLessons();
         window.location.reload();
       }
     }
