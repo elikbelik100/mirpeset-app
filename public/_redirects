@@ -8,5 +8,5 @@
 /*.jpeg    /:splat         200
 /*.png     /:splat         200
 
-# All other routes should go to index.html for client-side routing
+# All other routes should go to index.html for client-side routing  
 /*         /index.html     200
