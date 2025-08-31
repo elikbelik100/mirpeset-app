@@ -26,7 +26,42 @@
 
 .access-denied {
   text-align: center;
-  padding: 4rem 2rem;
+}
+
+.export-section p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.export-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.clear-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+.export-btn, .download-json-btn {padding: 4rem 2rem;
   background: #fef2f2;
   border-radius: 16px;
   border: 1px solid #fecaca;
@@ -419,6 +454,34 @@
   color: #64748b;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
+}
+
+.export-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
 }
 
 .export-btn, .download-json-btn {

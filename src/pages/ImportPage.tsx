@@ -43,6 +43,14 @@ const ImportPage: React.FC = () => {
     }
   };
 
+  // פונקציה לניקוי כל הנתונים לפני ייבוא חדש
+  const handleClearAllData = () => {
+    if (confirm('האם אתה בטוח שברצונך למחוק את כל השיעורים הקיימים לפני ייבוא חדש?')) {
+      LessonService.deleteAllLessons();
+      alert('כל הנתונים נמחקו. כעת תוכל לייבא שיעורים חדשים.');
+    }
+  };
+
   // בדיקת הרשאות מנהל
   if (!currentUser || currentUser.role !== 'admin') {
     return (
@@ -667,10 +675,16 @@ const ImportPage: React.FC = () => {
         <div className="export-section">
           <h3>ייצוא נתונים</h3>
           <p>הורד את כל השיעורים כקובץ JSON לשמירה ב-GitHub</p>
-          <button onClick={handleDownloadJSON} className="export-btn">
-            <Download size={16} />
-            הורד JSON של כל השיעורים
-          </button>
+          
+          <div className="export-actions">
+            <button onClick={handleClearAllData} className="clear-btn">
+              🗑️ נקה נתונים קיימים
+            </button>
+            <button onClick={handleDownloadJSON} className="export-btn">
+              <Download size={16} />
+              הורד JSON של כל השיעורים
+            </button>
+          </div>
         </div>
       </div>
     </div>
