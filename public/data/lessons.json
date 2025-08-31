@@ -12,10 +12,17 @@
     "status": "scheduled",
     "currentParticipants": 0,
     "maxParticipants": 100,
-    "tags": ["שבת", "הלכה", "מלאכות"],
+    "tags": [
+      "שבת",
+      "הלכה",
+      "מלאכות"
+    ],
     "notifications": {
       "enabled": true,
-      "reminderTimes": [30, 10]
+      "reminderTimes": [
+        30,
+        10
+      ]
     },
     "createdAt": "2025-08-31T12:00:00.000Z",
     "updatedAt": "2025-08-31T12:00:00.000Z"
@@ -33,10 +40,18 @@
     "status": "scheduled",
     "currentParticipants": 0,
     "maxParticipants": 150,
-    "tags": ["פרשת השבוע", "תנך", "בראשית"],
+    "tags": [
+      "פרשת השבוע",
+      "תנך",
+      "בראשית"
+    ],
     "notifications": {
       "enabled": true,
-      "reminderTimes": [60, 30, 10]
+      "reminderTimes": [
+        60,
+        30,
+        10
+      ]
     },
     "createdAt": "2025-08-31T12:00:00.000Z",
     "updatedAt": "2025-08-31T12:00:00.000Z"
