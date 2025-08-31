@@ -378,7 +378,8 @@ const ImportPage: React.FC = () => {
       // קבלת השיעורים הקיימים
       const existingLessons = await LessonService.getAllLessons();
 
-      parsedLessons.forEach(async (parsedLesson) => {
+      // Process lessons one by one instead of forEach
+      for (const parsedLesson of parsedLessons) {
         try {
           if (parsedLesson.error) {
             errorCount++;
@@ -447,7 +448,7 @@ const ImportPage: React.FC = () => {
           console.error('שגיאה בייבוא שיעור:', parsedLesson, err);
           errorCount++;
         }
-      });
+      } // end of for loop
 
       if (successCount > 0) {
         setImportStatus('success');

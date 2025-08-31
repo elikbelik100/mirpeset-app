@@ -272,7 +272,7 @@ const LessonCard: React.FC<LessonCardProps> = ({
             type="text"
             value={lesson.teacher}
             onChange={(e) => onFieldChange(lesson.id, 'teacher', e.target.value)}
-            placeholder="שם הרב"
+            placeholder="שם המעביר"
           />
           
           <input
@@ -350,7 +350,7 @@ const LessonCard: React.FC<LessonCardProps> = ({
       </div>
       
       <div className="lesson-details">
-        <p><strong>רב:</strong> {lesson.teacher}</p>
+        <p><strong>מעביר:</strong> {lesson.teacher}</p>
         <p><strong>תאריך:</strong> {new Date(lesson.date).toLocaleDateString('he-IL')}</p>
         <p><strong>שעה:</strong> {lesson.time}</p>
         <p><strong>קטגוריה:</strong> {lesson.category}</p>
