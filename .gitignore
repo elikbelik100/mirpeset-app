@@ -33,3 +33,9 @@ dist-ssr
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Large executable files
+*.exe
+*.msi
+*.dmg
+*.pkg
