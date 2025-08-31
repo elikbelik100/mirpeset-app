@@ -51,16 +51,20 @@ const LessonsPage: React.FC = () => {
 
   const handleDeleteLesson = async (id: string) => {
     if (window.confirm('האם אתה בטוח שברצונך למחוק את השיעור?')) {
-      await LessonService.deleteLesson(id);
+      await LessonService.deleteLessonAndSync(id);
       loadLessons();
     }
   };
 
   const handleSaveLesson = async (lessonData: Omit<Lesson, 'id' | 'createdAt' | 'updatedAt'>) => {
     if (editingLesson) {
-      await LessonService.updateLesson(editingLesson.id, lessonData);
+      await LessonService.updateLessonAndSync({
+        ...editingLesson,
+        ...lessonData,
+        updatedAt: new Date()
+      });
     } else {
-      const newLesson = await LessonService.createLesson(lessonData);
+      const newLesson = await LessonService.createLessonAndSync(lessonData);
       if (newLesson.notifications.enabled) {
         NotificationService.scheduleNotification(newLesson);
       }

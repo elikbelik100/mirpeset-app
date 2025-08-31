@@ -230,4 +230,14 @@ export class LessonService {
   static async testGitHubConnection(): Promise<boolean> {
     return await this.githubService.testConnection();
   }
+
+  static async importLessons(lessonsData: any[]): Promise<void> {
+    const lessons = lessonsData.map((lesson: any) => ({
+      ...lesson,
+      date: new Date(lesson.date),
+      createdAt: new Date(lesson.createdAt),
+      updatedAt: new Date(lesson.updatedAt),
+    }));
+    this.saveLessons(lessons);
+  }
 }
