@@ -6,7 +6,6 @@ import {
   MapPin,
   Plus,
   Filter,
-  Edit,
   Trash2
 } from 'lucide-react';
 import type { Lesson } from '../types';
@@ -20,14 +19,12 @@ type ViewType = 'month' | 'week' | 'day';
 interface CalendarProps {
   onLessonClick?: (lesson: Lesson) => void;
   onCreateLesson?: (date: Date) => void;
-  onEditLesson?: (lesson: Lesson) => void;
   onDeleteLesson?: (id: string) => void;
 }
 
 const Calendar: React.FC<CalendarProps> = ({ 
   onLessonClick, 
   onCreateLesson, 
-  onEditLesson,
   onDeleteLesson 
 }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -141,6 +138,26 @@ const Calendar: React.FC<CalendarProps> = ({
     // תמיד עבור לתצוגת יום כשלוחצים על תאריך
     setViewType('day');
     setCurrentDate(date);
+    
+    // גלול לשיעור הראשון של היום
+    setTimeout(() => {
+      const dayLessons = getLessonsForDate(date).sort((a, b) => 
+        a.time.localeCompare(b.time)
+      );
+      
+      if (dayLessons.length > 0) {
+        const firstLesson = dayLessons[0];
+        const firstLessonHour = parseInt(firstLesson.time.split(':')[0]);
+        const hourElement = document.querySelector(`.day-hour:nth-child(${firstLessonHour + 1})`);
+        
+        if (hourElement) {
+          hourElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      }
+    }, 100); // קצת עיכוב כדי שהדום יתעדכן
   };
 
   const handleCreateLesson = (date: Date) => {
@@ -337,36 +354,26 @@ const Calendar: React.FC<CalendarProps> = ({
                       <div className="lesson-header">
                         <div className="lesson-titles">
                           <h4 onClick={() => onLessonClick?.(lesson)}>{lesson.title}</h4>
-                          {lesson.description && lesson.description.includes('רב:') && (
-                            <h4 className="lesson-rabbi" onClick={() => onEditLesson?.(lesson)}>{lesson.description.split('רב: ')[1]}</h4>
+                          {(lesson.teacher || (lesson.description && lesson.description.includes('רב:'))) && (
+                            <h4 className="lesson-rabbi" onClick={() => onLessonClick?.(lesson)}>
+                              {lesson.teacher || lesson.description.split('רב: ')[1]}
+                            </h4>
                           )}
                         </div>
                         <div className="lesson-actions">
                           {authService.hasPermission('create_lesson') && (
-                            <>
-                              <button
-                                className="lesson-action-btn edit"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  onEditLesson?.(lesson);
-                                }}
-                                title="ערוך שיעור"
-                              >
-                                <Edit size={14} />
-                              </button>
-                              <button
-                                className="lesson-action-btn delete"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  if (confirm(`האם אתה בטוח שברצונך למחוק את השיעור "${lesson.title}"?`)) {
-                                    onDeleteLesson?.(lesson.id);
-                                  }
-                                }}
-                                title="מחק שיעור"
-                              >
-                                <Trash2 size={14} />
-                              </button>
-                            </>
+                            <button
+                              className="lesson-action-btn delete"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                if (confirm(`האם אתה בטוח שברצונך למחוק את השיעור "${lesson.title}"?`)) {
+                                  onDeleteLesson?.(lesson.id);
+                                }
+                              }}
+                              title="מחק שיעור"
+                            >
+                              <Trash2 size={14} />
+                            </button>
                           )}
                         </div>
                       </div>

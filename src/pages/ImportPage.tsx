@@ -13,6 +13,7 @@ interface ParsedLesson {
   time: string;
   category: string;
   description?: string;
+  teacher?: string;
   error?: string;
 }
 
@@ -246,8 +247,8 @@ const ImportPage: React.FC = () => {
             finalGeneralTitle = 'כולל יום שישי';
           }
           
-          // קביעת קטגוריה אוטומטית בהתבסס על הנושא
-          const category = PDFService.suggestLessonCategories(lessonSubject);
+          // קביעת קטגוריה - תהיה זהה לכותרת השיעור
+          const category = lessonSubject;
           
           console.log('Parsing lesson:', {
             originalTitle: title,
@@ -262,7 +263,8 @@ const ImportPage: React.FC = () => {
             date: finalDate, // נשאיר כ-string כי זה מה ש-ParsedLesson מצפה לו
             time: time || '20:00',
             category,
-            description: rabbiName ? `רב: ${rabbiName}` : (finalGeneralTitle ? `כותרת: ${finalGeneralTitle}` : undefined)
+            description: rabbiName ? `מעביר: ${rabbiName}` : (finalGeneralTitle ? `כותרת: ${finalGeneralTitle}` : undefined),
+            teacher: rabbiName || ''
           });
           
           matched = true;
@@ -404,7 +406,7 @@ const ImportPage: React.FC = () => {
             date: lessonDate,
             time: parsedLesson.time,
             duration: 90,
-            teacher: '', // לא בשימוש
+            teacher: parsedLesson.teacher || '',
             location: '', // לא בשימוש
             status: 'scheduled',
             currentParticipants: 0, // לא בשימוש
