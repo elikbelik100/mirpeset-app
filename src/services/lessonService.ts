@@ -5,33 +5,40 @@ const LESSONS_JSON_URL = '/data/lessons.json';
 
 export class LessonService {
   static async getAllLessons(): Promise<Lesson[]> {
+    // Check localStorage first (this is where imported/edited lessons are stored)
+    const data = localStorage.getItem(LESSONS_STORAGE_KEY);
+    if (data) {
+      const lessons = JSON.parse(data);
+      return lessons.map((lesson: any) => ({
+        ...lesson,
+        date: new Date(lesson.date),
+        createdAt: new Date(lesson.createdAt),
+        updatedAt: new Date(lesson.updatedAt),
+      }));
+    }
+
+    // If no localStorage data, try to fetch from static JSON file
     try {
-      // Try to fetch from static JSON file first
       const response = await fetch(LESSONS_JSON_URL);
       if (response.ok) {
         const lessons = await response.json();
-        return lessons.map((lesson: any) => ({
+        const mappedLessons = lessons.map((lesson: any) => ({
           ...lesson,
           date: new Date(lesson.date),
           createdAt: new Date(lesson.createdAt),
           updatedAt: new Date(lesson.updatedAt),
         }));
+        
+        // Save to localStorage for future edits
+        this.saveLessons(mappedLessons);
+        return mappedLessons;
       }
     } catch (error) {
-      console.warn('Could not fetch lessons from JSON file, falling back to localStorage');
+      console.warn('Could not fetch lessons from JSON file');
     }
     
-    // Fallback to localStorage
-    const data = localStorage.getItem(LESSONS_STORAGE_KEY);
-    if (!data) return [];
-    
-    const lessons = JSON.parse(data);
-    return lessons.map((lesson: any) => ({
-      ...lesson,
-      date: new Date(lesson.date),
-      createdAt: new Date(lesson.createdAt),
-      updatedAt: new Date(lesson.updatedAt),
-    }));
+    // Return empty array if both methods fail
+    return [];
   }
 
   static saveLessons(lessons: Lesson[]): void {
