@@ -399,6 +399,67 @@
   }
 }
 
+/* Export section styles */
+.export-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.export-section h3 {
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.export-section p {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.export-btn, .download-json-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.export-btn:hover, .download-json-btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.download-json-btn {
+  margin-top: 1rem;
+  background: #10b981;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+
+.download-json-btn:hover {
+  background: #059669;
+}
+
+.success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
 @media (max-width: 480px) {
   .page-header {
     margin-bottom: 2rem;
@@ -414,5 +475,10 @@
 
   .upload-label p {
     font-size: 0.9rem;
+  }
+
+  .export-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
   }
 }

@@ -42,8 +42,8 @@ const Calendar: React.FC<CalendarProps> = ({
     loadLessons();
   }, []);
 
-  const loadLessons = () => {
-    const allLessons = LessonService.getAllLessons();
+  const loadLessons = async () => {
+    const allLessons = await LessonService.getAllLessons();
     setLessons(allLessons);
   };
 

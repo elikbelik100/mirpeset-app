@@ -22,10 +22,11 @@ const PostersPage: React.FC = () => {
     loadData();
   }, []);
 
-  const loadData = () => {
+  const loadData = async () => {
     setTemplates(PosterService.getTemplates());
     setPosters(PosterService.getGeneratedPosters());
-    setLessons(LessonService.getAllLessons());
+    const allLessons = await LessonService.getAllLessons();
+    setLessons(allLessons);
   };
 
   const handleCreatePoster = () => {

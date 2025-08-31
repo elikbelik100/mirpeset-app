@@ -41,11 +41,11 @@ const ArchivePage: React.FC = () => {
     filterLessons();
   }, [archivedLessons, searchTerm, selectedCategory, selectedTeacher, sortBy]);
 
-  const loadArchivedLessons = () => {
+  const loadArchivedLessons = async () => {
     setIsLoading(true);
     try {
       // Get completed lessons and add archive-specific data
-      const allLessons = LessonService.getAllLessons();
+      const allLessons = await LessonService.getAllLessons();
       const completedLessons = allLessons
         .filter(lesson => lesson.status === 'completed' || lesson.recordingUrl)
         .map(lesson => ({

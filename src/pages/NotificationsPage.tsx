@@ -34,8 +34,8 @@ const NotificationsPage: React.FC = () => {
     checkNotificationPermission();
   }, []);
 
-  const loadData = () => {
-    const allLessons = LessonService.getAllLessons();
+  const loadData = async () => {
+    const allLessons = await LessonService.getAllLessons();
     setLessons(allLessons);
     generateNotificationsList(allLessons);
   };
@@ -73,7 +73,7 @@ const NotificationsPage: React.FC = () => {
     setNotifications(scheduledNotifications);
   };
 
-  const toggleLessonNotifications = (lessonId: string) => {
+  const toggleLessonNotifications = async (lessonId: string) => {
     const lesson = lessons.find(l => l.id === lessonId);
     if (lesson) {
       const updatedNotifications = {
@@ -81,7 +81,7 @@ const NotificationsPage: React.FC = () => {
         enabled: !lesson.notifications.enabled
       };
       
-      LessonService.updateLesson(lessonId, { notifications: updatedNotifications });
+      await LessonService.updateLesson(lessonId, { notifications: updatedNotifications });
       loadData(); // רענון הנתונים
     }
   };
@@ -99,29 +99,29 @@ const NotificationsPage: React.FC = () => {
     }
   };
 
-  const enableAllNotifications = () => {
-    lessons.forEach(lesson => {
+  const enableAllNotifications = async () => {
+    for (const lesson of lessons) {
       if (lesson.date > new Date()) {
-        LessonService.updateLesson(lesson.id, {
+        await LessonService.updateLesson(lesson.id, {
           notifications: {
             enabled: true,
             reminderTimes: globalSettings.defaultReminders
           }
         });
       }
-    });
+    }
     loadData();
   };
 
-  const disableAllNotifications = () => {
-    lessons.forEach(lesson => {
-      LessonService.updateLesson(lesson.id, {
+  const disableAllNotifications = async () => {
+    for (const lesson of lessons) {
+      await LessonService.updateLesson(lesson.id, {
         notifications: {
           ...lesson.notifications,
           enabled: false
         }
       });
-    });
+    }
     loadData();
   };
 

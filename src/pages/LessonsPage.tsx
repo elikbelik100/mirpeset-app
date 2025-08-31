@@ -21,8 +21,8 @@ const LessonsPage: React.FC = () => {
     NotificationService.requestPermission();
   }, []);
 
-  const loadLessons = () => {
-    const allLessons = LessonService.getAllLessons();
+  const loadLessons = async () => {
+    const allLessons = await LessonService.getAllLessons();
     setLessons(allLessons);
   };
 
@@ -49,18 +49,18 @@ const LessonsPage: React.FC = () => {
     setShowCreateForm(true);
   };
 
-  const handleDeleteLesson = (id: string) => {
+  const handleDeleteLesson = async (id: string) => {
     if (window.confirm('האם אתה בטוח שברצונך למחוק את השיעור?')) {
-      LessonService.deleteLesson(id);
+      await LessonService.deleteLesson(id);
       loadLessons();
     }
   };
 
-  const handleSaveLesson = (lessonData: Omit<Lesson, 'id' | 'createdAt' | 'updatedAt'>) => {
+  const handleSaveLesson = async (lessonData: Omit<Lesson, 'id' | 'createdAt' | 'updatedAt'>) => {
     if (editingLesson) {
-      LessonService.updateLesson(editingLesson.id, lessonData);
+      await LessonService.updateLesson(editingLesson.id, lessonData);
     } else {
-      const newLesson = LessonService.createLesson(lessonData);
+      const newLesson = await LessonService.createLesson(lessonData);
       if (newLesson.notifications.enabled) {
         NotificationService.scheduleNotification(newLesson);
       }

@@ -8,7 +8,7 @@ import './CalendarPage.css';
 const CalendarPage: React.FC = () => {
   const authService = AuthService.getInstance();
 
-  const handleEditLesson = (lesson: Lesson) => {
+  const handleEditLesson = async (lesson: Lesson) => {
     const choice = prompt(
       'מה תרצה לערוך?\n' +
       '1 - נושא השיעור\n' +
@@ -21,7 +21,7 @@ const CalendarPage: React.FC = () => {
       // עריכת נושא השיעור
       const newTitle = prompt('נושא השיעור:', lesson.title);
       if (newTitle && newTitle !== lesson.title) {
-        LessonService.updateLesson(lesson.id, { title: newTitle });
+        await LessonService.updateLesson(lesson.id, { title: newTitle });
         window.location.reload();
       }
     } else if (choice === '2') {
@@ -30,21 +30,21 @@ const CalendarPage: React.FC = () => {
         const currentRabbi = lesson.description.split('רב: ')[1];
         const newRabbi = prompt('שם הרב:', currentRabbi);
         if (newRabbi && newRabbi !== currentRabbi) {
-          LessonService.updateLesson(lesson.id, { description: `רב: ${newRabbi}` });
+          await LessonService.updateLesson(lesson.id, { description: `רב: ${newRabbi}` });
           window.location.reload();
         }
       } else {
         const newRabbi = prompt('שם הרב:', '');
         if (newRabbi) {
-          LessonService.updateLesson(lesson.id, { description: `רב: ${newRabbi}` });
+          await LessonService.updateLesson(lesson.id, { description: `רב: ${newRabbi}` });
           window.location.reload();
         }
       }
     }
   };
 
-  const handleDeleteLesson = (id: string) => {
-    LessonService.deleteLesson(id);
+  const handleDeleteLesson = async (id: string) => {
+    await LessonService.deleteLesson(id);
     window.location.reload(); // רענון העמוד כדי לראות את השינויים
   };
 

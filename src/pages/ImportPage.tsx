@@ -32,6 +32,17 @@ const ImportPage: React.FC = () => {
   const authService = AuthService.getInstance();
   const currentUser = authService.getCurrentUser();
 
+  // פונקציה להורדת JSON של כל השיעורים
+  const handleDownloadJSON = async () => {
+    try {
+      await LessonService.downloadLessonsJSON();
+    } catch (error) {
+      console.error('Error downloading JSON:', error);
+      setErrorMessage('שגיאה בהורדת קובץ JSON');
+      setImportStatus('error');
+    }
+  };
+
   // בדיקת הרשאות מנהל
   if (!currentUser || currentUser.role !== 'admin') {
     return (
@@ -351,12 +362,15 @@ const ImportPage: React.FC = () => {
   };
 
   // ייבוא השיעורים שנמצאו לשירות
-  const handleImportLessons = () => {
+  const handleImportLessons = async () => {
     try {
       let successCount = 0;
       let errorCount = 0;
 
-      parsedLessons.forEach((parsedLesson) => {
+      // קבלת השיעורים הקיימים
+      const existingLessons = await LessonService.getAllLessons();
+
+      parsedLessons.forEach(async (parsedLesson) => {
         try {
           if (parsedLesson.error) {
             errorCount++;
@@ -394,7 +408,6 @@ const ImportPage: React.FC = () => {
           };
 
           // בדיקת התנגשויות
-          const existingLessons = LessonService.getAllLessons();
           const conflictingLesson = existingLessons.find(lesson => {
             const sameDate = lesson.date.toDateString() === lessonDate.toDateString();
             const sameTime = lesson.time === parsedLesson.time;
@@ -410,8 +423,8 @@ const ImportPage: React.FC = () => {
             
             if (choice) {
               // מחק את השיעור הקיים והוסף את החדש
-              LessonService.deleteLesson(conflictingLesson.id);
-              LessonService.createLesson(lessonData);
+              await LessonService.deleteLesson(conflictingLesson.id);
+              await LessonService.createLesson(lessonData);
               successCount++;
             } else {
               // דלג על השיעור החדש
@@ -419,7 +432,7 @@ const ImportPage: React.FC = () => {
             }
           } else {
             // אין התנגשות, הוסף את השיעור
-            LessonService.createLesson(lessonData);
+            await LessonService.createLesson(lessonData);
             successCount++;
           }
         } catch (err) {
@@ -643,8 +656,22 @@ const ImportPage: React.FC = () => {
           <div className="success-message">
             <CheckCircle size={20} />
             <span>השיעורים יובאו בהצלחה! ניתן לראות אותם בלוח השנה</span>
+            <button onClick={handleDownloadJSON} className="download-json-btn">
+              <Download size={16} />
+              הורד JSON לגיטהאב
+            </button>
           </div>
         )}
+
+        {/* כפתור להורדת JSON בכל זמן */}
+        <div className="export-section">
+          <h3>ייצוא נתונים</h3>
+          <p>הורד את כל השיעורים כקובץ JSON לשמירה ב-GitHub</p>
+          <button onClick={handleDownloadJSON} className="export-btn">
+            <Download size={16} />
+            הורד JSON של כל השיעורים
+          </button>
+        </div>
       </div>
     </div>
   );
