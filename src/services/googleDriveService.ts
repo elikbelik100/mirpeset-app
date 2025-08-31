@@ -11,7 +11,7 @@ export interface DriveFile {
 
 export class GoogleDriveService {
   private static isConnected = false;
-  private static accessToken: string | null = null;
+  // Removed unused variable accessToken
 
   // Simulated connection for demo purposes
   static async connect(): Promise<boolean> {
@@ -19,7 +19,7 @@ export class GoogleDriveService {
     return new Promise((resolve) => {
       setTimeout(() => {
         this.isConnected = true;
-        this.accessToken = 'demo-access-token';
+  // Removed reference to accessToken
         localStorage.setItem('gdrive-connected', 'true');
         resolve(true);
       }, 1000);
@@ -28,7 +28,7 @@ export class GoogleDriveService {
 
   static disconnect(): void {
     this.isConnected = false;
-    this.accessToken = null;
+  // Removed reference to accessToken
     localStorage.removeItem('gdrive-connected');
   }
 
@@ -89,7 +89,7 @@ export class GoogleDriveService {
     ];
   }
 
-  static async deleteRecording(fileId: string): Promise<boolean> {
+  static async deleteRecording(): Promise<boolean> {
     if (!this.isConnected) {
       throw new Error('Google Drive not connected');
     }

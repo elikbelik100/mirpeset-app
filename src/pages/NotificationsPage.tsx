@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Bell, BellOff, Settings, Clock, Calendar } from 'lucide-react';
 import type { Lesson } from '../types';
 import { LessonService } from '../services/lessonService';
-import { NotificationService } from '../services/notificationService';
-import AuthService from '../services/authService';
+// import { NotificationService } from '../services/notificationService';
+// import AuthService from '../services/authService';
 import './NotificationsPage.css';
 
 interface ScheduledNotification {
@@ -27,7 +27,7 @@ const NotificationsPage: React.FC = () => {
   const [showSettings, setShowSettings] = useState(false);
   const [permissionStatus, setPermissionStatus] = useState<'granted' | 'denied' | 'default'>('default');
 
-  const authService = AuthService.getInstance();
+  // const authService = AuthService.getInstance();
 
   useEffect(() => {
     loadData();
@@ -46,49 +46,7 @@ const NotificationsPage: React.FC = () => {
     }
   };
 
-  const requestPermission = async () => {
-    console.log('Requesting notification permission...');
-    if ('Notification' in window) {
-      console.log('Notification API is supported');
-      console.log('Current permission status:', Notification.permission);
-      
-      try {
-        const permission = await Notification.requestPermission();
-        console.log('Permission result:', permission);
-        setPermissionStatus(permission);
-        
-        if (permission === 'granted') {
-          console.log('Permission granted, calling NotificationService...');
-          NotificationService.requestPermission();
-          
-          // בדיקה שההרשאה עובדת
-          new Notification('המרפסת', {
-            body: 'הרשאות התראות הופעלו בהצלחה!',
-            icon: '/אייקון.jpeg'
-          });
-        } else {
-          console.log('Permission denied or dismissed');
-          if (permission === 'denied') {
-            alert(
-              'הרשאת התראות נחסמה.\n\n' +
-              'כדי לאפשר התראות:\n' +
-              '1. לחץ על אייקון המנעול ליד כתובת האתר\n' +
-              '2. שנה "Notifications" ל-"Allow"\n' +
-              '3. רענן את הדף ונסה שוב'
-            );
-          } else {
-            alert('הרשאת התראות נדחתה. תוכל לאפשר אותן בהגדרות הדפדפן.');
-          }
-        }
-      } catch (error) {
-        console.error('Error requesting permission:', error);
-        alert('שגיאה בבקשת הרשאות: ' + error);
-      }
-    } else {
-      console.log('Notification API not supported');
-      alert('הדפדפן לא תומך בהתראות');
-    }
-  };
+  // Removed unused function requestPermission
 
   const generateNotificationsList = (lessonsList: Lesson[]) => {
     const scheduledNotifications: ScheduledNotification[] = [];
@@ -128,18 +86,7 @@ const NotificationsPage: React.FC = () => {
     }
   };
 
-  const updateReminderTimes = (lessonId: string, newTimes: number[]) => {
-    const lesson = lessons.find(l => l.id === lessonId);
-    if (lesson) {
-      const updatedNotifications = {
-        ...lesson.notifications,
-        reminderTimes: newTimes
-      };
-      
-      LessonService.updateLesson(lessonId, { notifications: updatedNotifications });
-      loadData();
-    }
-  };
+  // Removed unused function updateReminderTimes
 
   const testNotification = () => {
     if ('Notification' in window && Notification.permission === 'granted') {
