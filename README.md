@@ -221,3 +221,4 @@ MIT License - ניתן לשימוש חופשי ופיתוח נוסף.
 ---
 
 **פותח עם ❤️ לקהילת המרפסת**
+trigger netlify rebuild
