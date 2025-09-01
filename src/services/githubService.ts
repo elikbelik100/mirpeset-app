@@ -1,4 +1,6 @@
 // GitHub API Service for automatic lesson updates
+import { GitHubConfig } from '../config/github';
+
 interface GitHubFileResponse {
   sha: string;
   content: string;
@@ -13,18 +15,10 @@ interface GitHubUpdateRequest {
 
 class GitHubService {
   private static instance: GitHubService;
-  private token: string;
-  private owner: string;
-  private repo: string;
-  private branch: string;
-  private baseUrl: string;
+  private config = GitHubConfig;
 
   private constructor() {
-    this.token = import.meta.env.VITE_GITHUB_TOKEN || '';
-    this.owner = import.meta.env.VITE_GITHUB_OWNER || '';
-    this.repo = import.meta.env.VITE_GITHUB_REPO || '';
-    this.branch = import.meta.env.VITE_GITHUB_BRANCH || 'master';
-    this.baseUrl = `https://api.github.com/repos/${this.owner}/${this.repo}`;
+    // Configuration is handled by GitHubConfig
   }
 
   static getInstance(): GitHubService {
@@ -35,11 +29,7 @@ class GitHubService {
   }
 
   private getHeaders() {
-    return {
-      'Authorization': `Bearer ${this.token}`,
-      'Accept': 'application/vnd.github.v3+json',
-      'Content-Type': 'application/json',
-    };
+    return this.config.getHeaders();
   }
 
   /**
@@ -47,7 +37,7 @@ class GitHubService {
    */
   async getCurrentLessonsFile(): Promise<GitHubFileResponse> {
     try {
-      const response = await fetch(`${this.baseUrl}/contents/public/data/lessons.json?ref=${this.branch}`, {
+      const response = await fetch(`${this.config.getBaseUrl()}/contents/public/data/lessons.json?ref=${this.config.branch}`, {
         headers: this.getHeaders(),
       });
 
@@ -82,10 +72,10 @@ class GitHubService {
         message: commitMessage || `Update lessons - ${new Date().toLocaleString('he-IL')}`,
         content: encodedContent,
         sha: currentFile.sha,
-        branch: this.branch,
+        branch: this.config.branch,
       };
 
-      const response = await fetch(`${this.baseUrl}/contents/public/data/lessons.json`, {
+      const response = await fetch(`${this.config.getBaseUrl()}/contents/public/data/lessons.json`, {
         method: 'PUT',
         headers: this.getHeaders(),
         body: JSON.stringify(updateData),
@@ -109,7 +99,7 @@ class GitHubService {
    */
   async testConnection(): Promise<boolean> {
     try {
-      const response = await fetch(`${this.baseUrl}`, {
+      const response = await fetch(`${this.config.getBaseUrl()}`, {
         headers: this.getHeaders(),
       });
       return response.ok;
@@ -123,7 +113,7 @@ class GitHubService {
    * Check if GitHub token is configured
    */
   isConfigured(): boolean {
-    return !!(this.token && this.owner && this.repo);
+    return this.config.isConfigured();
   }
 }
 
