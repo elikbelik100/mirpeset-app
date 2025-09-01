@@ -58,7 +58,6 @@ const AdminPage: React.FC = () => {
       setSyncing(true);
       const newLesson = await LessonService.createLessonAndSync(lessonData);
       setLessons(prev => [...prev, { ...newLesson, isEditing: false }]);
-      setShowCreateForm(false);
       showMessage('success', 'השיעור נוצר בהצלחה');
       
       // הסרת פרמטר date מה-URL
@@ -70,6 +69,8 @@ const AdminPage: React.FC = () => {
       showMessage('error', 'שגיאה ביצירת השיעור');
     } finally {
       setSyncing(false);
+      // סגירת הפופאפ בכל מקרה - גם אם הייתה שגיאה
+      setShowCreateForm(false);
     }
   };
 
@@ -327,8 +328,13 @@ const LessonCard: React.FC<LessonCardProps> = ({
           
           <input
             type="date"
-            value={lesson.date instanceof Date ? lesson.date.toISOString().split('T')[0] : lesson.date}
-            onChange={(e) => onFieldChange(lesson.id, 'date', new Date(e.target.value))}
+            value={lesson.date instanceof Date ? lesson.date.toISOString().split('T')[0] : new Date(lesson.date).toISOString().split('T')[0]}
+            onChange={(e) => {
+              const [year, month, day] = e.target.value.split('-').map(Number);
+              const [hours, minutes] = lesson.time.split(':').map(Number);
+              const localDate = new Date(year, month - 1, day, hours, minutes);
+              onFieldChange(lesson.id, 'date', localDate);
+            }}
           />
           
           <input
@@ -401,7 +407,12 @@ const LessonCard: React.FC<LessonCardProps> = ({
       
       <div className="lesson-details">
         <p><strong>מעביר:</strong> {lesson.teacher}</p>
-        <p><strong>תאריך:</strong> {new Date(lesson.date).toLocaleDateString('he-IL')}</p>
+        <p><strong>תאריך:</strong> {new Date(lesson.date).toLocaleDateString('he-IL', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric',
+          weekday: 'long'
+        })}</p>
         <p><strong>שעה:</strong> {lesson.time}</p>
         <p><strong>קטגוריה:</strong> {lesson.category}</p>
         {lesson.description && (
@@ -442,10 +453,16 @@ const CreateLessonForm: React.FC<CreateLessonFormProps> = ({ onSubmit, onCancel 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // יצירת תאריך נכון בשעון מקומי
+    const [year, month, day] = formData.date.split('-').map(Number);
+    const [hours, minutes] = formData.time.split(':').map(Number);
+    const localDate = new Date(year, month - 1, day, hours, minutes);
+    
     const lessonData: Omit<Lesson, 'id'> = {
       title: formData.title,
       description: formData.description,
-      date: new Date(formData.date),
+      date: localDate,
       time: formData.time,
       duration: 90, // 90 דקות ברירת מחדל
       teacher: formData.teacher,

@@ -200,26 +200,32 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
+  /* חיזוק האייקונים */
+  opacity: 1;
 }
 
 .btn-edit {
-  background: #f3f4f6;
-  color: #374151;
+  background: #dbeafe;
+  color: #1d4ed8;
+  border: 1px solid #93c5fd;
 }
 
 .btn-edit:hover {
-  background: #e5e7eb;
-  color: #1f2937;
+  background: #bfdbfe;
+  color: #1e40af;
+  transform: scale(1.05);
 }
 
 .btn-delete {
-  background: #fef2f2;
+  background: #fee2e2;
   color: #dc2626;
+  border: 1px solid #fca5a5;
 }
 
 .btn-delete:hover {
   background: #fecaca;
   color: #b91c1c;
+  transform: scale(1.05);
 }
 
 .lesson-details p {
