@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Edit, Trash2, Save, X, Upload, Download, RefreshCw, AlertCircle, CheckCircle } from 'lucide-react';
+import { Edit, Trash2, Save, X, Upload, Download, RefreshCw, AlertCircle, CheckCircle, Plus } from 'lucide-react';
 import { LessonService } from '../services/lessonService';
 import AuthService from '../services/authService';
 import type { Lesson } from '../types';
@@ -15,12 +15,21 @@ const AdminPage: React.FC = () => {
   const [syncing, setSyncing] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [showCreateForm, setShowCreateForm] = useState(false);
 
   const authService = AuthService.getInstance();
   const currentUser = authService.getCurrentUser();
 
   useEffect(() => {
     loadLessons();
+    
+    // בדיקה אם יש פרמטר תאריך בURL
+    const urlParams = new URLSearchParams(window.location.search);
+    const dateParam = urlParams.get('date');
+    if (dateParam) {
+      // אם יש תאריך, פתח את טופס יצירת השיעור
+      setShowCreateForm(true);
+    }
   }, []);
 
   const loadLessons = async () => {
@@ -38,6 +47,30 @@ const AdminPage: React.FC = () => {
   const showMessage = (type: 'success' | 'error' | 'info', text: string) => {
     setMessage({ type, text });
     setTimeout(() => setMessage(null), 5000);
+  };
+
+  const handleCreateLesson = () => {
+    setShowCreateForm(true);
+  };
+
+  const handleCreateLessonSubmit = async (lessonData: Omit<Lesson, 'id'>) => {
+    try {
+      setSyncing(true);
+      const newLesson = await LessonService.createLessonAndSync(lessonData);
+      setLessons(prev => [...prev, { ...newLesson, isEditing: false }]);
+      setShowCreateForm(false);
+      showMessage('success', 'השיעור נוצר בהצלחה');
+      
+      // הסרת פרמטר date מה-URL
+      const url = new URL(window.location.href);
+      url.searchParams.delete('date');
+      window.history.replaceState({}, '', url.toString());
+    } catch (error) {
+      console.error('Error creating lesson:', error);
+      showMessage('error', 'שגיאה ביצירת השיעור');
+    } finally {
+      setSyncing(false);
+    }
   };
 
   const startEditing = (id: string) => {
@@ -193,6 +226,16 @@ const AdminPage: React.FC = () => {
         </div>
 
         <div className="action-buttons">
+          {authService.hasPermission('create_lesson') && (
+            <button 
+              onClick={handleCreateLesson}
+              className="btn-create"
+            >
+              <Plus size={16} />
+              הוסף שיעור
+            </button>
+          )}
+
           {isGitHubConfigured && (
             <button 
               onClick={syncToGitHub}
@@ -229,10 +272,17 @@ const AdminPage: React.FC = () => {
         ))}
       </div>
 
-      {filteredLessons.length === 0 && (
+      {filteredLessons.length === 0 && !showCreateForm && (
         <div className="no-lessons">
           <p>לא נמצאו שיעורים</p>
         </div>
+      )}
+
+      {showCreateForm && (
+        <CreateLessonForm
+          onSubmit={handleCreateLessonSubmit}
+          onCancel={() => setShowCreateForm(false)}
+        />
       )}
     </div>
   );
@@ -357,6 +407,149 @@ const LessonCard: React.FC<LessonCardProps> = ({
         {lesson.description && (
           <p><strong>תיאור:</strong> {lesson.description}</p>
         )}
+      </div>
+    </div>
+  );
+};
+
+// Create Lesson Form Component
+interface CreateLessonFormProps {
+  onSubmit: (lessonData: Omit<Lesson, 'id'>) => void;
+  onCancel: () => void;
+}
+
+const CreateLessonForm: React.FC<CreateLessonFormProps> = ({ onSubmit, onCancel }) => {
+  // בדיקה אם יש תאריך בURL
+  const urlParams = new URLSearchParams(window.location.search);
+  const dateFromUrl = urlParams.get('date');
+  
+  const [formData, setFormData] = useState({
+    title: '',
+    description: '',
+    date: dateFromUrl || '',
+    time: '20:00',
+    teacher: '',
+    category: 'כולל יום שישי',
+    status: 'scheduled' as const,
+    maxParticipants: 0,
+    currentParticipants: 0,
+    recordingUrl: '',
+    imageUrl: '',
+    tags: '',
+    notificationsEnabled: true,
+    reminderTimes: '15, 60',
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const lessonData: Omit<Lesson, 'id'> = {
+      title: formData.title,
+      description: formData.description,
+      date: new Date(formData.date),
+      time: formData.time,
+      duration: 90, // 90 דקות ברירת מחדל
+      teacher: formData.teacher,
+      location: 'אולם ההרצאות', // מיקום ברירת מחדל
+      category: formData.category,
+      status: formData.status,
+      maxParticipants: formData.maxParticipants,
+      currentParticipants: formData.currentParticipants,
+      recordingUrl: formData.recordingUrl,
+      imageUrl: formData.imageUrl,
+      tags: formData.tags ? formData.tags.split(',').map(tag => tag.trim()) : [],
+      notifications: {
+        enabled: formData.notificationsEnabled,
+        reminderTimes: formData.reminderTimes.split(',').map(time => parseInt(time.trim())),
+      },
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    onSubmit(lessonData);
+  };
+
+  return (
+    <div className="create-lesson-form-overlay">
+      <div className="create-lesson-form">
+        <div className="form-header">
+          <h2>הוסף שיעור חדש</h2>
+          <button onClick={onCancel} className="btn-close">
+            <X size={20} />
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          <div className="form-row">
+            <div className="form-group">
+              <label>כותרת השיעור</label>
+              <input
+                type="text"
+                value={formData.title}
+                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>מעביר השיעור</label>
+              <input
+                type="text"
+                value={formData.teacher}
+                onChange={(e) => setFormData({ ...formData, teacher: e.target.value })}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group">
+              <label>תאריך</label>
+              <input
+                type="date"
+                value={formData.date}
+                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>שעה</label>
+              <input
+                type="time"
+                value={formData.time}
+                onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label>קטגוריה</label>
+            <select
+              value={formData.category}
+              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+            >
+              <option value="כולל יום שישי">כולל יום שישי</option>
+              <option value="אירועים מיוחדים">אירועים מיוחדים</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>תיאור</label>
+            <textarea
+              value={formData.description}
+              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              rows={3}
+            />
+          </div>
+
+          <div className="form-actions">
+            <button type="submit" className="btn-save">
+              <Save size={16} />
+              שמור שיעור
+            </button>
+            <button type="button" onClick={onCancel} className="btn-cancel">
+              ביטול
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
