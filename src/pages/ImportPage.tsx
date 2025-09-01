@@ -44,6 +44,38 @@ const ImportPage: React.FC = () => {
     }
   };
 
+  // פונקציה להורדת localStorage כקובץ JSON
+  const handleDownloadLocalStorage = () => {
+    try {
+      const lessonsData = localStorage.getItem('mirpeset-lessons');
+      if (!lessonsData) {
+        alert('אין נתונים ב-localStorage להורדה');
+        return;
+      }
+
+      // יצירת קובץ JSON מהנתונים
+      const dataStr = JSON.stringify(JSON.parse(lessonsData), null, 2);
+      const dataBlob = new Blob([dataStr], { type: 'application/json' });
+
+      // יצירת קישור הורדה
+      const url = URL.createObjectURL(dataBlob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `localStorage-lessons-${new Date().toISOString().split('T')[0]}.json`;
+      
+      // הפעלת ההורדה
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      console.log('localStorage downloaded successfully');
+    } catch (error) {
+      console.error('Error downloading localStorage:', error);
+      alert('שגיאה בהורדת נתוני localStorage');
+    }
+  };
+
   // פונקציה לניקוי כל הנתונים לפני ייבוא חדש
   const handleClearAllData = async () => {
     if (confirm('האם אתה בטוח שברצונך למחוק את כל השיעורים הקיימים לפני ייבוא חדש?')) {
@@ -703,6 +735,10 @@ const ImportPage: React.FC = () => {
             <button onClick={handleDownloadJSON} className="export-btn">
               <Download size={16} />
               הורד JSON של כל השיעורים
+            </button>
+            <button onClick={handleDownloadLocalStorage} className="export-btn" style={{background:'#10b981'}}>
+              <Download size={16} />
+              הורד localStorage (נתונים מקומיים)
             </button>
           </div>
         </div>
