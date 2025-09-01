@@ -7,6 +7,11 @@ const LESSONS_JSON_URL = '/data/lessons.json';
 export class LessonService {
   private static githubService = GitHubService.getInstance();
   static async getAllLessons(): Promise<Lesson[]> {
+    // בדוק אם המשתמש מחק את כל השיעורים
+    if (localStorage.getItem('mirpeset-lessons-deleted') === 'true') {
+      return [];
+    }
+
     // Check localStorage first (this is where imported/edited lessons are stored)
     const data = localStorage.getItem(LESSONS_STORAGE_KEY);
     if (data) {
@@ -44,6 +49,8 @@ export class LessonService {
   }
 
   static saveLessons(lessons: Lesson[]): void {
+    // כשמייבאים שיעורים חדשים, נקה את הפלג "נמחק"
+    localStorage.removeItem('mirpeset-lessons-deleted');
     localStorage.setItem(LESSONS_STORAGE_KEY, JSON.stringify(lessons));
   }
 
@@ -91,8 +98,9 @@ export class LessonService {
 
   static async deleteAllLessons(): Promise<void> {
     try {
-      // מחיקה מ-LocalStorage תמיד קודם
+      // מחיקה מ-LocalStorage ושמירת פלג "נמחק"
       localStorage.removeItem(LESSONS_STORAGE_KEY);
+      localStorage.setItem('mirpeset-lessons-deleted', 'true');
       console.log('Lessons deleted from LocalStorage');
       
       // נסיון לסנכרן ל-GitHub (לא חובה)
@@ -110,6 +118,7 @@ export class LessonService {
     } catch (error) {
       // אם כל השאר נכשל, לפחות נמחק מ-LocalStorage
       localStorage.removeItem(LESSONS_STORAGE_KEY);
+      localStorage.setItem('mirpeset-lessons-deleted', 'true');
       console.error('Error in deleteAllLessons:', error);
     }
   }
