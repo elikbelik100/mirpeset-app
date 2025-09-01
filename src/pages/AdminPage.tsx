@@ -11,20 +11,7 @@ interface EditingLesson extends Lesson {
 
 const AdminPage: React.FC = () => {
   const [lessons, setLessons] = useState<EditingLesson[]>([]);
-  const [loading          <div className="form-group">
-            <label>קטיגוריה</label>
-            <select
-              value={formData.category}
-              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-            >
-              <option value="כולל יום שישי">כולל יום שישי</option>
-              <option value="אירועים מיוחדים">אירועים מיוחדים</option>
-              <option value="חינוך וחברה">חינוך וחברה</option>
-              <option value="מוסר והשקפה">מוסר והשקפה</option>
-              <option value="עבודת ה׳">עבודת ה׳</option>
-              <option value="תנ״ך ואגדה">תנ״ך ואגדה</option>
-            </select>
-          </div>ng] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [syncing, setSyncing] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -557,6 +544,10 @@ const CreateLessonForm: React.FC<CreateLessonFormProps> = ({ onSubmit, onCancel 
             >
               <option value="כולל יום שישי">כולל יום שישי</option>
               <option value="אירועים מיוחדים">אירועים מיוחדים</option>
+              <option value="חינוך וחברה">חינוך וחברה</option>
+              <option value="מוסר והשקפה">מוסר והשקפה</option>
+              <option value="עבודת ה׳">עבודת ה׳</option>
+              <option value="תנ״ך ואגדה">תנ״ך ואגדה</option>
             </select>
           </div>
 
