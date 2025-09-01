@@ -1562,31 +1562,5 @@
     "id": "f80b6a8a-1273-46ce-a9d8-4c247ac2b022",
     "createdAt": "2025-08-31T12:50:15.721Z",
     "updatedAt": "2025-08-31T12:50:15.721Z"
-  },
-  {
-    "title": "נסיון נוסף",
-    "description": "",
-    "date": "2025-09-02T00:00:00.000Z",
-    "time": "20:00",
-    "duration": 90,
-    "teacher": "אף אחד",
-    "location": "אולם ההרצאות",
-    "category": "כולל יום שישי",
-    "status": "scheduled",
-    "maxParticipants": 0,
-    "currentParticipants": 0,
-    "recordingUrl": "",
-    "imageUrl": "",
-    "tags": [],
-    "notifications": {
-      "enabled": true,
-      "reminderTimes": [
-        15,
-        60
-      ]
-    },
-    "createdAt": "2025-09-01T12:03:15.237Z",
-    "updatedAt": "2025-09-01T12:03:15.237Z",
-    "id": "38f3d920-eb7c-492d-9097-4219184c18d0"
   }
 ]
