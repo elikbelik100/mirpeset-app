@@ -11,7 +11,20 @@ interface EditingLesson extends Lesson {
 
 const AdminPage: React.FC = () => {
   const [lessons, setLessons] = useState<EditingLesson[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading          <div className="form-group">
+            <label>קטיגוריה</label>
+            <select
+              value={formData.category}
+              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+            >
+              <option value="כולל יום שישי">כולל יום שישי</option>
+              <option value="אירועים מיוחדים">אירועים מיוחדים</option>
+              <option value="חינוך וחברה">חינוך וחברה</option>
+              <option value="מוסר והשקפה">מוסר והשקפה</option>
+              <option value="עבודת ה׳">עבודת ה׳</option>
+              <option value="תנ״ך ואגדה">תנ״ך ואגדה</option>
+            </select>
+          </div>ng] = useState(true);
   const [syncing, setSyncing] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -347,13 +360,12 @@ const LessonCard: React.FC<LessonCardProps> = ({
             value={lesson.category}
             onChange={(e) => onFieldChange(lesson.id, 'category', e.target.value)}
           >
-            <option value="הלכה">הלכה</option>
-            <option value="תנ״ך">תנ״ך</option>
-            <option value="משנה">משנה</option>
-            <option value="גמרא">גמרא</option>
-            <option value="מוסר">מוסר</option>
-            <option value="קבלה">קבלה</option>
-            <option value="אחר">אחר</option>
+            <option value="כולל יום שישי">כולל יום שישי</option>
+            <option value="אירועים מיוחדים">אירועים מיוחדים</option>
+            <option value="חינוך וחברה">חינוך וחברה</option>
+            <option value="מוסר והשקפה">מוסר והשקפה</option>
+            <option value="עבודת ה׳">עבודת ה׳</option>
+            <option value="תנ״ך ואגדה">תנ״ך ואגדה</option>
           </select>
           
           <textarea
