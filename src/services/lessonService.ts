@@ -90,20 +90,33 @@ export class LessonService {
   }
 
   static async deleteAllLessons(): Promise<void> {
-    // מחק מה-LocalStorage
-    localStorage.removeItem(LESSONS_STORAGE_KEY);
-    
-    // מחק גם מה-GitHub אם יש הרשאה
     try {
-      const authService = (await import('../services/authService')).default.getInstance();
-      if (authService.hasPermission('delete_lesson')) {
-        const GitHubService = (await import('../services/githubService')).default;
-        const githubService = GitHubService.getInstance();
-        await githubService.updateLessonsFile([], 'מחק את כל השיעורים');
+      // מחיקה מ-LocalStorage תמיד קודם
+      localStorage.removeItem(LESSONS_STORAGE_KEY);
+      console.log('Lessons deleted from LocalStorage');
+      
+      // נסיון לסנכרן ל-GitHub (לא חובה)
+      try {
+        const authService = (await import('../services/authService')).default.getInstance();
+        if (authService.hasPermission('delete_lesson')) {
+          const GitHubService = (await import('../services/githubService')).default;
+          const githubService = GitHubService.getInstance();
+          await githubService.updateLessonsFile([], 'מחק את כל השיעורים');
+          console.log('Lessons deleted from GitHub successfully');
+        }
+      } catch (error) {
+        console.warn('Failed to delete from GitHub, but local deletion succeeded:', error);
       }
     } catch (error) {
-      console.log('לא ניתן לעדכן ב-GitHub:', error);
+      // אם כל השאר נכשל, לפחות נמחק מ-LocalStorage
+      localStorage.removeItem(LESSONS_STORAGE_KEY);
+      console.error('Error in deleteAllLessons:', error);
     }
+  }
+
+  static clearLocalStorage(): void {
+    localStorage.removeItem(LESSONS_STORAGE_KEY);
+    console.log('Local storage cleared');
   }
 
   static async getLessonById(id: string): Promise<Lesson | null> {

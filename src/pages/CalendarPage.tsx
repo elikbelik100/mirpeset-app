@@ -15,8 +15,15 @@ const CalendarPage: React.FC = () => {
   const handleDeleteAllLessons = async () => {
     if (confirm('האם אתה בטוח שברצונך למחוק את כל השיעורים?')) {
       if (confirm('אישור נוסף: פעולה זו תמחק את כל השיעורים מהמערכת!')) {
-        await LessonService.deleteAllLessons();
-        window.location.reload();
+        try {
+          await LessonService.deleteAllLessons();
+          console.log('All lessons deleted successfully');
+          // רענון הדף כדי לראות את השינויים
+          window.location.reload();
+        } catch (error) {
+          console.error('Error deleting lessons:', error);
+          alert('שגיאה במחיקת השיעורים');
+        }
       }
     }
   };

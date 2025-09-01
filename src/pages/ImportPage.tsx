@@ -45,10 +45,27 @@ const ImportPage: React.FC = () => {
   };
 
   // פונקציה לניקוי כל הנתונים לפני ייבוא חדש
-  const handleClearAllData = () => {
+  const handleClearAllData = async () => {
     if (confirm('האם אתה בטוח שברצונך למחוק את כל השיעורים הקיימים לפני ייבוא חדש?')) {
-      LessonService.deleteAllLessons();
-      alert('כל הנתונים נמחקו. כעת תוכל לייבא שיעורים חדשים.');
+      try {
+        // מחיקה מ-LocalStorage תמיד
+        LessonService.clearLocalStorage();
+        console.log('Local data cleared');
+        
+        // נסיון לסנכרן ל-GitHub
+        try {
+          await LessonService.deleteAllLessons();
+        } catch (error) {
+          console.warn('GitHub sync failed, but local deletion succeeded:', error);
+        }
+        
+        alert('כל הנתונים נמחקו. כעת תוכל לייבא שיעורים חדשים.');
+        // רענון הדף כדי לטעון נתונים מחדש
+        window.location.reload();
+      } catch (error) {
+        console.error('Error clearing data:', error);
+        alert('שגיאה במחיקת הנתונים');
+      }
     }
   };
 
