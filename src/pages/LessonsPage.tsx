@@ -19,6 +19,15 @@ const LessonsPage: React.FC = () => {
   useEffect(() => {
     loadLessons();
     NotificationService.requestPermission();
+    
+    // בדיקה אם יש פרמטר תאריך בURL
+    const urlParams = new URLSearchParams(window.location.search);
+    const dateParam = urlParams.get('date');
+    if (dateParam) {
+      // אם יש תאריך, פתח את טופס יצירת השיעור עם התאריך הזה
+      setShowCreateForm(true);
+      setEditingLesson(null);
+    }
   }, []);
 
   const loadLessons = async () => {
@@ -160,10 +169,14 @@ interface LessonFormProps {
 }
 
 const LessonForm: React.FC<LessonFormProps> = ({ lesson, onSave, onCancel }) => {
+  // בדיקה אם יש תאריך בURL
+  const urlParams = new URLSearchParams(window.location.search);
+  const dateFromUrl = urlParams.get('date');
+  
   const [formData, setFormData] = useState({
     title: lesson?.title || '',
     description: lesson?.description || '',
-    date: lesson?.date ? lesson.date.toISOString().split('T')[0] : '',
+    date: lesson?.date ? lesson.date.toISOString().split('T')[0] : (dateFromUrl || ''),
     time: lesson?.time || '20:00',
     teacher: lesson?.teacher || '',
     category: lesson?.category || 'כולל יום שישי',

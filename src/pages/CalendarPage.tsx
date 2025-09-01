@@ -28,6 +28,12 @@ const CalendarPage: React.FC = () => {
     }
   };
 
+  const handleCreateLesson = (date: Date) => {
+    // נווט לדף ניהול השיעורים עם התאריך הנבחר
+    const dateParam = date.toISOString().split('T')[0];
+    window.location.href = `/admin?date=${dateParam}`;
+  };
+
   return (
     <div className="page-container">
       {authService.hasPermission('create_lesson') && (
@@ -51,6 +57,7 @@ const CalendarPage: React.FC = () => {
       )}
       <Calendar 
         onDeleteLesson={handleDeleteLesson}
+        onCreateLesson={handleCreateLesson}
       />
     </div>
   );
