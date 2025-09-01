@@ -8,7 +8,7 @@ const CalendarPage: React.FC = () => {
   const authService = AuthService.getInstance();
 
   const handleDeleteLesson = async (id: string) => {
-    await LessonService.deleteLesson(id);
+    await LessonService.deleteLessonAndSync(id);
     window.location.reload(); // רענון העמוד כדי לראות את השינויים
   };
 

@@ -483,8 +483,8 @@ const ImportPage: React.FC = () => {
             
             if (choice) {
               // מחק את השיעור הקיים והוסף את החדש
-              await LessonService.deleteLesson(conflictingLesson.id);
-              await LessonService.createLesson(lessonData);
+              await LessonService.deleteLessonAndSync(conflictingLesson.id);
+              await LessonService.createLessonAndSync(lessonData);
               successCount++;
             } else {
               // דלג על השיעור החדש
@@ -492,7 +492,7 @@ const ImportPage: React.FC = () => {
             }
           } else {
             // אין התנגשות, הוסף את השיעור
-            await LessonService.createLesson(lessonData);
+            await LessonService.createLessonAndSync(lessonData);
             successCount++;
           }
         } catch (err) {

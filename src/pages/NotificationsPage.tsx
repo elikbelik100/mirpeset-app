@@ -81,7 +81,11 @@ const NotificationsPage: React.FC = () => {
         enabled: !lesson.notifications.enabled
       };
       
-      await LessonService.updateLesson(lessonId, { notifications: updatedNotifications });
+      const updatedLesson = {
+        ...lesson,
+        notifications: updatedNotifications
+      };
+      await LessonService.updateLessonAndSync(updatedLesson);
       loadData(); // רענון הנתונים
     }
   };
@@ -102,12 +106,14 @@ const NotificationsPage: React.FC = () => {
   const enableAllNotifications = async () => {
     for (const lesson of lessons) {
       if (lesson.date > new Date()) {
-        await LessonService.updateLesson(lesson.id, {
+        const updatedLesson = {
+          ...lesson,
           notifications: {
             enabled: true,
             reminderTimes: globalSettings.defaultReminders
           }
-        });
+        };
+        await LessonService.updateLessonAndSync(updatedLesson);
       }
     }
     loadData();
@@ -115,12 +121,14 @@ const NotificationsPage: React.FC = () => {
 
   const disableAllNotifications = async () => {
     for (const lesson of lessons) {
-      await LessonService.updateLesson(lesson.id, {
+      const updatedLesson = {
+        ...lesson,
         notifications: {
           ...lesson.notifications,
           enabled: false
         }
-      });
+      };
+      await LessonService.updateLessonAndSync(updatedLesson);
     }
     loadData();
   };
