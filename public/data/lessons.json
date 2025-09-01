@@ -1562,5 +1562,31 @@
     "id": "f80b6a8a-1273-46ce-a9d8-4c247ac2b022",
     "createdAt": "2025-08-31T12:50:15.721Z",
     "updatedAt": "2025-08-31T12:50:15.721Z"
+  },
+  {
+    "title": "לדוגמה",
+    "description": "",
+    "date": "2025-08-31T00:00:00.000Z",
+    "time": "20:00",
+    "duration": 90,
+    "teacher": "נסיון",
+    "location": "אולם ההרצאות",
+    "category": "כולל יום שישי",
+    "status": "scheduled",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-09-01T11:17:10.080Z",
+    "updatedAt": "2025-09-01T11:17:10.080Z",
+    "id": "29b66b42-9e73-42ba-b833-f9ec400731b1"
   }
 ]
