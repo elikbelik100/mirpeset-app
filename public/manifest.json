@@ -10,12 +10,12 @@
   "start_url": "/",
   "icons": [
     {
-      "src": "אייקון.jpeg",
+      "src": "NewIcon.jpeg",
       "sizes": "192x192",
       "type": "image/jpeg"
     },
     {
-      "src": "אייקון.jpeg",
+      "src": "NewIcon.jpeg",
       "sizes": "512x512",
       "type": "image/jpeg"
     }

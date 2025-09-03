@@ -41,7 +41,7 @@ const Layout: React.FC = () => {
       <header className="header">
         <div className="header-content">
           <div className="logo-section">
-            <img src="/אייקון.jpeg" alt="לוגו המרפסת" className="logo-icon" />
+            <img src="/NewIcon.jpeg" alt="לוגו המרפסת" className="logo-icon" />
             <h1 className="logo">המרפסת</h1>
           </div>
           
