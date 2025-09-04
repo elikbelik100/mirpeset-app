@@ -1,12 +1,12 @@
 [
   {
     "title": "כולל יום ששי",
-    "description": "רב: הרב מרדכי מאיר",
-    "category": "כולל יום שישי",
+    "description": "מעביר: הרב מרדכי מאיר",
+    "category": "כולל יום ששי",
     "date": "2025-08-28T18:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב מרדכי מאיר",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -18,18 +18,18 @@
         10
       ]
     },
-    "id": "efc4fab7-dd1b-4b0c-b768-7c398b931aff",
-    "createdAt": "2025-08-31T12:50:15.701Z",
-    "updatedAt": "2025-08-31T12:50:15.701Z"
+    "id": "68dac20b-125f-4836-81f6-18a8e4ffa206",
+    "createdAt": "2025-09-01T05:58:53.800Z",
+    "updatedAt": "2025-09-01T05:58:53.800Z"
   },
   {
     "title": "כולל יום ששי",
-    "description": "רב: הרב אלעד כהן",
-    "category": "כולל יום שישי",
+    "description": "מעביר: הרב אלעד כהן",
+    "category": "כולל יום ששי",
     "date": "2025-08-04T18:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב אלעד כהן",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -41,18 +41,18 @@
         10
       ]
     },
-    "id": "2841c4e4-a5e2-44bc-a9c4-3b148312f804",
-    "createdAt": "2025-08-31T12:50:15.702Z",
-    "updatedAt": "2025-08-31T12:50:15.702Z"
+    "id": "776f935b-2688-4d2b-9c8f-4908e19541cd",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "הכנה לראש השנה",
-    "description": "רב: הרב מיכאל טוביאנו",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב מיכאל טוביאנו",
+    "category": "הכנה לראש השנה",
     "date": "2025-08-08T17:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב מיכאל טוביאנו",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -64,18 +64,18 @@
         10
       ]
     },
-    "id": "037ae5c5-544e-4074-b5cd-18787de9c608",
-    "createdAt": "2025-08-31T12:50:15.702Z",
-    "updatedAt": "2025-09-01T13:44:46.642Z"
+    "id": "e872dccc-01a0-46ae-b188-12d033779c00",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "הכנה לראש השנה",
-    "description": "רב: הרב לביא אנגלמן",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב לביא אנגלמן",
+    "category": "הכנה לראש השנה",
     "date": "2025-08-08T18:00:00.000Z",
     "time": "21:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב לביא אנגלמן",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -87,18 +87,18 @@
         10
       ]
     },
-    "id": "8ba8d30a-b3ac-48a3-8283-bf0a119c7a01",
-    "createdAt": "2025-08-31T12:50:15.702Z",
-    "updatedAt": "2025-09-01T13:44:46.652Z"
+    "id": "9c1b8f8e-955c-4363-9e6a-edf56c1a0d76",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "כולל יום ששי",
-    "description": "רב: הרב ניסים דעי",
-    "category": "כולל יום שישי",
+    "description": "מעביר: הרב ניסים דעי",
+    "category": "כולל יום ששי",
     "date": "2025-08-11T17:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב ניסים דעי",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -110,18 +110,18 @@
         10
       ]
     },
-    "id": "2d47f033-1631-43bf-a232-655db2c12f6d",
-    "createdAt": "2025-08-31T12:50:15.702Z",
-    "updatedAt": "2025-08-31T12:50:15.702Z"
+    "id": "cf380279-f36b-4e77-82c5-9ef6bad790fc",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "כולל יום ששי",
-    "description": "רב: הרב עוזי ביננפלד",
-    "category": "כולל יום שישי",
+    "description": "מעביר: הרב עוזי ביננפלד",
+    "category": "כולל יום ששי",
     "date": "2025-08-11T18:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב עוזי ביננפלד",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -133,18 +133,18 @@
         10
       ]
     },
-    "id": "f29582e7-5c3f-4823-9415-f278416d4b7e",
-    "createdAt": "2025-08-31T12:50:15.702Z",
-    "updatedAt": "2025-08-31T12:50:15.702Z"
+    "id": "1bd0d584-da41-47c7-804a-44fd2ebea4ce",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "הכנה לראש השנה",
-    "description": "רב: הרב אהרן כהן",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב אהרן כהן",
+    "category": "הכנה לראש השנה",
     "date": "2025-09-14T17:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב אהרן כהן",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -156,18 +156,18 @@
         10
       ]
     },
-    "id": "fc89bc65-f0d8-4b22-a706-86bf55fc21ee",
-    "createdAt": "2025-08-31T12:50:15.702Z",
-    "updatedAt": "2025-09-01T13:44:46.653Z"
+    "id": "00361152-fc82-4287-b7fe-c440cb5e55c8",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "הכנה לראש השנה",
-    "description": "רב: הרב ערן דאום",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב ערן דאום",
+    "category": "הכנה לראש השנה",
     "date": "2025-09-14T18:00:00.000Z",
     "time": "21:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב ערן דאום",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -179,18 +179,18 @@
         10
       ]
     },
-    "id": "4ef27546-9859-446c-a3f0-bc7b790f3d83",
-    "createdAt": "2025-08-31T12:50:15.702Z",
-    "updatedAt": "2025-09-01T13:44:46.653Z"
+    "id": "ec2e027a-7a98-466d-8df8-426c8066e719",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "כולל יום ששי",
-    "description": "רב: הרב אהוד אחיטוב",
-    "category": "כולל יום שישי",
+    "description": "מעביר: הרב אהוד אחיטוב",
+    "category": "כולל יום ששי",
     "date": "2025-09-18T18:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב אהוד אחיטוב",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -202,18 +202,18 @@
         10
       ]
     },
-    "id": "207d794b-9549-43fe-9b4b-16fce043f20f",
-    "createdAt": "2025-08-31T12:50:15.702Z",
-    "updatedAt": "2025-08-31T12:50:15.702Z"
+    "id": "8465d541-af5e-4712-99fd-a730fc3811b0",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "כולל יום ששי",
-    "description": "רב: הרב מרדכי מאיר",
-    "category": "כולל יום שישי",
+    "description": "מעביר: הרב מרדכי מאיר",
+    "category": "כולל יום ששי",
     "date": "2025-09-25T18:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב מרדכי מאיר",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -225,18 +225,18 @@
         10
       ]
     },
-    "id": "4e7a1014-b512-46b6-b4eb-c7dcf97ae9ce",
-    "createdAt": "2025-08-31T12:50:15.703Z",
-    "updatedAt": "2025-08-31T12:50:15.703Z"
+    "id": "030ce193-b60b-403d-bd38-caca7b304e0a",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "הכנה ליום הכיפורים",
-    "description": "רב: הרב ערן טמיר",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב ערן טמיר",
+    "category": "הכנה ליום הכיפורים",
     "date": "2025-09-28T17:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב ערן טמיר",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -248,18 +248,18 @@
         10
       ]
     },
-    "id": "829c1a97-1c5e-4c32-a431-b2b81418a332",
-    "createdAt": "2025-08-31T12:50:15.703Z",
-    "updatedAt": "2025-08-31T12:50:15.703Z"
+    "id": "21b97d25-c3cd-4e2e-a04d-a0626f17ffa1",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "הכנה ליום הכיפורים",
-    "description": "רב: הרב יואב אוריאל",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב יואב אוריאל",
+    "category": "הכנה ליום הכיפורים",
     "date": "2025-09-28T18:00:00.000Z",
     "time": "21:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יואב אוריאל",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -271,18 +271,18 @@
         10
       ]
     },
-    "id": "0b84e496-61b2-4706-af23-f5361f368863",
-    "createdAt": "2025-08-31T12:50:15.703Z",
-    "updatedAt": "2025-08-31T12:50:15.703Z"
+    "id": "538c3a17-4a94-4258-94c4-86dcaec0e4bb",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "הכנה ליום הכיפורים",
-    "description": "רב: הרב ברוך רוזנבלום",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב ברוך רוזנבלום",
+    "category": "הכנה ליום הכיפורים",
     "date": "2025-09-28T19:00:00.000Z",
     "time": "22:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב ברוך רוזנבלום",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -294,18 +294,18 @@
         10
       ]
     },
-    "id": "2557100b-a323-4278-8c16-a98a7eaa5d8a",
-    "createdAt": "2025-08-31T12:50:15.703Z",
-    "updatedAt": "2025-08-31T12:50:15.703Z"
+    "id": "2bf197e4-6508-4b16-9772-115a7ce27ae8",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "כולל יום ששי",
-    "description": "רב: הרב שי סבג",
-    "category": "כולל יום שישי",
+    "description": "מעביר: הרב שי סבג",
+    "category": "כולל יום ששי",
     "date": "2025-10-09T18:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב שי סבג",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -317,14 +317,14 @@
         10
       ]
     },
-    "id": "5d87b859-33e6-4c28-ac0a-445deb4478d8",
-    "createdAt": "2025-08-31T12:50:15.703Z",
-    "updatedAt": "2025-08-31T12:50:15.703Z"
+    "id": "9aac6cff-5f9c-49f8-a2e9-8c32f0196db5",
+    "createdAt": "2025-09-01T05:58:53.802Z",
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "הרב ברוך רוזנבלום",
     "description": "",
-    "category": "כולל יום שישי",
+    "category": "הרב ברוך רוזנבלום",
     "date": "2025-10-08T18:15:00.000Z",
     "time": "21:15",
     "duration": 90,
@@ -340,18 +340,18 @@
         10
       ]
     },
-    "id": "492eb05f-c8c1-4e10-aa6c-ba8728596c9b",
-    "createdAt": "2025-08-31T12:50:15.704Z",
-    "updatedAt": "2025-08-31T12:50:15.704Z"
+    "id": "70a7e0f6-6dde-4eb2-a9f4-dfacfe913930",
+    "createdAt": "2025-09-01T05:58:53.803Z",
+    "updatedAt": "2025-09-01T05:58:53.803Z"
   },
   {
     "title": "הושענא רבה",
-    "description": "רב: הרב יואב אוריאל",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב יואב אוריאל",
+    "category": "הושענא רבה",
     "date": "2025-10-12T19:00:00.000Z",
     "time": "22:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יואב אוריאל",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -363,18 +363,18 @@
         10
       ]
     },
-    "id": "19b1c793-52e9-411b-a98f-ff81a2d213a3",
-    "createdAt": "2025-08-31T12:50:15.704Z",
-    "updatedAt": "2025-09-01T13:44:46.654Z"
+    "id": "a91ccf1a-a956-4b1e-bd78-d00cc164f159",
+    "createdAt": "2025-09-01T05:58:53.803Z",
+    "updatedAt": "2025-09-01T05:58:53.803Z"
   },
   {
     "title": "הושענא רבה",
-    "description": "רב: הרב מאיר מרדכי",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב מאיר מרדכי",
+    "category": "הושענא רבה",
     "date": "2025-10-12T20:00:00.000Z",
     "time": "23:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב מאיר מרדכי",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -386,18 +386,18 @@
         10
       ]
     },
-    "id": "7c8686e0-44a9-4b4e-9af6-8b58af76cb1b",
-    "createdAt": "2025-08-31T12:50:15.704Z",
-    "updatedAt": "2025-09-01T13:44:46.654Z"
+    "id": "bfaad76f-5c00-4d92-8241-0844226d540f",
+    "createdAt": "2025-09-01T05:58:53.803Z",
+    "updatedAt": "2025-09-01T05:58:53.803Z"
   },
   {
     "title": "הושענא רבה",
-    "description": "רב: הרב לביא אנגלמן",
-    "category": "אירועים מיוחדים",
-    "date": "2025-10-10T21:00:00.000Z",
+    "description": "מעביר: הרב לביא אנגלמן",
+    "category": "הושענא רבה",
+    "date": "2025-10-11T21:00:00.000Z",
     "time": "00:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב לביא אנגלמן",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -409,18 +409,19 @@
         10
       ]
     },
-    "id": "0f398d6c-0bf5-4d4c-b8f9-3ffe7e799522",
-    "createdAt": "2025-08-31T12:50:15.704Z",
-    "updatedAt": "2025-09-01T13:44:46.654Z"
+    "id": "e16256bb-d4f5-4a0b-9164-c9fcbca949b0",
+    "createdAt": "2025-09-01T05:58:53.803Z",
+    "updatedAt": "2025-09-03T14:16:16.949Z",
+    "isEditing": true
   },
   {
     "title": "הושענא רבה",
-    "description": "רב: הרב יוני מילוא",
-    "category": "אירועים מיוחדים",
-    "date": "2025-10-10T22:00:00.000Z",
+    "description": "מעביר: הרב יוני מילוא",
+    "category": "הושענא רבה",
+    "date": "2025-10-12T22:00:00.000Z",
     "time": "01:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יוני מילוא",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -432,18 +433,19 @@
         10
       ]
     },
-    "id": "d7a4ff30-2977-4c34-a56f-e91226d6212f",
-    "createdAt": "2025-08-31T12:50:15.704Z",
-    "updatedAt": "2025-09-01T13:44:46.654Z"
+    "id": "8e870b3e-cfd1-499a-99f6-c4b614ba14d7",
+    "createdAt": "2025-09-01T05:58:53.803Z",
+    "updatedAt": "2025-09-03T14:17:36.484Z",
+    "isEditing": true
   },
   {
     "title": "כולל יום ששי",
-    "description": "רב: הרב יואב אוריאל",
-    "category": "כולל יום שישי",
+    "description": "מעביר: הרב יואב אוריאל",
+    "category": "כולל יום ששי",
     "date": "2025-10-16T18:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יואב אוריאל",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -455,14 +457,14 @@
         10
       ]
     },
-    "id": "a02f761f-710c-4635-bf28-39aaee685167",
-    "createdAt": "2025-08-31T12:50:15.704Z",
-    "updatedAt": "2025-08-31T12:50:15.704Z"
+    "id": "ac5f04ef-1a7b-42ac-b37a-be1e075b989c",
+    "createdAt": "2025-09-01T05:58:53.803Z",
+    "updatedAt": "2025-09-01T05:58:53.803Z"
   },
   {
     "title": "הרב אלישע אבינר",
     "description": "",
-    "category": "כולל יום שישי",
+    "category": "הרב אלישע אבינר",
     "date": "2025-10-19T18:15:00.000Z",
     "time": "21:15",
     "duration": 90,
@@ -478,18 +480,18 @@
         10
       ]
     },
-    "id": "a5ed8fb0-5a14-4cdd-964a-80e9f9748c11",
-    "createdAt": "2025-08-31T12:50:15.705Z",
-    "updatedAt": "2025-08-31T12:50:15.705Z"
+    "id": "da28d25d-f97d-459d-a1de-be3940904d64",
+    "createdAt": "2025-09-01T05:58:53.803Z",
+    "updatedAt": "2025-09-01T05:58:53.803Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב עוזי ביננפלד",
+    "description": "מעביר: הרב עוזי ביננפלד",
     "category": "כולל יום שישי",
     "date": "2025-10-23T18:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב עוזי ביננפלד",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -501,18 +503,18 @@
         10
       ]
     },
-    "id": "2eff02e4-ce57-4fb1-b9de-734a696aff62",
-    "createdAt": "2025-08-31T12:50:15.705Z",
-    "updatedAt": "2025-08-31T12:50:15.705Z"
+    "id": "c37868ad-2671-4e00-8d9a-06989ee5c195",
+    "createdAt": "2025-09-01T05:58:53.803Z",
+    "updatedAt": "2025-09-01T05:58:53.803Z"
   },
   {
     "title": "השפעת התרבות על החינוך, מפגש ראשון",
-    "description": "רב: הרב תומר זאבי",
-    "category": "חינוך וחברה",
+    "description": "מעביר: הרב תומר זאבי",
+    "category": "השפעת התרבות על החינוך, מפגש ראשון",
     "date": "2025-10-26T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב תומר זאבי",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -524,14 +526,14 @@
         10
       ]
     },
-    "id": "6b186dac-f3cf-4c92-affe-32c7b85fda83",
-    "createdAt": "2025-08-31T12:50:15.705Z",
-    "updatedAt": "2025-09-01T13:44:46.655Z"
+    "id": "33a14381-e6a0-4124-9ff2-d06525e8dbbb",
+    "createdAt": "2025-09-01T05:58:53.803Z",
+    "updatedAt": "2025-09-01T05:58:53.803Z"
   },
   {
     "title": "הרב אהרן כהן",
     "description": "",
-    "category": "כולל יום שישי",
+    "category": "הרב אהרן כהן",
     "date": "2025-10-28T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
@@ -547,18 +549,18 @@
         10
       ]
     },
-    "id": "3dc9b410-2ef7-46e2-a4ba-16ca7792c59a",
-    "createdAt": "2025-08-31T12:50:15.706Z",
-    "updatedAt": "2025-08-31T12:50:15.706Z"
+    "id": "3ec1fd1d-2057-419d-a602-eb3aea9a579a",
+    "createdAt": "2025-09-01T05:58:53.804Z",
+    "updatedAt": "2025-09-01T05:58:53.804Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב לביא אנגלמן",
+    "description": "מעביר: הרב לביא אנגלמן",
     "category": "כולל יום שישי",
     "date": "2025-10-30T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב לביא אנגלמן",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -570,18 +572,18 @@
         10
       ]
     },
-    "id": "d076911a-9e55-4b42-ad24-a74c82570e47",
-    "createdAt": "2025-08-31T12:50:15.706Z",
-    "updatedAt": "2025-08-31T12:50:15.706Z"
+    "id": "14b4dab5-8b7a-47a8-9a64-9f8ee444f485",
+    "createdAt": "2025-09-01T05:58:53.804Z",
+    "updatedAt": "2025-09-01T05:58:53.804Z"
   },
   {
     "title": "השפעת התרבות על החינוך, מפגש שני",
-    "description": "רב: הרב תומר זאבי",
-    "category": "חינוך וחברה",
+    "description": "מעביר: הרב תומר זאבי",
+    "category": "השפעת התרבות על החינוך, מפגש שני",
     "date": "2025-11-02T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב תומר זאבי",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -593,18 +595,18 @@
         10
       ]
     },
-    "id": "a5ee4fcf-ffe7-4563-b1e0-2d29c9b61074",
-    "createdAt": "2025-08-31T12:50:15.706Z",
-    "updatedAt": "2025-09-01T13:44:46.655Z"
+    "id": "b83b15b5-644d-4de0-a975-f920ed0bedff",
+    "createdAt": "2025-09-01T05:58:53.804Z",
+    "updatedAt": "2025-09-01T05:58:53.804Z"
   },
   {
     "title": "רחל אימנו",
-    "description": "רב: הרב ברוך רוזנבלום",
-    "category": "תנ״ך ואגדה",
+    "description": "מעביר: הרב ברוך רוזנבלום",
+    "category": "רחל אימנו",
     "date": "2025-11-02T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב ברוך רוזנבלום",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -616,18 +618,18 @@
         10
       ]
     },
-    "id": "91f615d4-d710-481a-be6f-653a401fdcb8",
-    "createdAt": "2025-08-31T12:50:15.706Z",
-    "updatedAt": "2025-09-01T13:44:46.655Z"
+    "id": "19b79e17-dd0e-4a64-8a12-1b1124ee222f",
+    "createdAt": "2025-09-01T05:58:53.804Z",
+    "updatedAt": "2025-09-01T05:58:53.804Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב יוסף צבי רימון",
+    "description": "מעביר: הרב יוסף צבי רימון",
     "category": "כולל יום שישי",
     "date": "2025-11-06T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יוסף צבי רימון",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -639,18 +641,18 @@
         10
       ]
     },
-    "id": "7a44f605-da76-4541-b98e-29d471c61b49",
-    "createdAt": "2025-08-31T12:50:15.707Z",
-    "updatedAt": "2025-08-31T12:50:15.707Z"
+    "id": "1df2328f-e95b-4d18-869d-db20cdabd9a7",
+    "createdAt": "2025-09-01T05:58:53.804Z",
+    "updatedAt": "2025-09-01T05:58:53.804Z"
   },
   {
     "title": "השפעת התרבות על החינוך, מפגש שלישי",
-    "description": "רב: הרב תומר זאבי",
-    "category": "חינוך וחברה",
+    "description": "מעביר: הרב תומר זאבי",
+    "category": "השפעת התרבות על החינוך, מפגש שלישי",
     "date": "2025-11-09T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב תומר זאבי",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -662,18 +664,18 @@
         10
       ]
     },
-    "id": "f62ef32c-0597-4111-9cf0-d65886474e59",
-    "createdAt": "2025-08-31T12:50:15.707Z",
-    "updatedAt": "2025-09-01T13:44:46.656Z"
+    "id": "019591fa-7a11-495c-b806-a9081d5042b9",
+    "createdAt": "2025-09-01T05:58:53.805Z",
+    "updatedAt": "2025-09-01T05:58:53.805Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב ליאון שילאן",
+    "description": "מעביר: הרב ליאון שילאן",
     "category": "כולל יום שישי",
     "date": "2025-11-13T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב ליאון שילאן",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -685,18 +687,18 @@
         10
       ]
     },
-    "id": "d9d0977a-4d0c-46a5-8dd6-caf8749f0993",
-    "createdAt": "2025-08-31T12:50:15.707Z",
-    "updatedAt": "2025-08-31T12:50:15.707Z"
+    "id": "5c068cbb-2134-404b-a25c-e0766fc7cd12",
+    "createdAt": "2025-09-01T05:58:53.805Z",
+    "updatedAt": "2025-09-01T05:58:53.805Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב חגי לונדין",
+    "description": "מעביר: הרב חגי לונדין",
     "category": "כולל יום שישי",
     "date": "2025-11-20T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב חגי לונדין",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -708,18 +710,18 @@
         10
       ]
     },
-    "id": "fabbae7f-fd37-4c8e-b043-74c6136640e3",
-    "createdAt": "2025-08-31T12:50:15.707Z",
-    "updatedAt": "2025-08-31T12:50:15.707Z"
+    "id": "ddaf1fae-488b-4658-a3da-abf25f26b3ab",
+    "createdAt": "2025-09-01T05:58:53.805Z",
+    "updatedAt": "2025-09-01T05:58:53.805Z"
   },
   {
     "title": "חובת האדם בעולמו, מפגש ראשון",
-    "description": "רב: הרב יחיאל יעיש",
-    "category": "מוסר והשקפה",
+    "description": "מעביר: הרב יחיאל יעיש",
+    "category": "חובת האדם בעולמו, מפגש ראשון",
     "date": "2025-11-23T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יחיאל יעיש",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -731,18 +733,18 @@
         10
       ]
     },
-    "id": "6f71b18e-ae3d-429f-9047-cf87166af65d",
-    "createdAt": "2025-08-31T12:50:15.707Z",
-    "updatedAt": "2025-09-01T13:44:46.656Z"
+    "id": "c777cfac-92b1-4324-9ee4-7c271f8c4223",
+    "createdAt": "2025-09-01T05:58:53.805Z",
+    "updatedAt": "2025-09-01T05:58:53.805Z"
   },
   {
     "title": "חובת האדם בעולמו, מפגש שני",
-    "description": "רב: הרב יחיאל יעיש",
-    "category": "מוסר והשקפה",
+    "description": "מעביר: הרב יחיאל יעיש",
+    "category": "חובת האדם בעולמו, מפגש שני",
     "date": "2025-11-30T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יחיאל יעיש",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -754,18 +756,18 @@
         10
       ]
     },
-    "id": "b6f8248b-4121-44d9-9ca2-9c3cb4d546f9",
-    "createdAt": "2025-08-31T12:50:15.708Z",
-    "updatedAt": "2025-09-01T13:44:46.656Z"
+    "id": "31f15b0e-f838-4a3c-84a2-b3a67b6b6fce",
+    "createdAt": "2025-09-01T05:58:53.806Z",
+    "updatedAt": "2025-09-01T05:58:53.806Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב עוזי ביננפלד",
+    "description": "מעביר: הרב עוזי ביננפלד",
     "category": "כולל יום שישי",
     "date": "2025-12-04T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב עוזי ביננפלד",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -777,18 +779,18 @@
         10
       ]
     },
-    "id": "0c326f54-3eaf-4319-96b3-1871fe24368d",
-    "createdAt": "2025-08-31T12:50:15.708Z",
-    "updatedAt": "2025-08-31T12:50:15.708Z"
+    "id": "201b992a-055e-40e0-93e3-9c49530736f4",
+    "createdAt": "2025-09-01T05:58:53.806Z",
+    "updatedAt": "2025-09-01T05:58:53.806Z"
   },
   {
     "title": "חובת האדם בעולמו, מפגש שלישי",
-    "description": "רב: הרב יחיאל יעיש",
-    "category": "מוסר והשקפה",
+    "description": "מעביר: הרב יחיאל יעיש",
+    "category": "חובת האדם בעולמו, מפגש שלישי",
     "date": "2025-12-07T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יחיאל יעיש",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -800,14 +802,14 @@
         10
       ]
     },
-    "id": "15d326e4-d212-4390-b7db-d910fdd136a1",
-    "createdAt": "2025-08-31T12:50:15.708Z",
-    "updatedAt": "2025-09-01T13:44:46.656Z"
+    "id": "251e71c8-a93a-4df7-96bf-5181bf238cd8",
+    "createdAt": "2025-09-01T05:58:53.807Z",
+    "updatedAt": "2025-09-01T05:58:53.807Z"
   },
   {
     "title": "הרב אהרן כהן",
     "description": "",
-    "category": "כולל יום שישי",
+    "category": "הרב אהרן כהן",
     "date": "2025-12-09T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
@@ -823,18 +825,18 @@
         10
       ]
     },
-    "id": "9d761277-d024-496d-8f49-bdbf2ad5d83c",
-    "createdAt": "2025-08-31T12:50:15.709Z",
-    "updatedAt": "2025-08-31T12:50:15.709Z"
+    "id": "0eb41d2e-0650-4171-b2ad-b63df87b1ed1",
+    "createdAt": "2025-09-01T05:58:53.807Z",
+    "updatedAt": "2025-09-01T05:58:53.807Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב אהוד אחיטוב",
+    "description": "מעביר: הרב אהוד אחיטוב",
     "category": "כולל יום שישי",
     "date": "2025-12-11T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב אהוד אחיטוב",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -846,18 +848,18 @@
         10
       ]
     },
-    "id": "8bf5950c-9599-4ac2-b114-f42119047032",
-    "createdAt": "2025-08-31T12:50:15.710Z",
-    "updatedAt": "2025-08-31T12:50:15.710Z"
+    "id": "d25f1dd1-59fa-4298-9dc9-b366627e48a6",
+    "createdAt": "2025-09-01T05:58:53.807Z",
+    "updatedAt": "2025-09-01T05:58:53.807Z"
   },
   {
     "title": "הכנה לחנוכה",
-    "description": "רב: הרב ברוך רוזנבלום",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב ברוך רוזנבלום",
+    "category": "הכנה לחנוכה",
     "date": "2025-12-14T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב ברוך רוזנבלום",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -869,18 +871,18 @@
         10
       ]
     },
-    "id": "9af69671-6226-41cb-9987-06f5f2b77b06",
-    "createdAt": "2025-08-31T12:50:15.711Z",
-    "updatedAt": "2025-09-01T13:44:46.656Z"
+    "id": "518b2e16-518c-48dc-9a22-311659058322",
+    "createdAt": "2025-09-01T05:58:53.807Z",
+    "updatedAt": "2025-09-01T05:58:53.807Z"
   },
   {
     "title": "הכנה לחנוכה",
-    "description": "רב: הרב יואב אוריאל",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב יואב אוריאל",
+    "category": "הכנה לחנוכה",
     "date": "2025-12-14T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יואב אוריאל",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -892,18 +894,18 @@
         10
       ]
     },
-    "id": "ca43a161-8e83-425c-b721-154c03b993cf",
-    "createdAt": "2025-08-31T12:50:15.711Z",
-    "updatedAt": "2025-09-01T13:44:46.657Z"
+    "id": "5b994f36-5fdc-44c8-b358-2fe83b12fd8a",
+    "createdAt": "2025-09-01T05:58:53.807Z",
+    "updatedAt": "2025-09-01T05:58:53.807Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב לביא אנגלמן",
+    "description": "מעביר: הרב לביא אנגלמן",
     "category": "כולל יום שישי",
     "date": "2025-12-18T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב לביא אנגלמן",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -915,18 +917,18 @@
         10
       ]
     },
-    "id": "28b66635-9a92-4109-9687-df0f8dd7ec60",
-    "createdAt": "2025-08-31T12:50:15.711Z",
-    "updatedAt": "2025-08-31T12:50:15.711Z"
+    "id": "e6f96eb8-7bc0-4f0d-be70-82950c779cda",
+    "createdAt": "2025-09-01T05:58:53.808Z",
+    "updatedAt": "2025-09-01T05:58:53.808Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב יוני מילוא",
+    "description": "מעביר: הרב יוני מילוא",
     "category": "כולל יום שישי",
     "date": "2026-03-25T10:15:00.000Z",
     "time": "12:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יוני מילוא",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -938,18 +940,18 @@
         10
       ]
     },
-    "id": "1b49a08d-17c5-49d2-9550-801d9ea03253",
-    "createdAt": "2025-08-31T12:50:15.711Z",
-    "updatedAt": "2025-08-31T12:50:15.711Z"
+    "id": "fdfeecb9-410e-4979-8481-811f4b80a7c2",
+    "createdAt": "2025-09-01T05:58:53.808Z",
+    "updatedAt": "2025-09-01T05:58:53.808Z"
   },
   {
     "title": "לקראת עשרה בטבת",
-    "description": "רב: הרב זאב סולטנוביץ'",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב זאב סולטנוביץ'",
+    "category": "לקראת עשרה בטבת",
     "date": "2025-12-28T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב זאב סולטנוביץ'",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -961,18 +963,18 @@
         10
       ]
     },
-    "id": "317633ce-b02c-4415-b5fe-d62743e82292",
-    "createdAt": "2025-08-31T12:50:15.712Z",
-    "updatedAt": "2025-09-01T13:44:46.657Z"
+    "id": "ba44dc24-6471-47cc-9d77-acfbb0ed2705",
+    "createdAt": "2025-09-01T05:58:53.808Z",
+    "updatedAt": "2025-09-01T05:58:53.808Z"
   },
   {
     "title": "לקראת עשרה בטבת",
-    "description": "רב: הרב ערן דאום",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב ערן דאום",
+    "category": "לקראת עשרה בטבת",
     "date": "2025-12-29T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב ערן דאום",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -984,18 +986,18 @@
         10
       ]
     },
-    "id": "dc6829f4-892a-4eb9-afde-925ba038e567",
-    "createdAt": "2025-08-31T12:50:15.712Z",
-    "updatedAt": "2025-09-01T13:44:46.657Z"
+    "id": "9a4a8637-f006-49e3-b2d6-b33f159f8e75",
+    "createdAt": "2025-09-01T05:58:53.809Z",
+    "updatedAt": "2025-09-01T05:58:53.809Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב צחי משען",
+    "description": "מעביר: הרב צחי משען",
     "category": "כולל יום שישי",
     "date": "2026-01-01T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב צחי משען",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1007,18 +1009,18 @@
         10
       ]
     },
-    "id": "34407204-8236-4c6b-abca-3503d708bf10",
-    "createdAt": "2025-08-31T12:50:15.712Z",
-    "updatedAt": "2025-08-31T12:50:15.712Z"
+    "id": "f3c22143-4559-45cd-932c-1a3e855e31f9",
+    "createdAt": "2025-09-01T05:58:53.809Z",
+    "updatedAt": "2025-09-01T05:58:53.809Z"
   },
   {
     "title": "עבודת התפילה, מפגש ראשון",
-    "description": "רב: הרב מרדכי מאיר",
-    "category": "עבודת ה׳",
+    "description": "מעביר: הרב מרדכי מאיר",
+    "category": "עבודת התפילה, מפגש ראשון",
     "date": "2026-01-04T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב מרדכי מאיר",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1030,18 +1032,18 @@
         10
       ]
     },
-    "id": "01c7f452-b82b-4c96-bc00-1aef63ee501a",
-    "createdAt": "2025-08-31T12:50:15.712Z",
-    "updatedAt": "2025-09-01T13:44:46.657Z"
+    "id": "41040b1a-85a5-476d-8a41-661563a76181",
+    "createdAt": "2025-09-01T05:58:53.809Z",
+    "updatedAt": "2025-09-01T05:58:53.809Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב יואב אוריאל",
+    "description": "מעביר: הרב יואב אוריאל",
     "category": "כולל יום שישי",
     "date": "2026-01-08T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יואב אוריאל",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1053,18 +1055,18 @@
         10
       ]
     },
-    "id": "e408c217-face-4d76-905d-33441558b6d5",
-    "createdAt": "2025-08-31T12:50:15.713Z",
-    "updatedAt": "2025-08-31T12:50:15.713Z"
+    "id": "3c422375-0c0d-469c-b038-6ae30216b6fd",
+    "createdAt": "2025-09-01T05:58:53.810Z",
+    "updatedAt": "2025-09-01T05:58:53.810Z"
   },
   {
     "title": "עבודת התפילה, מפגש שני",
-    "description": "רב: הרב מרדכי מאיר",
-    "category": "עבודת ה׳",
+    "description": "מעביר: הרב מרדכי מאיר",
+    "category": "עבודת התפילה, מפגש שני",
     "date": "2026-01-11T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב מרדכי מאיר",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1076,14 +1078,14 @@
         10
       ]
     },
-    "id": "cefd38f3-6cae-428d-809b-c35248283647",
-    "createdAt": "2025-08-31T12:50:15.713Z",
-    "updatedAt": "2025-09-01T13:44:46.657Z"
+    "id": "5253f187-a76e-47ac-a517-863322410e58",
+    "createdAt": "2025-09-01T05:58:53.810Z",
+    "updatedAt": "2025-09-01T05:58:53.810Z"
   },
   {
     "title": "הרב אהרן כהן",
     "description": "",
-    "category": "כולל יום שישי",
+    "category": "הרב אהרן כהן",
     "date": "2026-01-13T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
@@ -1099,18 +1101,18 @@
         10
       ]
     },
-    "id": "888b3857-7df6-443e-a00e-2306aaa1a0b1",
-    "createdAt": "2025-08-31T12:50:15.713Z",
-    "updatedAt": "2025-08-31T12:50:15.713Z"
+    "id": "18593631-2510-49da-b64c-5f7ab6fe2368",
+    "createdAt": "2025-09-01T05:58:53.810Z",
+    "updatedAt": "2025-09-01T05:58:53.810Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב שלום חבשוש",
+    "description": "מעביר: הרב שלום חבשוש",
     "category": "כולל יום שישי",
     "date": "2026-01-15T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב שלום חבשוש",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1122,18 +1124,18 @@
         10
       ]
     },
-    "id": "f5bfdbe4-bc5a-4d76-a0d0-00a87e71ab8f",
-    "createdAt": "2025-08-31T12:50:15.713Z",
-    "updatedAt": "2025-08-31T12:50:15.713Z"
+    "id": "2e1e96ee-1b25-4667-8965-5a7a35adaf54",
+    "createdAt": "2025-09-01T05:58:53.811Z",
+    "updatedAt": "2025-09-01T05:58:53.811Z"
   },
   {
     "title": "עבודת התפילה, מפגש שלישי",
-    "description": "רב: הרב מרדכי מאיר",
-    "category": "עבודת ה׳",
+    "description": "מעביר: הרב מרדכי מאיר",
+    "category": "עבודת התפילה, מפגש שלישי",
     "date": "2026-01-18T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב מרדכי מאיר",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1145,18 +1147,18 @@
         10
       ]
     },
-    "id": "ae70762d-fb98-443c-b131-77caae1c74fb",
-    "createdAt": "2025-08-31T12:50:15.714Z",
-    "updatedAt": "2025-09-01T13:44:46.658Z"
+    "id": "f025a074-7033-4545-adfe-cab8725b58d5",
+    "createdAt": "2025-09-01T05:58:53.811Z",
+    "updatedAt": "2025-09-01T05:58:53.811Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב יוסי קבסה",
+    "description": "מעביר: הרב יוסי קבסה",
     "category": "כולל יום שישי",
     "date": "2026-01-22T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יוסי קבסה",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1168,18 +1170,18 @@
         10
       ]
     },
-    "id": "6901b0b7-ec9e-4874-b777-04ec67504e03",
-    "createdAt": "2025-08-31T12:50:15.714Z",
-    "updatedAt": "2025-08-31T12:50:15.714Z"
+    "id": "75c2be4c-61f0-432b-ba92-baf24484320f",
+    "createdAt": "2025-09-01T05:58:53.811Z",
+    "updatedAt": "2025-09-01T05:58:53.811Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: אלי פיינסילבר",
+    "description": "מעביר: אלי פיינסילבר",
     "category": "כולל יום שישי",
     "date": "2026-01-29T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "אלי פיינסילבר",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1191,18 +1193,18 @@
         10
       ]
     },
-    "id": "fe518056-1856-49ab-8596-2c94133c33d5",
-    "createdAt": "2025-08-31T12:50:15.714Z",
-    "updatedAt": "2025-08-31T12:50:15.714Z"
+    "id": "d1dcb5ef-72ca-4e09-8ea5-79fb8c30e178",
+    "createdAt": "2025-09-01T05:58:53.812Z",
+    "updatedAt": "2025-09-01T05:58:53.812Z"
   },
   {
     "title": "הכנה לט\"ו בשבט",
-    "description": "רב: הרב לביא אנגלמן",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב לביא אנגלמן",
+    "category": "הכנה לט\"ו בשבט",
     "date": "2026-02-01T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב לביא אנגלמן",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1214,18 +1216,18 @@
         10
       ]
     },
-    "id": "4bdbfa3f-6962-47fd-8169-dac2ef06c6e9",
-    "createdAt": "2025-08-31T12:50:15.715Z",
-    "updatedAt": "2025-09-01T13:44:46.658Z"
+    "id": "9027c71d-555d-446d-b864-4569bacf49a4",
+    "createdAt": "2025-09-01T05:58:53.812Z",
+    "updatedAt": "2025-09-01T05:58:53.812Z"
   },
   {
     "title": "הכנה לט\"ו בשבט",
-    "description": "רב: הרב ברוך רוזנבלום",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב ברוך רוזנבלום",
+    "category": "הכנה לט\"ו בשבט",
     "date": "2026-02-01T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב ברוך רוזנבלום",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1237,18 +1239,18 @@
         10
       ]
     },
-    "id": "716f81f0-3a1f-4147-81e0-e3b69062e8c0",
-    "createdAt": "2025-08-31T12:50:15.715Z",
-    "updatedAt": "2025-09-01T13:44:46.658Z"
+    "id": "fde4d152-5633-47bc-9937-ddbd08ea7ca4",
+    "createdAt": "2025-09-01T05:58:53.812Z",
+    "updatedAt": "2025-09-01T05:58:53.812Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב מרדכי מאיר",
+    "description": "מעביר: הרב מרדכי מאיר",
     "category": "כולל יום שישי",
     "date": "2026-02-05T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב מרדכי מאיר",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1260,18 +1262,18 @@
         10
       ]
     },
-    "id": "fc6b7385-5f73-427b-a2de-7a86347a35ac",
-    "createdAt": "2025-08-31T12:50:15.715Z",
-    "updatedAt": "2025-08-31T12:50:15.715Z"
+    "id": "d733099e-3444-4b78-83f4-722bcb27edd2",
+    "createdAt": "2025-09-01T05:58:53.812Z",
+    "updatedAt": "2025-09-01T05:58:53.812Z"
   },
   {
     "title": "סדרה, מפגש ראשון",
-    "description": "רב: הרב נתנאל אוירבך",
-    "category": "כולל יום שישי",
+    "description": "מעביר: הרב נתנאל אוירבך",
+    "category": "סדרה, מפגש ראשון",
     "date": "2026-02-08T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב נתנאל אוירבך",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1283,18 +1285,18 @@
         10
       ]
     },
-    "id": "b60cd7e6-6030-4272-b45d-5831acc9b9d7",
-    "createdAt": "2025-08-31T12:50:15.716Z",
-    "updatedAt": "2025-08-31T12:50:15.716Z"
+    "id": "f27c7d10-062d-45d3-b9d0-d90d9ff2c224",
+    "createdAt": "2025-09-01T05:58:53.813Z",
+    "updatedAt": "2025-09-01T05:58:53.813Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב תומר זאבי",
+    "description": "מעביר: הרב תומר זאבי",
     "category": "כולל יום שישי",
     "date": "2026-02-12T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב תומר זאבי",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1306,18 +1308,18 @@
         10
       ]
     },
-    "id": "62dda970-96f8-4a10-9911-1f930b6fa978",
-    "createdAt": "2025-08-31T12:50:15.716Z",
-    "updatedAt": "2025-08-31T12:50:15.716Z"
+    "id": "0d126287-a955-43b4-bcf7-3c7fc9531e37",
+    "createdAt": "2025-09-01T05:58:53.813Z",
+    "updatedAt": "2025-09-01T05:58:53.813Z"
   },
   {
     "title": "סדרה, מפגש שני",
-    "description": "רב: הרב נתנאל אוירבך",
-    "category": "כולל יום שישי",
+    "description": "מעביר: הרב נתנאל אוירבך",
+    "category": "סדרה, מפגש שני",
     "date": "2026-02-15T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב נתנאל אוירבך",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1329,14 +1331,14 @@
         10
       ]
     },
-    "id": "8e652ad1-36ec-4cf5-b565-51e0a3ab24c8",
-    "createdAt": "2025-08-31T12:50:15.716Z",
-    "updatedAt": "2025-08-31T12:50:15.716Z"
+    "id": "d2ffeb00-8f1e-453d-9c77-bebb82fce632",
+    "createdAt": "2025-09-01T05:58:53.814Z",
+    "updatedAt": "2025-09-01T05:58:53.814Z"
   },
   {
     "title": "הרב אהרן כהן",
     "description": "",
-    "category": "כולל יום שישי",
+    "category": "הרב אהרן כהן",
     "date": "2026-02-17T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
@@ -1352,18 +1354,18 @@
         10
       ]
     },
-    "id": "edc63fe3-ba43-40e4-9b9d-fd9e220d11d1",
-    "createdAt": "2025-08-31T12:50:15.717Z",
-    "updatedAt": "2025-08-31T12:50:15.717Z"
+    "id": "9c1a9b5f-2647-427d-bba8-2723146284e0",
+    "createdAt": "2025-09-01T05:58:53.814Z",
+    "updatedAt": "2025-09-01T05:58:53.814Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב עוזי ביננפלד",
+    "description": "מעביר: הרב עוזי ביננפלד",
     "category": "כולל יום שישי",
     "date": "2026-02-19T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב עוזי ביננפלד",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1375,18 +1377,18 @@
         10
       ]
     },
-    "id": "9f5dc4d4-79b3-4a07-98e7-a9854c27c489",
-    "createdAt": "2025-08-31T12:50:15.717Z",
-    "updatedAt": "2025-08-31T12:50:15.717Z"
+    "id": "5edad148-58d1-450c-b5f7-1780ee75b0d7",
+    "createdAt": "2025-09-01T05:58:53.814Z",
+    "updatedAt": "2025-09-01T05:58:53.814Z"
   },
   {
     "title": "סדרה, מפגש שלישי",
-    "description": "רב: הרב נתנאל אוירבך",
-    "category": "כולל יום שישי",
+    "description": "מעביר: הרב נתנאל אוירבך",
+    "category": "סדרה, מפגש שלישי",
     "date": "2026-02-22T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב נתנאל אוירבך",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1398,18 +1400,18 @@
         10
       ]
     },
-    "id": "0d6bca06-7659-4cc4-8a83-7d09e9f4eb78",
-    "createdAt": "2025-08-31T12:50:15.717Z",
-    "updatedAt": "2025-08-31T12:50:15.717Z"
+    "id": "200c1412-b219-4c21-81c9-6d0e3ed21139",
+    "createdAt": "2025-09-01T05:58:53.815Z",
+    "updatedAt": "2025-09-01T05:58:53.815Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב אהוד אחיטוב",
+    "description": "מעביר: הרב אהוד אחיטוב",
     "category": "כולל יום שישי",
     "date": "2026-02-26T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב אהוד אחיטוב",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1421,18 +1423,18 @@
         10
       ]
     },
-    "id": "251b9b84-02b2-4058-a48b-cf3268f28953",
-    "createdAt": "2025-08-31T12:50:15.718Z",
-    "updatedAt": "2025-08-31T12:50:15.718Z"
+    "id": "2ddeec3e-a295-4fb4-ab9a-6844c724080b",
+    "createdAt": "2025-09-01T05:58:53.815Z",
+    "updatedAt": "2025-09-01T05:58:53.815Z"
   },
   {
     "title": "הכנה לפורים",
-    "description": "רב: הרב ברוך רוזנבלום",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב ברוך רוזנבלום",
+    "category": "הכנה לפורים",
     "date": "2026-03-01T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב ברוך רוזנבלום",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1444,18 +1446,18 @@
         10
       ]
     },
-    "id": "2bd29b71-6244-4861-90ab-010c516cf194",
-    "createdAt": "2025-08-31T12:50:15.718Z",
-    "updatedAt": "2025-08-31T12:50:15.718Z"
+    "id": "06bc3036-2256-4d75-8e0f-79eba7a8c1dc",
+    "createdAt": "2025-09-01T05:58:53.815Z",
+    "updatedAt": "2025-09-01T05:58:53.815Z"
   },
   {
     "title": "הכנה לפורים",
-    "description": "רב: הרב יואב אוריאל",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב יואב אוריאל",
+    "category": "הכנה לפורים",
     "date": "2026-03-01T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יואב אוריאל",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1467,18 +1469,18 @@
         10
       ]
     },
-    "id": "56ad973c-b9df-4698-94a9-d5f396ec2e83",
-    "createdAt": "2025-08-31T12:50:15.718Z",
-    "updatedAt": "2025-08-31T12:50:15.718Z"
+    "id": "7d05d8b4-cc24-4127-b09f-f6c6031772f5",
+    "createdAt": "2025-09-01T05:58:53.816Z",
+    "updatedAt": "2025-09-01T05:58:53.816Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב חגי לונדין",
+    "description": "מעביר: הרב חגי לונדין",
     "category": "כולל יום שישי",
     "date": "2026-03-05T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב חגי לונדין",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1490,18 +1492,18 @@
         10
       ]
     },
-    "id": "495758fb-bc03-48ce-86c9-9108abaef47a",
-    "createdAt": "2025-08-31T12:50:15.719Z",
-    "updatedAt": "2025-08-31T12:50:15.719Z"
+    "id": "db15b705-bae1-492f-b723-ddc08d455584",
+    "createdAt": "2025-09-01T05:58:53.816Z",
+    "updatedAt": "2025-09-01T05:58:53.816Z"
   },
   {
     "title": "כולל יום שישי",
-    "description": "רב: הרב יוני מילוא",
+    "description": "מעביר: הרב יוני מילוא",
     "category": "כולל יום שישי",
     "date": "2026-03-12T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב יוני מילוא",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1513,18 +1515,18 @@
         10
       ]
     },
-    "id": "44d676e4-dc5b-4ed7-82cc-83c63027f2c6",
-    "createdAt": "2025-08-31T12:50:15.719Z",
-    "updatedAt": "2025-08-31T12:50:15.719Z"
+    "id": "34fee47f-b021-4c2b-8824-3563f1f3ff68",
+    "createdAt": "2025-09-01T05:58:53.816Z",
+    "updatedAt": "2025-09-01T05:58:53.816Z"
   },
   {
     "title": "הכנה לפסח",
-    "description": "רב: הרב נחמיה קרקובר",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב נחמיה קרקובר",
+    "category": "הכנה לפסח",
     "date": "2026-03-17T18:00:00.000Z",
     "time": "20:00",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב נחמיה קרקובר",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1536,18 +1538,18 @@
         10
       ]
     },
-    "id": "18f67576-8ee0-49a6-bbae-01ca77b1787f",
-    "createdAt": "2025-08-31T12:50:15.721Z",
-    "updatedAt": "2025-08-31T12:50:15.721Z"
+    "id": "4115c73c-93ef-453f-856c-6eb06b828346",
+    "createdAt": "2025-09-01T05:58:53.817Z",
+    "updatedAt": "2025-09-01T05:58:53.817Z"
   },
   {
     "title": "הכנה לפסח",
-    "description": "רב: הרב ערן טמיר",
-    "category": "אירועים מיוחדים",
+    "description": "מעביר: הרב ערן טמיר",
+    "category": "הכנה לפסח",
     "date": "2026-03-17T19:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "",
+    "teacher": "הרב ערן טמיר",
     "location": "",
     "status": "scheduled",
     "currentParticipants": 0,
@@ -1559,8 +1561,8 @@
         10
       ]
     },
-    "id": "f80b6a8a-1273-46ce-a9d8-4c247ac2b022",
-    "createdAt": "2025-08-31T12:50:15.721Z",
-    "updatedAt": "2025-08-31T12:50:15.721Z"
+    "id": "2c8aab32-5102-40fa-a205-3c3b6383b964",
+    "createdAt": "2025-09-01T05:58:53.817Z",
+    "updatedAt": "2025-09-01T05:58:53.817Z"
   }
 ]
