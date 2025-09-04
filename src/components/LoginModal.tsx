@@ -13,9 +13,11 @@ interface LoginModalProps {
 const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [isRegistering, setIsRegistering] = useState(false);
 
   const authService = AuthService.getInstance();
 
@@ -25,26 +27,37 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin }) => 
     setError('');
 
     try {
-      const user = await authService.login(email, password);
+      let user;
+      if (isRegistering) {
+        if (!name.trim()) {
+          throw new Error('יש להזין שם מלא');
+        }
+        user = await authService.register(email, password, name);
+      } else {
+        user = await authService.login(email, password);
+      }
+      
       onLogin(user);
       onClose();
-      setEmail('');
-      setPassword('');
+      resetForm();
     } catch (err) {
-      setError('שגיאה בהתחברות. נסה שוב.');
+      setError(err instanceof Error ? err.message : 'שגיאה. נסה שוב.');
     } finally {
       setIsLoading(false);
     }
   };
 
-  const fillAdminCredentials = () => {
-    setEmail('admin@mirpeset.com');
-    setPassword('admin123');
+  const resetForm = () => {
+    setEmail('');
+    setPassword('');
+    setName('');
+    setError('');
+    setIsRegistering(false);
   };
 
-  const fillUserCredentials = () => {
-    setEmail('user@mirpeset.com');
-    setPassword('user123');
+  const toggleMode = () => {
+    setIsRegistering(!isRegistering);
+    setError('');
   };
 
   if (!isOpen) return null;
@@ -54,10 +67,24 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin }) => 
       <div className="login-modal" onClick={(e) => e.stopPropagation()}>
         <div className="login-header">
           <LogIn size={24} />
-          <h2>התחברות למערכת</h2>
+          <h2>{isRegistering ? 'הרשמה למערכת' : 'התחברות למערכת'}</h2>
         </div>
 
         <form onSubmit={handleSubmit} className="login-form">
+          {isRegistering && (
+            <div className="form-group">
+              <label htmlFor="name">שם מלא</label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="הכנס שם מלא"
+                required
+              />
+            </div>
+          )}
+
           <div className="form-group">
             <label htmlFor="email">כתובת אימייל</label>
             <input
@@ -93,24 +120,18 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin }) => 
 
           {error && <div className="error-message">{error}</div>}
 
-          <div className="demo-credentials">
-            <p>לדמו:</p>
-            <div className="demo-buttons">
-              <button type="button" onClick={fillAdminCredentials} className="demo-btn">
-                מנהל
-              </button>
-              <button type="button" onClick={fillUserCredentials} className="demo-btn">
-                משתמש
-              </button>
-            </div>
-          </div>
-
           <div className="login-actions">
             <button type="button" onClick={onClose} className="btn-cancel">
               ביטול
             </button>
             <button type="submit" disabled={isLoading} className="btn-login">
-              {isLoading ? 'מתחבר...' : 'התחבר'}
+              {isLoading ? (isRegistering ? 'נרשם...' : 'מתחבר...') : (isRegistering ? 'הירשם' : 'התחבר')}
+            </button>
+          </div>
+
+          <div className="toggle-mode">
+            <button type="button" onClick={toggleMode} className="toggle-btn">
+              {isRegistering ? 'יש לך כבר חשבון? התחבר' : 'אין לך חשבון? הירשם'}
             </button>
           </div>
         </form>

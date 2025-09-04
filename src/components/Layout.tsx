@@ -56,14 +56,20 @@ const Layout: React.FC = () => {
                 ניהול שיעורים
               </NavLink>
             )}
-            <NavLink to="/posters" className="nav-link">
-              <Megaphone size={16} />
-              מודעות
-            </NavLink>
-            <NavLink to="/notifications" className="nav-link">
-              <Bell size={16} />
-              תזכורות
-            </NavLink>
+            {/* מודעות - הוסתר זמנית */}
+            {false && (
+              <NavLink to="/posters" className="nav-link">
+                <Megaphone size={16} />
+                מודעות
+              </NavLink>
+            )}
+            {/* תזכורות - הוסתר זמנית */}
+            {false && (
+              <NavLink to="/notifications" className="nav-link">
+                <Bell size={16} />
+                תזכורות
+              </NavLink>
+            )}
             {userRole === 'admin' && (
               <NavLink to="/import" className="nav-link">
                 <Upload size={16} />

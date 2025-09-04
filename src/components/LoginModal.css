@@ -195,3 +195,27 @@
     flex-direction: column;
   }
 }
+
+.toggle-mode {
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #4f46e5;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+  color: #7c3aed;
+  background-color: #f8fafc;
+}
