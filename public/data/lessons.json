@@ -1475,5 +1475,31 @@
     "createdAt": "2025-09-04T09:02:11.218Z",
     "updatedAt": "2025-09-04T09:02:11.218Z",
     "id": "631c554b-73b8-42f4-9806-5d571d4a82a6"
+  },
+  {
+    "title": "הכנה לראש השנה",
+    "description": "",
+    "date": "2025-09-11T17:00:00.000Z",
+    "time": "20:00",
+    "duration": 90,
+    "teacher": "הרב ניסים דעי",
+    "location": "אולם ההרצאות",
+    "category": "כולל יום שישי",
+    "status": "scheduled",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-09-09T20:29:17.231Z",
+    "updatedAt": "2025-09-09T20:29:17.231Z",
+    "id": "ac2ad9ef-fcfa-474d-8c6f-2f4ce677c9d3"
   }
 ]
