@@ -8,7 +8,7 @@
     "duration": 90,
     "teacher": "הרב מרדכי מאיר",
     "location": "",
-    "status": "scheduled",
+    "status": "completed",
     "currentParticipants": 0,
     "tags": [],
     "notifications": {
@@ -20,7 +20,7 @@
     },
     "id": "68dac20b-125f-4836-81f6-18a8e4ffa206",
     "createdAt": "2025-09-01T05:58:53.800Z",
-    "updatedAt": "2025-09-01T05:58:53.800Z"
+    "updatedAt": "2025-09-09T20:34:18.209Z"
   },
   {
     "title": "הכנה לראש השנה",
@@ -807,29 +807,6 @@
     "updatedAt": "2025-09-01T05:58:53.808Z"
   },
   {
-    "title": "כולל יום שישי",
-    "description": "מעביר: הרב יוני מילוא",
-    "category": "כולל יום שישי",
-    "date": "2026-03-25T10:15:00.000Z",
-    "time": "12:15",
-    "duration": 90,
-    "teacher": "הרב יוני מילוא",
-    "location": "",
-    "status": "scheduled",
-    "currentParticipants": 0,
-    "tags": [],
-    "notifications": {
-      "enabled": true,
-      "reminderTimes": [
-        30,
-        10
-      ]
-    },
-    "id": "fdfeecb9-410e-4979-8481-811f4b80a7c2",
-    "createdAt": "2025-09-01T05:58:53.808Z",
-    "updatedAt": "2025-09-01T05:58:53.808Z"
-  },
-  {
     "title": "לקראת עשרה בטבת",
     "description": "מעביר: הרב זאב סולטנוביץ'",
     "category": "לקראת עשרה בטבת",
@@ -1459,7 +1436,7 @@
     "teacher": "הרב עוזי ביננפלד",
     "location": "אולם ההרצאות",
     "category": "כולל יום שישי",
-    "status": "scheduled",
+    "status": "completed",
     "maxParticipants": 0,
     "currentParticipants": 0,
     "recordingUrl": "",
@@ -1473,7 +1450,7 @@
       ]
     },
     "createdAt": "2025-09-04T09:02:11.218Z",
-    "updatedAt": "2025-09-04T09:02:11.218Z",
+    "updatedAt": "2025-09-09T20:31:51.910Z",
     "id": "631c554b-73b8-42f4-9806-5d571d4a82a6"
   },
   {
