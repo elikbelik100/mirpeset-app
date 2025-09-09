@@ -1501,5 +1501,31 @@
     "createdAt": "2025-09-09T20:29:17.231Z",
     "updatedAt": "2025-09-09T20:29:17.231Z",
     "id": "ac2ad9ef-fcfa-474d-8c6f-2f4ce677c9d3"
+  },
+  {
+    "title": "הכנה לראש השנה ",
+    "description": "",
+    "date": "2025-09-11T18:15:00.000Z",
+    "time": "21:15",
+    "duration": 90,
+    "teacher": "הרב יעקב שמעון ",
+    "location": "אולם ההרצאות",
+    "category": "כולל יום שישי",
+    "status": "scheduled",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-09-09T20:29:54.662Z",
+    "updatedAt": "2025-09-09T20:29:54.662Z",
+    "id": "d076508f-fe05-4747-9362-10b438665e3c"
   }
 ]
