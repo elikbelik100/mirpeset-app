@@ -1504,5 +1504,28 @@
     "createdAt": "2025-09-09T20:29:54.662Z",
     "updatedAt": "2025-09-09T20:29:54.662Z",
     "id": "d076508f-fe05-4747-9362-10b438665e3c"
+  },
+  {
+    "title": "כולל יום שישי",
+    "description": "מעביר: הרב מרדכי מאיר",
+    "category": "כולל יום שישי",
+    "date": "2026-03-19T19:15:00.000Z",
+    "time": "21:15",
+    "duration": 90,
+    "teacher": "הרב מרדכי מאיר",
+    "location": "",
+    "status": "scheduled",
+    "currentParticipants": 0,
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        30,
+        10
+      ]
+    },
+    "id": "9d0938c2-4dd9-4c7a-8f6a-8bdbdea202e0",
+    "createdAt": "2025-09-13T18:59:44.951Z",
+    "updatedAt": "2025-09-13T18:59:44.951Z"
   }
 ]
