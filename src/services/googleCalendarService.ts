@@ -84,25 +84,22 @@ class GoogleCalendarService {
   }
 
   /**
-   * Create a descriptive text for the lesson
+   * Create a simple descriptive text for the lesson
    */
   private createLessonDescription(lesson: any): string {
     let description = `שיעור: ${lesson.title}\n`;
     
-    if (lesson.teacher) {
-      description += `מרצה: ${lesson.teacher}\n`;
+    // Extract teacher from either teacher field or description
+    let teacher = lesson.teacher;
+    if (!teacher && lesson.description && lesson.description.includes('רב:')) {
+      teacher = lesson.description.split('רב: ')[1];
+    }
+    if (!teacher && lesson.description && lesson.description.includes('מעביר:')) {
+      teacher = lesson.description.split('מעביר: ')[1];
     }
     
-    if (lesson.description) {
-      description += `תיאור: ${lesson.description}\n`;
-    }
-    
-    if (lesson.category) {
-      description += `קטגוריה: ${lesson.category}\n`;
-    }
-    
-    if (lesson.tags && lesson.tags.length > 0) {
-      description += `תגיות: ${lesson.tags.join(', ')}\n`;
+    if (teacher) {
+      description += `מעביר: ${teacher}`;
     }
 
     return description.trim();
