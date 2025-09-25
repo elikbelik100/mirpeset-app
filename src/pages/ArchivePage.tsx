@@ -155,16 +155,6 @@ const ArchivePage: React.FC = () => {
     setFilteredLessons(filtered);
   };
 
-  const handleWatch = (lesson: ArchivedLesson) => {
-    // Simulate watching a recording
-    if (lesson.recordingUrl) {
-      // In real app, this would open the recording
-      window.open(lesson.recordingUrl, '_blank');
-    } else {
-      alert('קישור להקלטה לא זמין');
-    }
-  };
-
   const handleDownload = (lesson: ArchivedLesson) => {
     // Simulate download
     const link = document.createElement('a');
@@ -498,13 +488,6 @@ const ArchivePage: React.FC = () => {
                     ) : null;
                   })()}
                   
-                  <button
-                    onClick={() => handleWatch(lesson)}
-                    className="action-btn primary"
-                  >
-                    <Play size={18} />
-                    האזנה
-                  </button>
                   <button
                     onClick={() => handleDownload(lesson)}
                     className="action-btn secondary"
