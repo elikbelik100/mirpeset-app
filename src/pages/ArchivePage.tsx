@@ -485,7 +485,17 @@ const ArchivePage: React.FC = () => {
                           </div>
                         ))}
                       </div>
-                    ) : null;
+                    ) : (
+                      isAdmin && (
+                        <button
+                          onClick={() => handleAddLink(lesson.id)}
+                          className="action-btn secondary"
+                        >
+                          <Plus size={18} />
+                          הוסף קישור הקלטה
+                        </button>
+                      )
+                    );
                   })()}
                   
                   <button
