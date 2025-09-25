@@ -189,9 +189,13 @@ const ArchivePage: React.FC = () => {
 
   // פונקציות ניהול קישורי הקלטות
   const handleAddLink = (lessonId: string) => {
+    // מצא את השיעור לפי ID כדי לשלוף את הכותרת והמרצה
+    const lesson = archivedLessons.find(l => l.id === lessonId);
+    const autoTitle = lesson ? `הקלטת ${lesson.title} - ${lesson.teacher || lesson.speaker}` : '';
+    
     setLinkForm({
       lessonId,
-      title: '',
+      title: autoTitle,
       url: '',
       description: '',
     });
@@ -224,8 +228,8 @@ const ArchivePage: React.FC = () => {
   };
 
   const handleSaveLink = async () => {
-    if (!linkForm.title || !linkForm.url) {
-      alert('אנא מלא את כל השדות הנדרשים');
+    if (!linkForm.title.trim() || !linkForm.url.trim()) {
+      alert('אנא מלא את הכותרת ואת קישור ההקלטה');
       return;
     }
 
@@ -256,10 +260,6 @@ const ArchivePage: React.FC = () => {
       console.error('Error saving recording:', error);
       alert('שגיאה בשמירת הקישור');
     }
-  };
-
-  const getLinkForLesson = (lessonId: string) => {
-    return recordingLinks.find(link => link.lessonId === lessonId);
   };
 
   const getRecordingLinks = (lessonId: string): RecordingLink[] => {
@@ -450,43 +450,50 @@ const ArchivePage: React.FC = () => {
 
                 <div className="lesson-actions">
                   {(() => {
-                    const recordingLink = getLinkForLesson(lesson.id);
-                    return recordingLink ? (
+                    const recordingLinksForLesson = getRecordingLinks(lesson.id);
+                    return recordingLinksForLesson.length > 0 ? (
                       <div className="recording-section">
-                        <div className="recording-info">
-                          <a 
-                            href={recordingLink.url} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="action-btn primary"
-                          >
-                            <Play size={18} />
-                            האזנה להקלטה
-                          </a>
-                          {recordingLink.fileSize && (
-                            <span className="file-size">{recordingLink.fileSize}</span>
-                          )}
-                        </div>
-                        {isAdmin && (
-                          <div className="admin-actions">
-                            <button
-                              onClick={() => handleEditLink(recordingLink)}
-                              className="action-btn secondary small"
-                              title="ערוך קישור"
+                        {recordingLinksForLesson.map(recordingLink => (
+                          <div key={recordingLink.id} className="recording-info">
+                            <a 
+                              href={recordingLink.url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="action-btn primary"
                             >
-                              <Edit3 size={14} />
-                              ערוך
-                            </button>
-                            <button
-                              onClick={() => handleDeleteLink(recordingLink.id)}
-                              className="action-btn danger small"
-                              title="מחק קישור"
-                            >
-                              <Trash2 size={14} />
-                              מחק
-                            </button>
+                              <Play size={18} />
+                              האזנה להקלטה
+                              {recordingLinksForLesson.length > 1 && (
+                                <span style={{fontSize: '12px', marginRight: '5px'}}>
+                                  ({recordingLink.title})
+                                </span>
+                              )}
+                            </a>
+                            {recordingLink.fileSize && (
+                              <span className="file-size">{recordingLink.fileSize}</span>
+                            )}
+                            {isAdmin && (
+                              <div className="admin-actions" style={{marginTop: '5px'}}>
+                                <button
+                                  onClick={() => handleEditLink(recordingLink)}
+                                  className="action-btn secondary small"
+                                  title="ערוך קישור"
+                                >
+                                  <Edit3 size={14} />
+                                  ערוך
+                                </button>
+                                <button
+                                  onClick={() => handleDeleteLink(recordingLink.id)}
+                                  className="action-btn danger small"
+                                  title="מחק קישור"
+                                >
+                                  <Trash2 size={14} />
+                                  מחק
+                                </button>
+                              </div>
+                            )}
                           </div>
-                        )}
+                        ))}
                       </div>
                     ) : null;
                   })()}
@@ -540,8 +547,11 @@ const ArchivePage: React.FC = () => {
                   type="text"
                   value={linkForm.title}
                   onChange={(e) => setLinkForm(prev => ({ ...prev, title: e.target.value }))}
-                  placeholder="לדוגמה: הקלטת שיעור גמרא"
+                  placeholder="הכותרת נוצרת אוטומטית מפרטי השיעור"
                 />
+                <small style={{color: '#666', fontSize: '12px'}}>
+                  הכותרת מתמלאת אוטומטית, אך ניתן לערוך אותها
+                </small>
               </div>
               
               <div className="form-group">

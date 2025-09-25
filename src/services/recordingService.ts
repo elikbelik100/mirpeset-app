@@ -1,5 +1,4 @@
 // Recording Service for managing lesson recordings
-import GitHubService from './githubService';
 
 export interface RecordingLink {
   id: string;
@@ -13,7 +12,6 @@ export interface RecordingLink {
 
 class RecordingService {
   private static instance: RecordingService;
-  private githubService = GitHubService.getInstance();
 
   private constructor() {}
 
@@ -40,80 +38,39 @@ class RecordingService {
     return url;
   }
 
-  /**
-   * Get current recordings.json file from GitHub
-   */
-  private async getCurrentRecordingsFile(): Promise<{ sha: string; content: string }> {
-    try {
-      const response = await fetch(`${this.githubService['config'].getBaseUrl()}/contents/public/data/recordings.json?ref=${this.githubService['config'].branch}`, {
-        headers: this.githubService['getHeaders'](),
-      });
 
-      if (!response.ok) {
-        if (response.status === 404) {
-          // File doesn't exist, return empty
-          return { sha: '', content: '[]' };
-        }
-        throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      return {
-        sha: data.sha,
-        content: atob(data.content), // Decode base64
-      };
-    } catch (error) {
-      console.error('Error fetching recordings file from GitHub:', error);
-      throw error;
-    }
-  }
 
   /**
-   * Update recordings.json file in GitHub
+   * Update recordings.json file in GitHub (simplified approach)
    */
   private async updateRecordingsFile(recordings: RecordingLink[], commitMessage?: string): Promise<boolean> {
     try {
-      // Get current file to get SHA
-      const currentFile = await this.getCurrentRecordingsFile();
+      // For now, store in localStorage and log to console
+      // TODO: Implement proper GitHub integration
+      localStorage.setItem('recordings', JSON.stringify(recordings));
+      console.log('📝 Recordings saved locally:', recordings);
+      console.log('💡 Message:', commitMessage || `עדכון הקלטות - ${new Date().toLocaleString('he-IL')}`);
       
-      // Prepare new content
-      const newContent = JSON.stringify(recordings, null, 2);
-      const encodedContent = btoa(unescape(encodeURIComponent(newContent))); // Encode to base64
-
-      const updateData = {
-        message: commitMessage || `עדכון הקלטות - ${new Date().toLocaleString('he-IL')}`,
-        content: encodedContent,
-        sha: currentFile.sha,
-        branch: this.githubService['config'].branch,
-      };
-
-      const method = currentFile.sha ? 'PUT' : 'PUT'; // Always PUT for both create and update
-      const response = await fetch(`${this.githubService['config'].getBaseUrl()}/contents/public/data/recordings.json`, {
-        method,
-        headers: this.githubService['getHeaders'](),
-        body: JSON.stringify(updateData),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(`GitHub API error: ${response.status} - ${errorData.message}`);
-      }
-
-      console.log('✅ Recordings updated successfully in GitHub');
       return true;
     } catch (error) {
-      console.error('❌ Error updating recordings in GitHub:', error);
+      console.error('❌ Error saving recordings:', error);
       throw error;
     }
   }
 
   /**
-   * Load all recordings from GitHub
+   * Load all recordings (from localStorage for now)
    */
   async loadRecordings(): Promise<RecordingLink[]> {
     try {
-      const file = await this.getCurrentRecordingsFile();
-      const recordings = JSON.parse(file.content) as RecordingLink[];
+      const stored = localStorage.getItem('recordings');
+      if (!stored) {
+        console.log('📁 No recordings found in storage');
+        return [];
+      }
+      
+      const recordings = JSON.parse(stored) as RecordingLink[];
+      console.log('📚 Loaded recordings:', recordings);
       
       // Format URLs for better playback
       return recordings.map(recording => ({
