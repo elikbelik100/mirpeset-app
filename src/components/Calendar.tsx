@@ -6,12 +6,14 @@ import {
   MapPin,
   Plus,
   Filter,
-  Trash2
+  Trash2,
+  Calendar as CalendarIcon
 } from 'lucide-react';
 import type { Lesson } from '../types';
 import { LessonService } from '../services/lessonService';
 import AuthService from '../services/authService';
 import HebrewDateService from '../services/hebrewDateService';
+import GoogleCalendarService from '../services/googleCalendarService';
 import './Calendar.css';
 
 type ViewType = 'month' | 'week' | 'day';
@@ -34,6 +36,7 @@ const Calendar: React.FC<CalendarProps> = ({
   const [filterCategory, setFilterCategory] = useState<string>('all');
 
   const authService = AuthService.getInstance();
+  const googleCalendarService = GoogleCalendarService.getInstance();
 
   useEffect(() => {
     loadLessons();
@@ -74,6 +77,20 @@ const Calendar: React.FC<CalendarProps> = ({
 
   const goToToday = () => {
     setCurrentDate(new Date());
+  };
+
+  const handleAddToGoogleCalendar = (lesson: Lesson, event?: React.MouseEvent) => {
+    if (event) {
+      event.stopPropagation(); // מנע מהאירוע להתפשט לרכיב האב
+    }
+    
+    try {
+      const calendarEvent = googleCalendarService.createEventFromLesson(lesson);
+      googleCalendarService.addToGoogleCalendar(calendarEvent);
+    } catch (error) {
+      console.error('Error adding to Google Calendar:', error);
+      alert('שגיאה בהוספה ל-Google Calendar');
+    }
   };
 
   const formatTitle = () => {
@@ -361,6 +378,13 @@ const Calendar: React.FC<CalendarProps> = ({
                           )}
                         </div>
                         <div className="lesson-actions">
+                          <button
+                            className="lesson-action-btn google-calendar"
+                            onClick={(e) => handleAddToGoogleCalendar(lesson, e)}
+                            title="הוסף ל-Google Calendar"
+                          >
+                            <CalendarIcon size={14} />
+                          </button>
                           {authService.hasPermission('create_lesson') && (
                             <button
                               className="lesson-action-btn delete"

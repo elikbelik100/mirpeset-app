@@ -531,6 +531,16 @@
   color: white;
 }
 
+.lesson-action-btn.google-calendar {
+  color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.lesson-action-btn.google-calendar:hover {
+  background: #1d4ed8;
+  color: white;
+}
+
 .lesson-action-btn.delete {
   color: #dc2626;
   border-color: #dc2626;
