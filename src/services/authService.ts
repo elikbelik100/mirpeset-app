@@ -8,7 +8,7 @@ class AuthService {
 
   // Admin credentials
   private readonly adminUsers = [
-    { email: 'jeliyahu@gmail.com', password: '123321', name: 'יהודה אליהו' },
+    { email: 'jeliyahu@gmail.com', password: '123321', name: 'אלי פיינסילבר' },
     { email: 'hagbibig@gmail.com', password: '123321', name: 'מנהל המערכת' }
   ];
 
