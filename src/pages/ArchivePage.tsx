@@ -20,21 +20,12 @@ import {
 import type { Lesson } from '../types';
 import { LessonService } from '../services/lessonService';
 import AuthService from '../services/authService';
+import RecordingService, { type RecordingLink } from '../services/recordingService';
 import './ArchivePage.css';
 
 interface ArchivedLesson extends Lesson {
   recordingDuration: string;
   speaker?: string; // תמיכה בשדה speaker במקרה של נתונים ישנים
-}
-
-interface RecordingLink {
-  id: string;
-  lessonId: string;
-  title: string;
-  url: string;
-  description?: string;
-  uploadDate: string;
-  fileSize?: string;
 }
 
 const ArchivePage: React.FC = () => {
@@ -56,6 +47,7 @@ const ArchivePage: React.FC = () => {
   });
 
   const authService = AuthService.getInstance();
+  const recordingService = RecordingService.getInstance();
   const currentUser = authService.getCurrentUser();
   const isAdmin = currentUser?.role === 'admin';
 
@@ -70,30 +62,11 @@ const ArchivePage: React.FC = () => {
 
   const loadRecordingLinks = async () => {
     try {
-      // בפועל יקרא מ-GoogleDriveService או ממסד נתונים
-      const mockLinks: RecordingLink[] = [
-        {
-          id: '1',
-          lessonId: '1',
-          title: 'הקלטת שיעור גמרא',
-          url: 'https://drive.google.com/file/d/example1/view',
-          description: 'הקלטה איכותית של השיעור',
-          uploadDate: '2025-08-01',
-          fileSize: '150MB'
-        },
-        {
-          id: '2',
-          lessonId: '2',
-          title: 'הקלטת שיעור הלכה',
-          url: 'https://drive.google.com/file/d/example2/view',
-          description: 'שיעור מפורט בהלכות שבת',
-          uploadDate: '2025-08-05',
-          fileSize: '120MB'
-        }
-      ];
-      setRecordingLinks(mockLinks);
+      const links = await recordingService.loadRecordings();
+      setRecordingLinks(links);
     } catch (error) {
       console.error('Error loading recording links:', error);
+      setRecordingLinks([]);
     }
   };
 
@@ -237,38 +210,52 @@ const ArchivePage: React.FC = () => {
     setShowLinkModal(true);
   };
 
-  const handleDeleteLink = (linkId: string) => {
+  const handleDeleteLink = async (linkId: string) => {
     if (confirm('האם אתה בטוח שברצונך למחוק את הקישור?')) {
-      setRecordingLinks(prev => prev.filter(link => link.id !== linkId));
+      try {
+        await recordingService.deleteRecording(linkId);
+        await loadRecordingLinks(); // Reload from GitHub
+        alert('הקישור נמחק בהצלחה');
+      } catch (error) {
+        console.error('Error deleting recording:', error);
+        alert('שגיאה במחיקת הקישור');
+      }
     }
   };
 
-  const handleSaveLink = () => {
+  const handleSaveLink = async () => {
     if (!linkForm.title || !linkForm.url) {
       alert('אנא מלא את כל השדות הנדרשים');
       return;
     }
 
-    if (editingLink) {
-      // עריכת קישור קיים
-      setRecordingLinks(prev => prev.map(link => 
-        link.id === editingLink.id 
-          ? { ...link, ...linkForm, uploadDate: new Date().toISOString().split('T')[0] }
-          : link
-      ));
-    } else {
-      // הוספת קישור חדש
-      const newLink: RecordingLink = {
-        id: crypto.randomUUID(),
-        ...linkForm,
-        uploadDate: new Date().toISOString().split('T')[0],
-      };
-      setRecordingLinks(prev => [...prev, newLink]);
-    }
+    try {
+      if (editingLink) {
+        // עריכת קישור קיים
+        await recordingService.updateRecording(editingLink.id, {
+          title: linkForm.title,
+          url: linkForm.url,
+          description: linkForm.description,
+        });
+      } else {
+        // הוספת קישור חדש
+        await recordingService.addRecording({
+          lessonId: linkForm.lessonId,
+          title: linkForm.title,
+          url: linkForm.url,
+          description: linkForm.description,
+        });
+      }
 
-    setShowLinkModal(false);
-    setLinkForm({ lessonId: '', title: '', url: '', description: '' });
-    setEditingLink(null);
+      await loadRecordingLinks(); // Reload from GitHub
+      setShowLinkModal(false);
+      setLinkForm({ lessonId: '', title: '', url: '', description: '' });
+      setEditingLink(null);
+      alert('הקישור נשמר בהצלחה ויהיה זמין לכל המשתמשים');
+    } catch (error) {
+      console.error('Error saving recording:', error);
+      alert('שגיאה בשמירת הקישור');
+    }
   };
 
   const getLinkForLesson = (lessonId: string) => {
@@ -473,8 +460,8 @@ const ArchivePage: React.FC = () => {
                             rel="noopener noreferrer"
                             className="action-btn primary"
                           >
-                            <ExternalLink size={18} />
-                            צפה בהקלטה
+                            <Play size={18} />
+                            האזנה להקלטה
                           </a>
                           {recordingLink.fileSize && (
                             <span className="file-size">{recordingLink.fileSize}</span>
