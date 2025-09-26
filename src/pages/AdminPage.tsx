@@ -465,7 +465,7 @@ const CreateLessonForm: React.FC<CreateLessonFormProps> = ({ onSubmit, onCancel 
       time: formData.time,
       duration: 90, // 90 דקות ברירת מחדל
       teacher: formData.teacher,
-      location: 'אולם ההרצאות', // מיקום ברירת מחדל
+      location: 'המרפסת', // מיקום ברירת מחדל
       category: formData.category,
       status: formData.status,
       maxParticipants: formData.maxParticipants,
