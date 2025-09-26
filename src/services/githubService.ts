@@ -37,7 +37,9 @@ class GitHubService {
    */
   async getCurrentLessonsFile(): Promise<GitHubFileResponse> {
     try {
-      const response = await fetch(`${this.config.getBaseUrl()}/contents/public/data/lessons.json?ref=${this.config.branch}`, {
+      // Add timestamp to bypass cache
+      const timestamp = new Date().getTime();
+      const response = await fetch(`${this.config.getBaseUrl()}/contents/public/data/lessons.json?ref=${this.config.branch}&t=${timestamp}`, {
         headers: this.getHeaders(),
       });
 
@@ -114,7 +116,9 @@ class GitHubService {
    */
   async getCurrentRecordingsFile(): Promise<GitHubFileResponse> {
     try {
-      const response = await fetch(`${this.config.getBaseUrl()}/contents/public/data/recordings.json?ref=${this.config.branch}`, {
+      // Add timestamp to bypass cache
+      const timestamp = new Date().getTime();
+      const response = await fetch(`${this.config.getBaseUrl()}/contents/public/data/recordings.json?ref=${this.config.branch}&t=${timestamp}`, {
         headers: this.getHeaders(),
       });
 

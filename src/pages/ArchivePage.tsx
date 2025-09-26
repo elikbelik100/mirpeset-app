@@ -462,26 +462,7 @@ const ArchivePage: React.FC = () => {
                             {recordingLink.fileSize && (
                               <span className="file-size">{recordingLink.fileSize}</span>
                             )}
-                            {isAdmin && (
-                              <div className="admin-actions" style={{marginTop: '5px'}}>
-                                <button
-                                  onClick={() => handleEditLink(recordingLink)}
-                                  className="action-btn secondary small"
-                                  title="ערוך קישור"
-                                >
-                                  <Edit3 size={14} />
-                                  ערוך
-                                </button>
-                                <button
-                                  onClick={() => handleDeleteLink(recordingLink.id)}
-                                  className="action-btn danger small"
-                                  title="מחק קישור"
-                                >
-                                  <Trash2 size={14} />
-                                  מחק
-                                </button>
-                              </div>
-                            )}
+
                           </div>
                         ))}
                       </div>
