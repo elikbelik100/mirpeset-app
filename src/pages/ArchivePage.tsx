@@ -488,20 +488,22 @@ const ArchivePage: React.FC = () => {
                     ) : null;
                   })()}
                   
-                  <button
-                    onClick={() => handleDownload(lesson)}
-                    className="action-btn secondary"
-                  >
-                    <Download size={18} />
-                    הורדה
-                  </button>
-                  <button
-                    onClick={() => handleShare(lesson)}
-                    className="action-btn secondary"
-                  >
-                    <Share2 size={18} />
-                    שיתוף
-                  </button>
+                  <div className="download-share-buttons">
+                    <button
+                      onClick={() => handleDownload(lesson)}
+                      className="action-btn secondary"
+                    >
+                      <Download size={18} />
+                      הורדה
+                    </button>
+                    <button
+                      onClick={() => handleShare(lesson)}
+                      className="action-btn secondary"
+                    >
+                      <Share2 size={18} />
+                      שיתוף
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

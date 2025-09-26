@@ -305,14 +305,20 @@
 
 .lesson-actions {
   display: flex;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.download-share-buttons {
+  display: flex;
+  gap: 0.75rem;
 }
 
 .action-btn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.25rem;
   border: none;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -321,6 +327,8 @@
   transition: all 0.2s ease;
   flex: 1;
   justify-content: center;
+  min-width: fit-content;
+  white-space: nowrap;
 }
 
 .action-btn.primary {
@@ -382,6 +390,11 @@
   
   .lesson-actions {
     flex-direction: column;
+  }
+  
+  .download-share-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
   }
   
   .lesson-meta {
