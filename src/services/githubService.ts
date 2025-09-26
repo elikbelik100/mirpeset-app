@@ -48,9 +48,19 @@ class GitHubService {
       }
 
       const data = await response.json();
+      // Proper UTF-8 decoding for Hebrew text
+      const base64Content = data.content;
+      const binaryString = atob(base64Content);
+      const bytes = new Uint8Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      const decoder = new TextDecoder('utf-8');
+      const decodedContent = decoder.decode(bytes);
+      
       return {
         sha: data.sha,
-        content: atob(data.content), // Decode base64
+        content: decodedContent,
       };
     } catch (error) {
       console.error('Error fetching lessons file from GitHub:', error);
@@ -68,7 +78,10 @@ class GitHubService {
       
       // Prepare new content
       const newContent = JSON.stringify(lessons, null, 2);
-      const encodedContent = btoa(unescape(encodeURIComponent(newContent))); // Encode to base64
+      // Proper UTF-8 encoding for Hebrew text
+      const encoder = new TextEncoder();
+      const utf8Bytes = encoder.encode(newContent);
+      const encodedContent = btoa(String.fromCharCode(...utf8Bytes)); // Encode to base64
 
       const updateData: GitHubUpdateRequest = {
         message: commitMessage || `Update lessons - ${new Date().toLocaleString('he-IL')}`,
@@ -127,9 +140,19 @@ class GitHubService {
       }
 
       const data = await response.json();
+      // Proper UTF-8 decoding for Hebrew text
+      const base64Content = data.content;
+      const binaryString = atob(base64Content);
+      const bytes = new Uint8Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      const decoder = new TextDecoder('utf-8');
+      const decodedContent = decoder.decode(bytes);
+      
       return {
         sha: data.sha,
-        content: atob(data.content), // Decode base64
+        content: decodedContent,
       };
     } catch (error) {
       console.error('Error fetching recordings file from GitHub:', error);
@@ -147,7 +170,10 @@ class GitHubService {
       
       // Prepare new content
       const newContent = JSON.stringify(recordings, null, 2);
-      const encodedContent = btoa(unescape(encodeURIComponent(newContent))); // Encode to base64
+      // Proper UTF-8 encoding for Hebrew text
+      const encoder = new TextEncoder();
+      const utf8Bytes = encoder.encode(newContent);
+      const encodedContent = btoa(String.fromCharCode(...utf8Bytes)); // Encode to base64
 
       const updateData: GitHubUpdateRequest = {
         message: commitMessage || `Update recordings - ${new Date().toLocaleString('he-IL')}`,
