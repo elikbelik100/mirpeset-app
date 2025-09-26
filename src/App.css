@@ -14,10 +14,13 @@ body {
   min-height: 100vh;
   color: #2c3e50;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .App {
   min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Global button styles */
