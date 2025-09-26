@@ -1,4 +1,5 @@
 // Recording Service for managing lesson recordings
+import GitHubService from './githubService';
 
 export interface RecordingLink {
   id: string;
@@ -12,6 +13,7 @@ export interface RecordingLink {
 
 class RecordingService {
   private static instance: RecordingService;
+  private githubService = GitHubService.getInstance();
 
   private constructor() {}
 
@@ -41,17 +43,29 @@ class RecordingService {
 
 
   /**
-   * Update recordings.json file in GitHub (simplified approach)
+   * Update recordings.json file in GitHub with localStorage fallback
    */
   private async updateRecordingsFile(recordings: RecordingLink[], commitMessage?: string): Promise<boolean> {
     try {
-      // For now, store in localStorage and log to console
-      // TODO: Implement proper GitHub integration
+      // Always save to localStorage as backup
       localStorage.setItem('recordings', JSON.stringify(recordings));
-      console.log('📝 Recordings saved locally:', recordings);
-      console.log('💡 Message:', commitMessage || `עדכון הקלטות - ${new Date().toLocaleString('he-IL')}`);
-      
-      return true;
+      console.log('📝 Recordings saved locally as backup:', recordings.length, 'recordings');
+
+      // Try to save to GitHub if configured
+      if (this.githubService.isConfigured()) {
+        try {
+          await this.githubService.updateRecordingsFile(recordings, commitMessage);
+          console.log('✅ Recordings synchronized to GitHub successfully');
+          return true;
+        } catch (githubError) {
+          console.error('❌ Failed to sync to GitHub, but saved locally:', githubError);
+          // Don't throw - we have localStorage backup
+          return true;
+        }
+      } else {
+        console.warn('⚠️ GitHub not configured, recordings saved locally only');
+        return true;
+      }
     } catch (error) {
       console.error('❌ Error saving recordings:', error);
       throw error;
@@ -59,10 +73,32 @@ class RecordingService {
   }
 
   /**
-   * Load all recordings (from localStorage for now)
+   * Load all recordings from GitHub with localStorage fallback
    */
   async loadRecordings(): Promise<RecordingLink[]> {
     try {
+      // Try to load from GitHub first if configured
+      if (this.githubService.isConfigured()) {
+        try {
+          const githubFile = await this.githubService.getCurrentRecordingsFile();
+          const githubRecordings = JSON.parse(githubFile.content) as RecordingLink[];
+          
+          // Also save to localStorage as cache
+          localStorage.setItem('recordings', JSON.stringify(githubRecordings));
+          console.log('📚 Loaded recordings from GitHub:', githubRecordings.length, 'recordings');
+          
+          // Format URLs for better playback
+          return githubRecordings.map(recording => ({
+            ...recording,
+            url: this.formatDriveUrl(recording.url)
+          }));
+        } catch (githubError) {
+          console.warn('⚠️ Failed to load from GitHub, trying localStorage:', githubError);
+          // Fall back to localStorage
+        }
+      }
+
+      // Fallback to localStorage
       const stored = localStorage.getItem('recordings');
       if (!stored) {
         console.log('📁 No recordings found in storage');
@@ -70,7 +106,7 @@ class RecordingService {
       }
       
       const recordings = JSON.parse(stored) as RecordingLink[];
-      console.log('📚 Loaded recordings:', recordings);
+      console.log('📚 Loaded recordings from localStorage:', recordings.length, 'recordings');
       
       // Format URLs for better playback
       return recordings.map(recording => ({
@@ -78,7 +114,7 @@ class RecordingService {
         url: this.formatDriveUrl(recording.url)
       }));
     } catch (error) {
-      console.error('Error loading recordings:', error);
+      console.error('❌ Error loading recordings:', error);
       return [];
     }
   }

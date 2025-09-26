@@ -110,6 +110,68 @@ class GitHubService {
   }
 
   /**
+   * Get current recordings.json file from GitHub
+   */
+  async getCurrentRecordingsFile(): Promise<GitHubFileResponse> {
+    try {
+      const response = await fetch(`${this.config.getBaseUrl()}/contents/public/data/recordings.json?ref=${this.config.branch}`, {
+        headers: this.getHeaders(),
+      });
+
+      if (!response.ok) {
+        throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      return {
+        sha: data.sha,
+        content: atob(data.content), // Decode base64
+      };
+    } catch (error) {
+      console.error('Error fetching recordings file from GitHub:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Update recordings.json file in GitHub
+   */
+  async updateRecordingsFile(recordings: any[], commitMessage?: string): Promise<boolean> {
+    try {
+      // Get current file to get SHA
+      const currentFile = await this.getCurrentRecordingsFile();
+      
+      // Prepare new content
+      const newContent = JSON.stringify(recordings, null, 2);
+      const encodedContent = btoa(unescape(encodeURIComponent(newContent))); // Encode to base64
+
+      const updateData: GitHubUpdateRequest = {
+        message: commitMessage || `Update recordings - ${new Date().toLocaleString('he-IL')}`,
+        content: encodedContent,
+        sha: currentFile.sha,
+        branch: this.config.branch,
+      };
+
+      const response = await fetch(`${this.config.getBaseUrl()}/contents/public/data/recordings.json`, {
+        method: 'PUT',
+        headers: this.getHeaders(),
+        body: JSON.stringify(updateData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`GitHub API error: ${response.status} - ${errorData.message}`);
+      }
+
+      console.log('✅ Recordings updated successfully in GitHub');
+      return true;
+    } catch (error) {
+      console.error('❌ Error updating recordings in GitHub:', error);
+      throw error;
+    }
+  }
+
+  /**
    * Check if GitHub token is configured
    */
   isConfigured(): boolean {
