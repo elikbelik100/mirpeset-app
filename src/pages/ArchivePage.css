@@ -393,7 +393,7 @@
   }
   
   .download-share-buttons {
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
   }
   
@@ -415,6 +415,11 @@
   .lesson-rating {
     margin-left: 0;
     align-self: flex-start;
+  }
+  
+  .download-share-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
 
