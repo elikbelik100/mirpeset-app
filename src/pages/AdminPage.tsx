@@ -392,14 +392,16 @@ const LessonCard: React.FC<LessonCardProps> = ({
           <button 
             onClick={() => onEdit(lesson.id)}
             className="btn-edit"
+            title="ערוך שיעור"
           >
-            <Edit size={16} />
+            <Edit size={18} />
           </button>
           <button 
             onClick={() => onDelete(lesson.id, lesson.title)}
             className="btn-delete"
+            title="מחק שיעור"
           >
-            <Trash2 size={16} />
+            <Trash2 size={18} />
           </button>
         </div>
       </div>
