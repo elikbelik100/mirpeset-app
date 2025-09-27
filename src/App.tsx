@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 import Layout from './components/Layout';
 import LessonsPage from './pages/LessonsPage';
 import PostersPage from './pages/PostersPage';
@@ -11,6 +12,27 @@ import NotificationsPage from './pages/NotificationsPage';
 import './App.css';
 
 function App() {
+  // Load theme settings on app startup
+  useEffect(() => {
+    const loadThemeSettings = () => {
+      try {
+        const saved = localStorage.getItem('mirpeset-settings');
+        if (saved) {
+          const settings = JSON.parse(saved);
+          if (settings.appearance?.theme === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+          } else {
+            document.documentElement.classList.remove('dark-theme');
+          }
+        }
+      } catch (error) {
+        console.warn('Failed to load theme settings:', error);
+      }
+    };
+
+    loadThemeSettings();
+  }, []);
+
   return (
     <Router>
       <div className="App">

@@ -258,3 +258,47 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
+
+/* Dark Theme - Layout */
+.dark-theme .layout {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.dark-theme .header {
+  background: rgba(45, 55, 72, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .nav-item {
+  color: #e2e8f0;
+}
+
+.dark-theme .nav-item:hover,
+.dark-theme .nav-item.active {
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.dark-theme .nav-item svg {
+  color: #a0aec0;
+}
+
+.dark-theme .nav-item:hover svg,
+.dark-theme .nav-item.active svg {
+  color: #667eea;
+}
+
+.dark-theme .logo {
+  color: #e2e8f0;
+}
+
+.dark-theme .login-btn {
+  background: #667eea;
+  color: white;
+}
+
+.dark-theme .login-btn:hover {
+  background: #5a67d8;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}

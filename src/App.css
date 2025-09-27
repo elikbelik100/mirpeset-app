@@ -106,3 +106,52 @@ input, textarea, select {
 .p-2 { padding: 1rem; }
 .p-3 { padding: 1.5rem; }
 .p-4 { padding: 2rem; }
+
+/* Dark Theme - Global Styles */
+.dark-theme body {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #e2e8f0;
+}
+
+.dark-theme .App {
+  background: transparent;
+}
+
+/* Dark Theme - Common Elements */
+.dark-theme input,
+.dark-theme textarea,
+.dark-theme select {
+  background: #2d3748;
+  color: #e2e8f0;
+  border-color: #4a5568;
+}
+
+.dark-theme input:focus,
+.dark-theme textarea:focus,
+.dark-theme select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.dark-theme button {
+  background: #2d3748;
+  color: #e2e8f0;
+  border-color: #4a5568;
+}
+
+.dark-theme button:hover {
+  background: #4a5568;
+}
+
+/* Dark Theme - Scrollbar */
+.dark-theme ::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb {
+  background: #4a5568;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
