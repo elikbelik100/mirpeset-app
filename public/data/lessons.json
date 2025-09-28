@@ -116,29 +116,6 @@
   },
   {
     "title": "הכנה ליום הכיפורים",
-    "description": "מעביר: הרב יואב אוריאל",
-    "category": "הכנה ליום הכיפורים",
-    "date": "2025-09-28T18:00:00.000Z",
-    "time": "21:00",
-    "duration": 90,
-    "teacher": "הרב יואב אוריאל",
-    "location": "",
-    "status": "scheduled",
-    "currentParticipants": 0,
-    "tags": [],
-    "notifications": {
-      "enabled": true,
-      "reminderTimes": [
-        30,
-        10
-      ]
-    },
-    "id": "538c3a17-4a94-4258-94c4-86dcaec0e4bb",
-    "createdAt": "2025-09-01T05:58:53.802Z",
-    "updatedAt": "2025-09-01T05:58:53.802Z"
-  },
-  {
-    "title": "הכנה ליום הכיפורים",
     "description": "מעביר: הרב ברוך רוזנבלום",
     "category": "הכנה ליום הכיפורים",
     "date": "2025-09-28T19:00:00.000Z",
