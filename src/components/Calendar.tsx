@@ -93,6 +93,21 @@ const Calendar: React.FC<CalendarProps> = ({
     }
   };
 
+  // Helper function to get Hebrew months that overlap with a Gregorian month
+  const getHebrewMonthsForGregorianMonth = (year: number, month: number) => {
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0); // Last day of the month
+    
+    const firstHebrew = HebrewDateService.getHebrewDateParts(firstDay);
+    const lastHebrew = HebrewDateService.getHebrewDateParts(lastDay);
+    
+    if (firstHebrew.monthName === lastHebrew.monthName) {
+      return firstHebrew.monthName;
+    } else {
+      return `${firstHebrew.monthName}-${lastHebrew.monthName}`;
+    }
+  };
+
   const formatTitle = () => {
     const months = [
       'ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני',
@@ -103,10 +118,9 @@ const Calendar: React.FC<CalendarProps> = ({
 
     switch (viewType) {
       case 'month': {
-        // Use Hebrew month of first day of current Gregorian month for title
-        const first = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-        const hFirst = HebrewDateService.getHebrewDateParts(first);
-        return `${hFirst.monthName} / ${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+        // Get Hebrew months that overlap with current Gregorian month
+        const hebrewMonths = getHebrewMonthsForGregorianMonth(currentDate.getFullYear(), currentDate.getMonth());
+        return `${hebrewMonths} / ${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
       }
       case 'week':
         const weekStart = getWeekStart(currentDate);
