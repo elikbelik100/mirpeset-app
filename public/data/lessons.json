@@ -1484,5 +1484,31 @@
     "createdAt": "2025-09-28T06:42:02.245Z",
     "updatedAt": "2025-09-28T06:42:02.245Z",
     "id": "de9b6de2-9c0a-483f-8721-ce0b2b19b618"
+  },
+  {
+    "title": "הכנה ליום הכיפורים",
+    "description": "",
+    "date": "2025-09-28T18:15:00.000Z",
+    "time": "21:15",
+    "duration": 90,
+    "teacher": "הרב ערן טמיר",
+    "location": "המרפסת",
+    "category": "אירועים מיוחדים",
+    "status": "scheduled",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-09-28T06:45:23.276Z",
+    "updatedAt": "2025-09-28T06:45:23.276Z",
+    "id": "979acc34-dbc1-4a85-873d-355bb50f6165"
   }
 ]
