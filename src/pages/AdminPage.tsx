@@ -350,7 +350,9 @@ const LessonCard: React.FC<LessonCardProps> = ({
             <option value="כולל יום שישי">כולל יום שישי</option>
             <option value="אירועים מיוחדים">אירועים מיוחדים</option>
             <option value="חינוך וחברה">חינוך וחברה</option>
+            <option value="הכנה לחגים">הכנה לחגים</option>
             <option value="מוסר והשקפה">מוסר והשקפה</option>
+            <option value="סדרות">סדרות</option>
             <option value="עבודת ה׳">עבודת ה׳</option>
             <option value="תנ״ך ואגדה">תנ״ך ואגדה</option>
           </select>
@@ -547,7 +549,9 @@ const CreateLessonForm: React.FC<CreateLessonFormProps> = ({ onSubmit, onCancel 
               <option value="כולל יום שישי">כולל יום שישי</option>
               <option value="אירועים מיוחדים">אירועים מיוחדים</option>
               <option value="חינוך וחברה">חינוך וחברה</option>
+              <option value="הכנה לחגים">הכנה לחגים</option>
               <option value="מוסר והשקפה">מוסר והשקפה</option>
+              <option value="סדרות">סדרות</option>
               <option value="עבודת ה׳">עבודת ה׳</option>
               <option value="תנ״ך ואגדה">תנ״ך ואגדה</option>
             </select>
