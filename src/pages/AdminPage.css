@@ -579,3 +579,130 @@
 .dark-theme .btn-delete:hover {
   background: #e53e3e;
 }
+
+/* Analytics Section Styles */
+.analytics-section {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.analytics-section .section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+}
+
+.analytics-section .section-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.analytics-stats .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.analytics-stats .stat-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid #e2e8f0;
+  transition: all 0.2s;
+}
+
+.analytics-stats .stat-item:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.analytics-stats .stat-item strong {
+  display: block;
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.analytics-stats .stat-item span {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.analytics-stats .stats-details {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid #e2e8f0;
+}
+
+.analytics-stats .stats-details p {
+  margin: 0.5rem 0;
+  color: #475569;
+}
+
+.analytics-stats .privacy-note {
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.analytics-stats .privacy-note p {
+  margin: 0;
+  color: #92400e;
+  font-size: 0.875rem;
+}
+
+/* Dark theme support for analytics */
+:root.dark-theme .analytics-section {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+:root.dark-theme .analytics-section .section-header {
+  color: #f9fafb;
+}
+
+:root.dark-theme .analytics-stats .stat-item {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+:root.dark-theme .analytics-stats .stat-item:hover {
+  border-color: #60a5fa;
+}
+
+:root.dark-theme .analytics-stats .stat-item strong {
+  color: #f9fafb;
+}
+
+:root.dark-theme .analytics-stats .stat-item span {
+  color: #d1d5db;
+}
+
+:root.dark-theme .analytics-stats .stats-details {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+:root.dark-theme .analytics-stats .stats-details p {
+  color: #d1d5db;
+}
+
+:root.dark-theme .analytics-stats .privacy-note {
+  background: #78350f;
+  border-color: #f59e0b;
+}
+
+:root.dark-theme .analytics-stats .privacy-note p {
+  color: #fcd34d;
+}

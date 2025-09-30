@@ -511,3 +511,102 @@
     text-align: center;
   }
 }
+
+/* Analytics Statistics Styles */
+.analytics-stats {
+  margin-top: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-item {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid #e2e8f0;
+  transition: all 0.2s;
+}
+
+.stat-item:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.stat-item strong {
+  display: block;
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.stat-item span {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.stats-details {
+  background: #f1f5f9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.stats-details p {
+  margin: 0.5rem 0;
+  color: #475569;
+}
+
+.privacy-note {
+  background: #ecfdf5;
+  border: 1px solid #d1fae5;
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.privacy-note p {
+  margin: 0;
+  color: #065f46;
+  font-size: 0.875rem;
+}
+
+/* Dark theme support for analytics */
+:root.dark-theme .stat-item {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+:root.dark-theme .stat-item:hover {
+  border-color: #60a5fa;
+}
+
+:root.dark-theme .stat-item strong {
+  color: #f9fafb;
+}
+
+:root.dark-theme .stat-item span {
+  color: #d1d5db;
+}
+
+:root.dark-theme .stats-details {
+  background: #374151;
+}
+
+:root.dark-theme .stats-details p {
+  color: #d1d5db;
+}
+
+:root.dark-theme .privacy-note {
+  background: #064e3b;
+  border-color: #065f46;
+}
+
+:root.dark-theme .privacy-note p {
+  color: #a7f3d0;
+}

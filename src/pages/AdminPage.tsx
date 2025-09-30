@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Edit, Trash2, Save, X, Upload, Download, RefreshCw, AlertCircle, CheckCircle, Plus } from 'lucide-react';
+import { Edit, Trash2, Save, X, Upload, Download, RefreshCw, AlertCircle, CheckCircle, Plus, BarChart3 } from 'lucide-react';
 import { LessonService } from '../services/lessonService';
 import AuthService from '../services/authService';
+import analyticsService from '../services/analyticsService';
 import type { Lesson } from '../types';
 import './AdminPage.css';
 
@@ -16,12 +17,14 @@ const AdminPage: React.FC = () => {
   const [message, setMessage] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [showCreateForm, setShowCreateForm] = useState(false);
+  const [analyticsStats, setAnalyticsStats] = useState<any>(null);
 
   const authService = AuthService.getInstance();
   const currentUser = authService.getCurrentUser();
 
   useEffect(() => {
     loadLessons();
+    loadAnalytics();
     
     // בדיקה אם יש פרמטר תאריך בURL
     const urlParams = new URLSearchParams(window.location.search);
@@ -41,6 +44,15 @@ const AdminPage: React.FC = () => {
       showMessage('error', 'שגיאה בטעינת השיעורים');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const loadAnalytics = () => {
+    try {
+      const stats = analyticsService.getFormattedStats();
+      setAnalyticsStats(stats);
+    } catch (error) {
+      console.error('Error loading analytics:', error);
     }
   };
 
@@ -213,6 +225,46 @@ const AdminPage: React.FC = () => {
       {message && (
         <div className={`message ${message.type}`}>
           {message.text}
+        </div>
+      )}
+
+      {/* Usage Analytics Section */}
+      {analyticsStats && (
+        <div className="analytics-section">
+          <div className="section-header">
+            <BarChart3 size={24} />
+            <h2>סטטיסטיקות שימוש באפליקציה</h2>
+          </div>
+          
+          <div className="analytics-stats">
+            <div className="stats-grid">
+              <div className="stat-item">
+                <strong>{analyticsStats.totalVisits}</strong>
+                <span>סה"כ ביקורים</span>
+              </div>
+              <div className="stat-item">
+                <strong>{analyticsStats.uniqueDays}</strong>
+                <span>ימים פעילים</span>
+              </div>
+              <div className="stat-item">
+                <strong>{analyticsStats.averageVisitsPerDay}</strong>
+                <span>ממוצע ביקורים ליום</span>
+              </div>
+              <div className="stat-item">
+                <strong>{analyticsStats.daysSinceFirst}</strong>
+                <span>ימים מהביקור הראשון</span>
+              </div>
+            </div>
+            
+            <div className="stats-details">
+              <p><strong>ביקור ראשון:</strong> {analyticsStats.firstVisit}</p>
+              <p><strong>ביקור אחרון:</strong> {analyticsStats.lastVisit}</p>
+            </div>
+            
+            <div className="privacy-note">
+              <p>⚠️ התצוגה כרגע מבוססת על נתונים מקומיים בלבד. לקבלת נתונים של כלל המשתמשים נדרש שירות שרת נפרד.</p>
+            </div>
+          </div>
         </div>
       )}
 
