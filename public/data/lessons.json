@@ -1,12 +1,12 @@
 [
   {
-    "title": "בדיקה לא להתייחס",
+    "title": "כולל יום ששי",
     "description": "מעביר: הרב מרדכי מאיר",
     "category": "כולל יום ששי",
-    "date": "2025-08-27T18:15:00.000Z",
+    "date": "2025-08-28T18:15:00.000Z",
     "time": "21:15",
     "duration": 90,
-    "teacher": "הרב מרדכי המאיר",
+    "teacher": "הרב מרדכי מאיר",
     "location": "",
     "status": "completed",
     "currentParticipants": 0,
@@ -20,8 +20,7 @@
     },
     "id": "68dac20b-125f-4836-81f6-18a8e4ffa206",
     "createdAt": "2025-09-01T05:58:53.800Z",
-    "updatedAt": "2025-09-28T07:52:44.426Z",
-    "isEditing": true
+    "updatedAt": "2025-09-09T20:34:18.209Z"
   },
   {
     "title": "הכנה לראש השנה",
@@ -32,7 +31,7 @@
     "duration": 90,
     "teacher": "הרב אהרן כהן",
     "location": "",
-    "status": "completed",
+    "status": "scheduled",
     "currentParticipants": 0,
     "tags": [],
     "notifications": {
@@ -44,7 +43,7 @@
     },
     "id": "00361152-fc82-4287-b7fe-c440cb5e55c8",
     "createdAt": "2025-09-01T05:58:53.802Z",
-    "updatedAt": "2025-09-25T13:15:24.684Z"
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "הכנה לראש השנה",
@@ -67,7 +66,7 @@
     },
     "id": "ec2e027a-7a98-466d-8df8-426c8066e719",
     "createdAt": "2025-09-01T05:58:53.802Z",
-    "updatedAt": "2025-09-18T10:58:04.815Z"
+    "updatedAt": "2025-09-15T06:15:40.014Z"
   },
   {
     "title": "כולל יום ששי",
@@ -78,7 +77,7 @@
     "duration": 90,
     "teacher": "הרב אהוד אחיטוב",
     "location": "",
-    "status": "completed",
+    "status": "scheduled",
     "currentParticipants": 0,
     "tags": [],
     "notifications": {
@@ -90,7 +89,7 @@
     },
     "id": "8465d541-af5e-4712-99fd-a730fc3811b0",
     "createdAt": "2025-09-01T05:58:53.802Z",
-    "updatedAt": "2025-09-25T12:39:47.544Z"
+    "updatedAt": "2025-09-01T05:58:53.802Z"
   },
   {
     "title": "כולל יום ששי",
@@ -101,7 +100,7 @@
     "duration": 90,
     "teacher": "הרב מרדכי מאיר",
     "location": "",
-    "status": "scheduled",
+    "status": "completed",
     "currentParticipants": 0,
     "tags": [],
     "notifications": {
@@ -113,53 +112,7 @@
     },
     "id": "030ce193-b60b-403d-bd38-caca7b304e0a",
     "createdAt": "2025-09-01T05:58:53.802Z",
-    "updatedAt": "2025-09-01T05:58:53.802Z"
-  },
-  {
-    "title": "הכנה ליום הכיפורים",
-    "description": "מעביר: הרב ערן טמיר",
-    "category": "הכנה ליום הכיפורים",
-    "date": "2025-09-28T17:00:00.000Z",
-    "time": "20:00",
-    "duration": 90,
-    "teacher": "הרב ערן טמיר",
-    "location": "",
-    "status": "scheduled",
-    "currentParticipants": 0,
-    "tags": [],
-    "notifications": {
-      "enabled": true,
-      "reminderTimes": [
-        30,
-        10
-      ]
-    },
-    "id": "21b97d25-c3cd-4e2e-a04d-a0626f17ffa1",
-    "createdAt": "2025-09-01T05:58:53.802Z",
-    "updatedAt": "2025-09-01T05:58:53.802Z"
-  },
-  {
-    "title": "הכנה ליום הכיפורים",
-    "description": "מעביר: הרב יואב אוריאל",
-    "category": "הכנה ליום הכיפורים",
-    "date": "2025-09-28T18:00:00.000Z",
-    "time": "21:00",
-    "duration": 90,
-    "teacher": "הרב יואב אוריאל",
-    "location": "",
-    "status": "scheduled",
-    "currentParticipants": 0,
-    "tags": [],
-    "notifications": {
-      "enabled": true,
-      "reminderTimes": [
-        30,
-        10
-      ]
-    },
-    "id": "538c3a17-4a94-4258-94c4-86dcaec0e4bb",
-    "createdAt": "2025-09-01T05:58:53.802Z",
-    "updatedAt": "2025-09-01T05:58:53.802Z"
+    "updatedAt": "2025-09-28T06:34:55.439Z"
   },
   {
     "title": "הכנה ליום הכיפורים",
@@ -808,29 +761,6 @@
     "updatedAt": "2025-09-01T05:58:53.808Z"
   },
   {
-    "title": "כולל יום שישי",
-    "description": "מעביר: הרב יוני מילוא",
-    "category": "כולל יום שישי",
-    "date": "2026-03-25T10:15:00.000Z",
-    "time": "12:15",
-    "duration": 90,
-    "teacher": "הרב יוני מילוא",
-    "location": "",
-    "status": "scheduled",
-    "currentParticipants": 0,
-    "tags": [],
-    "notifications": {
-      "enabled": true,
-      "reminderTimes": [
-        30,
-        10
-      ]
-    },
-    "id": "fdfeecb9-410e-4979-8481-811f4b80a7c2",
-    "createdAt": "2025-09-01T05:58:53.808Z",
-    "updatedAt": "2025-09-01T05:58:53.808Z"
-  },
-  {
     "title": "לקראת עשרה בטבת",
     "description": "מעביר: הרב זאב סולטנוביץ'",
     "category": "לקראת עשרה בטבת",
@@ -1452,7 +1382,7 @@
     "updatedAt": "2025-09-01T05:58:53.817Z"
   },
   {
-    "title": "הרב עוזי ביננפלד",
+    "title": "שיעור של",
     "description": "",
     "date": "2025-09-04T18:15:00.000Z",
     "time": "21:15",
@@ -1474,8 +1404,111 @@
       ]
     },
     "createdAt": "2025-09-04T09:02:11.218Z",
-    "updatedAt": "2025-09-18T10:57:53.944Z",
-    "id": "631c554b-73b8-42f4-9806-5d571d4a82a6",
-    "isEditing": true
+    "updatedAt": "2025-09-09T20:31:51.910Z",
+    "id": "631c554b-73b8-42f4-9806-5d571d4a82a6"
+  },
+  {
+    "title": "הכנה לראש השנה",
+    "description": "",
+    "date": "2025-09-11T17:00:00.000Z",
+    "time": "20:00",
+    "duration": 90,
+    "teacher": "הרב ניסים דעי",
+    "location": "אולם ההרצאות",
+    "category": "כולל יום שישי",
+    "status": "completed",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-09-09T20:29:17.231Z",
+    "updatedAt": "2025-09-14T17:21:05.970Z",
+    "id": "ac2ad9ef-fcfa-474d-8c6f-2f4ce677c9d3"
+  },
+  {
+    "title": "הכנה לראש השנה ",
+    "description": "",
+    "date": "2025-09-11T18:15:00.000Z",
+    "time": "21:15",
+    "duration": 90,
+    "teacher": "הרב יעקב שמעון ",
+    "location": "אולם ההרצאות",
+    "category": "כולל יום שישי",
+    "status": "completed",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-09-09T20:29:54.662Z",
+    "updatedAt": "2025-09-14T07:21:07.711Z",
+    "id": "d076508f-fe05-4747-9362-10b438665e3c"
+  },
+  {
+    "title": "הכנה ליום הכיפורים",
+    "description": "",
+    "date": "2025-09-28T17:20:00.000Z",
+    "time": "20:20",
+    "duration": 90,
+    "teacher": "הרב חגי לונדין",
+    "location": "המרפסת",
+    "category": "אירועים מיוחדים",
+    "status": "completed",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-09-28T06:42:02.245Z",
+    "updatedAt": "2025-09-29T04:01:00.583Z",
+    "id": "de9b6de2-9c0a-483f-8721-ce0b2b19b618"
+  },
+  {
+    "title": "הכנה ליום הכיפורים",
+    "description": "",
+    "date": "2025-09-28T18:15:00.000Z",
+    "time": "21:15",
+    "duration": 90,
+    "teacher": "הרב ערן טמיר",
+    "location": "המרפסת",
+    "category": "אירועים מיוחדים",
+    "status": "completed",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-09-28T06:45:25.902Z",
+    "updatedAt": "2025-09-28T21:17:59.570Z",
+    "id": "d99b184a-ac68-46f8-8c85-050a3848c730"
   }
 ]
