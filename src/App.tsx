@@ -9,11 +9,10 @@ import CalendarPage from './pages/CalendarPage';
 import ImportPage from './pages/ImportPage';
 import AdminPage from './pages/AdminPage';
 import NotificationsPage from './pages/NotificationsPage';
-import analyticsService from './services/analyticsService';
 import './App.css';
 
 function App() {
-  // Load theme settings and record visit analytics on app startup
+  // Load theme settings on app startup
   useEffect(() => {
     const loadThemeSettings = () => {
       try {
@@ -30,9 +29,6 @@ function App() {
         console.warn('Failed to load theme settings:', error);
       }
     };
-
-    // Record app visit for analytics
-    analyticsService.recordVisit('app-start');
 
     loadThemeSettings();
   }, []);

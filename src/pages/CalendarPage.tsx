@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Calendar from '../components/Calendar';
 import { LessonService } from '../services/lessonService';
 import AuthService from '../services/authService';
+import googleAnalytics from '../services/googleAnalyticsService';
 import './CalendarPage.css';
 
 const CalendarPage: React.FC = () => {
   const authService = AuthService.getInstance();
+
+  useEffect(() => {
+    // Track calendar page view
+    googleAnalytics.trackPageView('calendar', 'לוח שנה');
+  }, []);
 
   const handleDeleteLesson = async (id: string) => {
     await LessonService.deleteLessonAndSync(id);

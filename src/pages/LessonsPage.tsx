@@ -5,6 +5,7 @@ import type { Lesson } from '../types';
 import { LessonService } from '../services/lessonService';
 import { NotificationService } from '../services/notificationService';
 import AuthService from '../services/authService';
+import googleAnalytics from '../services/googleAnalyticsService';
 import './LessonsPage.css';
 
 const LessonsPage: React.FC = () => {
@@ -19,6 +20,9 @@ const LessonsPage: React.FC = () => {
   useEffect(() => {
     loadLessons();
     NotificationService.requestPermission();
+    
+    // Track page view
+    googleAnalytics.trackPageView('lessons', 'דף שיעורים');
     
     // בדיקה אם יש פרמטר תאריך בURL
     const urlParams = new URLSearchParams(window.location.search);
