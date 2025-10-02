@@ -224,21 +224,44 @@ const AdminPage: React.FC = () => {
         </div>
       )}
 
-      {/* Google Analytics Setup Notice */}
+      {/* Google Analytics Status */}
       <div className="ga-setup-notice">
         <h3>📊 Google Analytics</h3>
-        <p>לקבלת נתוני שימוש מפורטים, הגדר Google Analytics:</p>
-        <ol>
-          <li>צור חשבון ב-<a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer">Google Analytics</a></li>
-          <li>קבל את ה-Measurement ID (בפורמט GA-XXXXXXXXX)</li>
-          <li>החלף בקובץ <code>index.html</code> ו-<code>src/config/analytics.ts</code></li>
-          <li>העלה לשרת - מיד תתחיל לראות נתוני שימוש!</li>
-        </ol>
-        <p className="ga-status">
-          {GA_CONFIG.MEASUREMENT_ID === 'GA_MEASUREMENT_ID' ? 
-            '⚠️ Google Analytics עדיין לא מוגדר' : 
-            '✅ Google Analytics פעיל'}
-        </p>
+        
+        {GA_CONFIG.MEASUREMENT_ID === 'GA_MEASUREMENT_ID' ? (
+          // Not configured yet
+          <>
+            <p>לקבלת נתוני שימוש מפורטים, הגדר Google Analytics:</p>
+            <ol>
+              <li>צור חשבון ב-<a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer">Google Analytics</a></li>
+              <li>קבל את ה-Measurement ID (בפורמט G-XXXXXXXXX)</li>
+              <li>החלף בקובץ <code>index.html</code> ו-<code>src/config/analytics.ts</code></li>
+              <li>העלה לשרת - מיד תתחיל לראות נתוני שימוש!</li>
+            </ol>
+            <p className="ga-status">
+              ⚠️ Google Analytics עדיין לא מוגדר
+            </p>
+          </>
+        ) : (
+          // Already configured
+          <>
+            <p className="ga-status success">
+              ✅ Google Analytics פעיל ואוסף נתונים!
+            </p>
+            <div className="ga-info">
+              <p><strong>Measurement ID:</strong> <code>{GA_CONFIG.MEASUREMENT_ID}</code></p>
+              <p>האפליקציה אוספת נתוני שימוש באופן אוטומטי:</p>
+              <ul>
+                <li>🏠 ביקורי דפים - שיעורים, לוח שנה, ארכיון</li>
+                <li>👤 פעולות משתמשים - יצירת שיעורים, חיפושים</li>
+                <li>⚙️ שימוש באדמין - כניסות וסנכרונים</li>
+                <li>📱 סוג מכשיר ומיקום גיאוגרפי</li>
+              </ul>
+              <p><strong>כיצד לצפות בנתונים:</strong></p>
+              <p>לך ל-<a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer">Google Analytics</a> ובחר בנכס שלך.</p>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="admin-controls">

@@ -632,6 +632,35 @@
   border: 1px solid #f59e0b;
 }
 
+.ga-status.success {
+  background: #dcfce7;
+  border: 1px solid #16a34a;
+  color: #15803d;
+}
+
+.ga-info {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.ga-info p {
+  margin: 0.5rem 0;
+  color: #475569;
+}
+
+.ga-info ul {
+  margin: 0.5rem 0;
+  padding-right: 1.5rem;
+  color: #475569;
+}
+
+.ga-info li {
+  margin: 0.25rem 0;
+}
+
 /* Dark theme */
 :root.dark-theme .ga-setup-notice {
   background: #1e3a8a;
@@ -657,6 +686,23 @@
   background: #78350f;
   border-color: #f59e0b;
   color: #fcd34d;
+}
+
+:root.dark-theme .ga-status.success {
+  background: #064e3b;
+  border-color: #16a34a;
+  color: #a7f3d0;
+}
+
+:root.dark-theme .ga-info {
+  background: #374151;
+  border-color: #6b7280;
+}
+
+:root.dark-theme .ga-info p,
+:root.dark-theme .ga-info ul,
+:root.dark-theme .ga-info li {
+  color: #d1d5db;
 }
 
 
