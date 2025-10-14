@@ -302,29 +302,6 @@
     "updatedAt": "2025-09-01T05:58:53.803Z"
   },
   {
-    "title": "הרב אלישע אבינר",
-    "description": "",
-    "category": "הרב אלישע אבינר",
-    "date": "2025-10-19T18:15:00.000Z",
-    "time": "21:15",
-    "duration": 90,
-    "teacher": "",
-    "location": "",
-    "status": "scheduled",
-    "currentParticipants": 0,
-    "tags": [],
-    "notifications": {
-      "enabled": true,
-      "reminderTimes": [
-        30,
-        10
-      ]
-    },
-    "id": "da28d25d-f97d-459d-a1de-be3940904d64",
-    "createdAt": "2025-09-01T05:58:53.803Z",
-    "updatedAt": "2025-09-01T05:58:53.803Z"
-  },
-  {
     "title": "כולל יום שישי",
     "description": "מעביר: הרב עוזי ביננפלד",
     "category": "כולל יום שישי",
