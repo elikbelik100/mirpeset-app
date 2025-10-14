@@ -1563,5 +1563,31 @@
     "createdAt": "2025-10-14T19:47:08.704Z",
     "updatedAt": "2025-10-14T19:47:08.704Z",
     "id": "6b901dd2-85bc-4324-b169-1dd76d7859c8"
+  },
+  {
+    "title": "בראשית ",
+    "description": "",
+    "date": "2025-10-16T17:00:00.000Z",
+    "time": "20:00",
+    "duration": 90,
+    "teacher": "הרב יוני מילוא ",
+    "location": "המרפסת",
+    "category": "כולל יום שישי",
+    "status": "scheduled",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-10-14T19:49:32.793Z",
+    "updatedAt": "2025-10-14T19:49:32.793Z",
+    "id": "7fe30558-34a2-40f7-870d-aa571e55f381"
   }
 ]
