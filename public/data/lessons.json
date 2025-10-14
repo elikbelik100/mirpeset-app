@@ -1536,5 +1536,31 @@
     "createdAt": "2025-10-14T19:46:21.711Z",
     "updatedAt": "2025-10-14T19:46:21.711Z",
     "id": "c9b1d48d-f51f-4155-8d31-5bd339680fb6"
+  },
+  {
+    "title": "הארת חג סוכות ",
+    "description": "",
+    "date": "2025-10-08T17:00:00.000Z",
+    "time": "20:00",
+    "duration": 90,
+    "teacher": "הרב טייכנר ",
+    "location": "המרפסת",
+    "category": "הכנה לחגים",
+    "status": "scheduled",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-10-14T19:46:23.615Z",
+    "updatedAt": "2025-10-14T19:46:23.615Z",
+    "id": "6f4f995b-dce5-4430-a199-6d540a60a831"
   }
 ]
