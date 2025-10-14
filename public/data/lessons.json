@@ -123,7 +123,7 @@
     "duration": 90,
     "teacher": "הרב ברוך רוזנבלום",
     "location": "",
-    "status": "scheduled",
+    "status": "completed",
     "currentParticipants": 0,
     "tags": [],
     "notifications": {
@@ -135,7 +135,7 @@
     },
     "id": "2bf197e4-6508-4b16-9772-115a7ce27ae8",
     "createdAt": "2025-09-01T05:58:53.802Z",
-    "updatedAt": "2025-09-01T05:58:53.802Z"
+    "updatedAt": "2025-09-29T04:02:50.204Z"
   },
   {
     "title": "כולל יום ששי",
@@ -1510,5 +1510,31 @@
     "createdAt": "2025-09-28T06:45:25.902Z",
     "updatedAt": "2025-09-28T21:17:59.570Z",
     "id": "d99b184a-ac68-46f8-8c85-050a3848c730"
+  },
+  {
+    "title": "הארת חג סוכות ",
+    "description": "",
+    "date": "2025-10-08T17:00:00.000Z",
+    "time": "20:00",
+    "duration": 90,
+    "teacher": "הרב טייכנר ",
+    "location": "המרפסת",
+    "category": "הכנה לחגים",
+    "status": "scheduled",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-10-14T19:46:21.711Z",
+    "updatedAt": "2025-10-14T19:46:21.711Z",
+    "id": "c9b1d48d-f51f-4155-8d31-5bd339680fb6"
   }
 ]
