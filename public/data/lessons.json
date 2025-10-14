@@ -1524,7 +1524,7 @@
     "teacher": "הרב ברוך הרניק",
     "location": "המרפסת",
     "category": "הכנה לחגים",
-    "status": "scheduled",
+    "status": "completed",
     "maxParticipants": 0,
     "currentParticipants": 0,
     "recordingUrl": "",
@@ -1538,7 +1538,7 @@
       ]
     },
     "createdAt": "2025-10-14T19:47:08.704Z",
-    "updatedAt": "2025-10-14T19:47:08.704Z",
+    "updatedAt": "2025-10-14T19:50:50.200Z",
     "id": "6b901dd2-85bc-4324-b169-1dd76d7859c8"
   },
   {
@@ -1618,5 +1618,31 @@
     "createdAt": "2025-10-14T19:50:19.903Z",
     "updatedAt": "2025-10-14T19:50:19.903Z",
     "id": "dd25b743-ec26-45c0-a340-0924980f9cff"
+  },
+  {
+    "title": "כשרות האתרוג ",
+    "description": "",
+    "date": "2025-10-11T17:00:00.000Z",
+    "time": "20:00",
+    "duration": 90,
+    "teacher": "הרב שי דדוש ",
+    "location": "המרפסת",
+    "category": "הכנה לחגים",
+    "status": "scheduled",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-10-14T19:55:52.407Z",
+    "updatedAt": "2025-10-14T19:55:52.407Z",
+    "id": "d44a9ecf-8ef9-4175-ae9d-5484ad21b63b"
   }
 ]
