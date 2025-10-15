@@ -231,12 +231,12 @@
   },
   {
     "title": "הושענא רבה",
-    "description": "מעביר: הרב מאיר מרדכי",
+    "description": "מעביר: הרב יהונתן גיאת",
     "category": "הושענא רבה",
     "date": "2025-10-12T20:00:00.000Z",
     "time": "23:00",
     "duration": 90,
-    "teacher": "הרב מאיר מרדכי",
+    "teacher": "הרב יהונתן גיאת",
     "location": "",
     "status": "completed",
     "currentParticipants": 0,
@@ -250,7 +250,8 @@
     },
     "id": "bfaad76f-5c00-4d92-8241-0844226d540f",
     "createdAt": "2025-09-01T05:58:53.803Z",
-    "updatedAt": "2025-10-15T09:37:21.379Z"
+    "updatedAt": "2025-10-15T09:38:57.399Z",
+    "isEditing": true
   },
   {
     "title": "הושענא רבה",
