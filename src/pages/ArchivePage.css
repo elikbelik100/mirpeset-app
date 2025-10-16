@@ -221,20 +221,6 @@
   justify-content: center;
 }
 
-.duration-badge {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
 .lesson-content {
   padding: 1.5rem;
 }

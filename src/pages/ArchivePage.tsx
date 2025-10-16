@@ -5,7 +5,6 @@ import {
   Search, 
   Calendar,
   User,
-  Clock,
   MapPin,
   Share2,
   BookOpen,
@@ -24,7 +23,6 @@ import RecordingService, { type RecordingLink } from '../services/recordingServi
 import './ArchivePage.css';
 
 interface ArchivedLesson extends Lesson {
-  recordingDuration: string;
   speaker?: string; // תמיכה בשדה speaker במקרה של נתונים ישנים
 }
 
@@ -109,9 +107,7 @@ const ArchivePage: React.FC = () => {
           date: typeof lesson.date === 'string' ? new Date(lesson.date) : lesson.date,
           location: lesson.location || 'לא צוין',
           teacher: lesson.teacher || (lesson as any).speaker || 'לא צוין',
-          tags: lesson.tags || [],
-          // נתונים נוספים לארכיון
-          recordingDuration: generateRandomDuration()
+          tags: lesson.tags || []
         }));
 
       setArchivedLessons(completedLessons);
@@ -120,13 +116,6 @@ const ArchivePage: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const generateRandomDuration = (): string => {
-    const minutes = Math.floor(Math.random() * 60) + 30; // 30-90 minutes
-    const hours = Math.floor(minutes / 60);
-    const remainingMinutes = minutes % 60;
-    return hours > 0 ? `${hours}:${remainingMinutes.toString().padStart(2, '0')}` : `${minutes}:00`;
   };
 
   const filterLessons = () => {
@@ -376,10 +365,6 @@ const ArchivePage: React.FC = () => {
                     <Play size={32} />
                   </div>
                 )}
-                <div className="duration-badge">
-                  <Clock size={14} />
-                  {lesson.recordingDuration}
-                </div>
               </div>
 
               <div className="lesson-content">
