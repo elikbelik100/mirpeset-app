@@ -238,26 +238,42 @@ export class LessonService {
   // GitHub Integration Functions
   static async updateLessonAndSync(lesson: Lesson): Promise<boolean> {
     try {
-      // Update lesson locally
-      await this.updateLesson(lesson.id, lesson);
-      
       // Sync to GitHub if configured
       if (this.githubService.isConfigured()) {
-        const allLessons = await this.getAllLessons(true); // force refresh מ-GitHub
+        // טען את כל השיעורים מ-GitHub
+        const allLessons = await this.getAllLessons(true);
+        
+        // מצא ועדכן את השיעור ברשימה
+        const index = allLessons.findIndex(l => l.id === lesson.id);
+        if (index === -1) {
+          throw new Error(`Lesson with id ${lesson.id} not found`);
+        }
+        
+        allLessons[index] = {
+          ...lesson,
+          updatedAt: new Date(),
+        };
+        
+        // שמור את הרשימה המעודכנת ל-GitHub
         await this.githubService.updateLessonsFile(
           allLessons, 
           `עדכון שיעור: ${lesson.title}`
         );
+        
+        // עכשיו שמור גם מקומית
+        this.saveLessons(allLessons);
         
         // נקה cache כדי שכולם יקבלו עדכון בטעינה הבאה
         CacheManager.remove(LESSONS_CACHE_KEY);
         
         console.log('✅ Lesson updated and synced to GitHub');
         return true;
+      } else {
+        // אם GitHub לא מוגדר, עדכן מקומית בלבד
+        await this.updateLesson(lesson.id, lesson);
+        console.log('⚠️ Lesson updated locally only (GitHub not configured)');
+        return false; // Updated locally but not synced
       }
-      
-      console.log('⚠️ Lesson updated locally only (GitHub not configured)');
-      return false; // Updated locally but not synced
     } catch (error) {
       console.error('Error updating lesson and syncing:', error);
       throw error;
@@ -266,24 +282,42 @@ export class LessonService {
 
   static async createLessonAndSync(lessonData: Omit<Lesson, 'id' | 'createdAt' | 'updatedAt'>): Promise<Lesson> {
     try {
-      // Create lesson locally
-      const newLesson = await this.createLesson(lessonData);
-      
       // Sync to GitHub if configured
       if (this.githubService.isConfigured()) {
-        const allLessons = await this.getAllLessons(true); // force refresh מ-GitHub
+        // טען את כל השיעורים הקיימים מ-GitHub
+        const existingLessons = await this.getAllLessons(true);
+        
+        // צור את השיעור החדש
+        const newLesson: Lesson = {
+          ...lessonData,
+          id: crypto.randomUUID(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        };
+        
+        // הוסף את השיעור החדש לרשימה
+        const allLessons = [...existingLessons, newLesson];
+        
+        // שמור את הרשימה המלאה ל-GitHub
         await this.githubService.updateLessonsFile(
           allLessons, 
           `הוספת שיעור חדש: ${newLesson.title}`
         );
         
+        // עכשיו שמור גם מקומית
+        this.saveLessons(allLessons);
+        
         // נקה cache כדי שכולם יקבלו עדכון בטעינה הבאה
         CacheManager.remove(LESSONS_CACHE_KEY);
         
         console.log('✅ Lesson created and synced to GitHub');
+        return newLesson;
+      } else {
+        // אם GitHub לא מוגדר, צור מקומית בלבד
+        const newLesson = await this.createLesson(lessonData);
+        console.log('⚠️ Lesson created locally only (GitHub not configured)');
+        return newLesson;
       }
-      
-      return newLesson;
     } catch (error) {
       console.error('Error creating lesson and syncing:', error);
       throw error;
@@ -292,27 +326,43 @@ export class LessonService {
 
   static async deleteLessonAndSync(id: string): Promise<boolean> {
     try {
-      // Get lesson title for commit message
-      const lesson = await this.getLessonById(id);
-      const lessonTitle = lesson?.title || 'שיעור לא ידוע';
-      
-      // Delete lesson locally
-      const deleted = await this.deleteLesson(id);
-      
-      if (deleted && this.githubService.isConfigured()) {
-        const allLessons = await this.getAllLessons(true); // force refresh מ-GitHub
+      // Sync to GitHub if configured
+      if (this.githubService.isConfigured()) {
+        // טען את כל השיעורים מ-GitHub
+        const allLessons = await this.getAllLessons(true);
+        
+        // מצא את השיעור למחיקה
+        const lesson = allLessons.find(l => l.id === id);
+        const lessonTitle = lesson?.title || 'שיעור לא ידוע';
+        
+        // סנן את השיעור מהרשימה
+        const updatedLessons = allLessons.filter(l => l.id !== id);
+        
+        if (updatedLessons.length === allLessons.length) {
+          // השיעור לא נמצא
+          return false;
+        }
+        
+        // שמור את הרשימה המעודכנת ל-GitHub
         await this.githubService.updateLessonsFile(
-          allLessons, 
+          updatedLessons, 
           `מחיקת שיעור: ${lessonTitle}`
         );
+        
+        // עכשיו שמור גם מקומית
+        this.saveLessons(updatedLessons);
         
         // נקה cache כדי שכולם יקבלו עדכון בטעינה הבאה
         CacheManager.remove(LESSONS_CACHE_KEY);
         
         console.log('✅ Lesson deleted and synced to GitHub');
+        return true;
+      } else {
+        // אם GitHub לא מוגדר, מחק מקומית בלבד
+        const deleted = await this.deleteLesson(id);
+        console.log('⚠️ Lesson deleted locally only (GitHub not configured)');
+        return deleted;
       }
-      
-      return deleted;
     } catch (error) {
       console.error('Error deleting lesson and syncing:', error);
       throw error;
