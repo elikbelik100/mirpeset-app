@@ -1454,5 +1454,31 @@
     "updatedAt": "2025-09-18T10:57:53.944Z",
     "id": "631c554b-73b8-42f4-9806-5d571d4a82a6",
     "isEditing": true
+  },
+  {
+    "title": "תיבת פנדורה ותיקון העולם",
+    "description": "",
+    "date": "2025-10-16T17:00:00.000Z",
+    "time": "20:00",
+    "duration": 90,
+    "teacher": "הרב יוני מילוא",
+    "location": "המרפסת",
+    "category": "כולל יום שישי",
+    "status": "scheduled",
+    "maxParticipants": 0,
+    "currentParticipants": 0,
+    "recordingUrl": "",
+    "imageUrl": "",
+    "tags": [],
+    "notifications": {
+      "enabled": true,
+      "reminderTimes": [
+        15,
+        60
+      ]
+    },
+    "createdAt": "2025-10-16T19:47:23.828Z",
+    "updatedAt": "2025-10-16T19:47:23.828Z",
+    "id": "841bb8b3-0827-4928-9972-eab85cb8931b"
   }
 ]
