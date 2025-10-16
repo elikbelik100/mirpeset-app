@@ -1,57 +1,107 @@
 import type { Lesson } from '../types';
 import GitHubService from './githubService';
+import CacheManager from './cacheManager';
 
 const LESSONS_STORAGE_KEY = 'mirpeset-lessons';
+const LESSONS_CACHE_KEY = 'mirpeset-lessons-cache';
 const LESSONS_JSON_URL = '/data/lessons.json';
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
 export class LessonService {
   private static githubService = GitHubService.getInstance();
-  static async getAllLessons(): Promise<Lesson[]> {
+  
+  /**
+   * טעינת שיעורים - לוגיקה חדשה:
+   * 1. נסה GitHub (Source of Truth)
+   * 2. אם נכשל, נסה Cache (עם בדיקת TTL)
+   * 3. אם Cache פג תוקף, נסה Static JSON
+   * 4. אם הכל נכשל, החזר מערך ריק
+   */
+  static async getAllLessons(forceRefresh: boolean = false): Promise<Lesson[]> {
+    console.log('🔍 Loading lessons...', forceRefresh ? '(force refresh)' : '');
+    
     // בדוק אם המשתמש מחק את כל השיעורים
     if (localStorage.getItem('mirpeset-lessons-deleted') === 'true') {
+      console.log('📭 Lessons deleted flag set');
       return [];
     }
 
-    // Check localStorage first (this is where imported/edited lessons are stored)
-    const data = localStorage.getItem(LESSONS_STORAGE_KEY);
-    if (data) {
-      const lessons = JSON.parse(data);
-      return lessons.map((lesson: any) => ({
-        ...lesson,
-        date: new Date(lesson.date),
-        createdAt: new Date(lesson.createdAt),
-        updatedAt: new Date(lesson.updatedAt),
-      }));
+    // אסטרטגיה 1: נסה לטעון מ-GitHub (Source of Truth)
+    if (this.githubService.isConfigured()) {
+      try {
+        console.log('📡 Attempting to load from GitHub...');
+        const githubFile = await this.githubService.getCurrentLessonsFile();
+        const githubLessons = JSON.parse(githubFile.content);
+        const mappedLessons = this.mapLessons(githubLessons);
+        
+        // שמור ל-cache עם timestamp
+        CacheManager.set(LESSONS_CACHE_KEY, mappedLessons, githubFile.sha.substring(0, 7));
+        console.log(`✅ Loaded ${mappedLessons.length} lessons from GitHub`);
+        
+        return mappedLessons;
+      } catch (error) {
+        console.warn('⚠️ Failed to load from GitHub:', error);
+        // נמשיך ל-fallback
+      }
+    } else {
+      console.log('⚠️ GitHub not configured');
     }
 
-    // If no localStorage data, try to fetch from static JSON file
+    // אסטרטגיה 2: נסה Cache (אם לא force refresh)
+    if (!forceRefresh) {
+      const cachedLessons = CacheManager.get<any[]>(LESSONS_CACHE_KEY, { ttl: CACHE_TTL });
+      if (cachedLessons) {
+        const mappedLessons = this.mapLessons(cachedLessons);
+        console.log(`📦 Loaded ${mappedLessons.length} lessons from cache`);
+        return mappedLessons;
+      }
+    }
+
+    // אסטרטגיה 3: נסה Static JSON (fallback לישן)
     try {
-      const response = await fetch(LESSONS_JSON_URL);
+      console.log('📄 Attempting to load from static JSON...');
+      const response = await fetch(`${LESSONS_JSON_URL}?t=${Date.now()}`); // cache bust
       if (response.ok) {
         const lessons = await response.json();
-        const mappedLessons = lessons.map((lesson: any) => ({
-          ...lesson,
-          date: new Date(lesson.date),
-          createdAt: new Date(lesson.createdAt),
-          updatedAt: new Date(lesson.updatedAt),
-        }));
+        const mappedLessons = this.mapLessons(lessons);
         
-        // Save to localStorage for future edits
-        this.saveLessons(mappedLessons);
+        // שמור ל-cache
+        CacheManager.set(LESSONS_CACHE_KEY, mappedLessons, 'static-json');
+        console.log(`✅ Loaded ${mappedLessons.length} lessons from static JSON`);
+        
         return mappedLessons;
       }
     } catch (error) {
-      console.warn('Could not fetch lessons from JSON file');
+      console.warn('⚠️ Could not fetch lessons from JSON file:', error);
     }
     
-    // Return empty array if both methods fail
+    // אסטרטגיה 4: אם הכל נכשל, החזר מערך ריק
+    console.log('❌ All strategies failed, returning empty array');
     return [];
+  }
+
+  /**
+   * המרת lessons ל-objects עם Dates
+   */
+  private static mapLessons(lessons: any[]): Lesson[] {
+    return lessons.map((lesson: any) => ({
+      ...lesson,
+      date: new Date(lesson.date),
+      createdAt: new Date(lesson.createdAt),
+      updatedAt: new Date(lesson.updatedAt),
+    }));
   }
 
   static saveLessons(lessons: Lesson[]): void {
     // כשמייבאים שיעורים חדשים, נקה את הפלג "נמחק"
     localStorage.removeItem('mirpeset-lessons-deleted');
+    
+    // שמור גם ל-cache החדש
+    CacheManager.set(LESSONS_CACHE_KEY, lessons, 'local-save');
+    
+    // שמור גם למפתח הישן לתאימות לאחור (ייתכן שקוד אחר משתמש בזה)
     localStorage.setItem(LESSONS_STORAGE_KEY, JSON.stringify(lessons));
+    console.log(`💾 Saved ${lessons.length} lessons to cache and localStorage`);
   }
 
   static async createLesson(lessonData: Omit<Lesson, 'id' | 'createdAt' | 'updatedAt'>): Promise<Lesson> {
@@ -83,6 +133,10 @@ export class LessonService {
     
     lessons[index] = updatedLesson;
     this.saveLessons(lessons);
+    
+    // נקה cache כדי לאלץ refresh בטעינה הבאה
+    CacheManager.remove(LESSONS_CACHE_KEY);
+    
     return updatedLesson;
   }
 
@@ -93,6 +147,10 @@ export class LessonService {
     if (filteredLessons.length === lessons.length) return false;
     
     this.saveLessons(filteredLessons);
+    
+    // נקה cache כדי לאלץ refresh בטעינה הבאה
+    CacheManager.remove(LESSONS_CACHE_KEY);
+    
     return true;
   }
 
@@ -101,6 +159,10 @@ export class LessonService {
       // מחיקה מ-LocalStorage ושמירת פלג "נמחק"
       localStorage.removeItem(LESSONS_STORAGE_KEY);
       localStorage.setItem('mirpeset-lessons-deleted', 'true');
+      
+      // נקה גם את ה-cache החדש
+      CacheManager.remove(LESSONS_CACHE_KEY);
+      
       console.log('Lessons deleted from LocalStorage');
       
       // נסיון לסנכרן ל-GitHub (לא חובה)
@@ -119,12 +181,14 @@ export class LessonService {
       // אם כל השאר נכשל, לפחות נמחק מ-LocalStorage
       localStorage.removeItem(LESSONS_STORAGE_KEY);
       localStorage.setItem('mirpeset-lessons-deleted', 'true');
+      CacheManager.remove(LESSONS_CACHE_KEY);
       console.error('Error in deleteAllLessons:', error);
     }
   }
 
   static clearLocalStorage(): void {
     localStorage.removeItem(LESSONS_STORAGE_KEY);
+    CacheManager.remove(LESSONS_CACHE_KEY);
     console.log('Local storage cleared');
   }
 
@@ -179,14 +243,20 @@ export class LessonService {
       
       // Sync to GitHub if configured
       if (this.githubService.isConfigured()) {
-        const allLessons = await this.getAllLessons();
+        const allLessons = await this.getAllLessons(true); // force refresh מ-GitHub
         await this.githubService.updateLessonsFile(
           allLessons, 
           `עדכון שיעור: ${lesson.title}`
         );
+        
+        // נקה cache כדי שכולם יקבלו עדכון בטעינה הבאה
+        CacheManager.remove(LESSONS_CACHE_KEY);
+        
+        console.log('✅ Lesson updated and synced to GitHub');
         return true;
       }
       
+      console.log('⚠️ Lesson updated locally only (GitHub not configured)');
       return false; // Updated locally but not synced
     } catch (error) {
       console.error('Error updating lesson and syncing:', error);
@@ -201,11 +271,16 @@ export class LessonService {
       
       // Sync to GitHub if configured
       if (this.githubService.isConfigured()) {
-        const allLessons = await this.getAllLessons();
+        const allLessons = await this.getAllLessons(true); // force refresh מ-GitHub
         await this.githubService.updateLessonsFile(
           allLessons, 
           `הוספת שיעור חדש: ${newLesson.title}`
         );
+        
+        // נקה cache כדי שכולם יקבלו עדכון בטעינה הבאה
+        CacheManager.remove(LESSONS_CACHE_KEY);
+        
+        console.log('✅ Lesson created and synced to GitHub');
       }
       
       return newLesson;
@@ -225,11 +300,16 @@ export class LessonService {
       const deleted = await this.deleteLesson(id);
       
       if (deleted && this.githubService.isConfigured()) {
-        const allLessons = await this.getAllLessons();
+        const allLessons = await this.getAllLessons(true); // force refresh מ-GitHub
         await this.githubService.updateLessonsFile(
           allLessons, 
           `מחיקת שיעור: ${lessonTitle}`
         );
+        
+        // נקה cache כדי שכולם יקבלו עדכון בטעינה הבאה
+        CacheManager.remove(LESSONS_CACHE_KEY);
+        
+        console.log('✅ Lesson deleted and synced to GitHub');
       }
       
       return deleted;

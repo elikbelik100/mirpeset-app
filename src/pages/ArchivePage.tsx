@@ -60,21 +60,26 @@ const ArchivePage: React.FC = () => {
     filterLessons();
   }, [archivedLessons, recordingLinks, searchTerm, selectedCategory, selectedTeacher, sortBy]);
 
-  const loadRecordingLinks = async () => {
+  const loadRecordingLinks = async (forceRefresh: boolean = false) => {
     try {
-      const links = await recordingService.loadRecordings();
+      const links = await recordingService.loadRecordings(forceRefresh);
       setRecordingLinks(links);
+      
+      if (forceRefresh) {
+        // הצגת הודעה למשתמש
+        console.log('✅ Recording links refreshed from server');
+      }
     } catch (error) {
       console.error('Error loading recording links:', error);
       setRecordingLinks([]);
     }
   };
 
-  const loadArchivedLessons = async () => {
+  const loadArchivedLessons = async (forceRefresh: boolean = false) => {
     setIsLoading(true);
     try {
       // Get all lessons and auto-update past lessons to completed
-      const allLessons = await LessonService.getAllLessons();
+      const allLessons = await LessonService.getAllLessons(forceRefresh);
       const now = new Date();
       
       // Update past lessons to completed status automatically
@@ -305,6 +310,19 @@ const ArchivePage: React.FC = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
+
+          <button 
+            onClick={() => {
+              loadArchivedLessons(true);
+              loadRecordingLinks(true);
+            }}
+            disabled={isLoading}
+            className="btn-refresh-archive"
+            title="רענן נתונים מהשרת"
+          >
+            <Download size={16} style={{ transform: isLoading ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s' }} />
+            רענן
+          </button>
 
           <div className="filters">
             <select

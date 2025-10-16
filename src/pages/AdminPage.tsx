@@ -38,11 +38,15 @@ const AdminPage: React.FC = () => {
     }
   }, []);
 
-  const loadLessons = async () => {
+  const loadLessons = async (forceRefresh: boolean = false) => {
     try {
       setLoading(true);
-      const lessonsData = await LessonService.getAllLessons();
+      const lessonsData = await LessonService.getAllLessons(forceRefresh);
       setLessons(lessonsData.map(lesson => ({ ...lesson, isEditing: false })));
+      
+      if (forceRefresh) {
+        showMessage('success', '✅ נתונים עודכנו מהשרת');
+      }
     } catch (error) {
       showMessage('error', 'שגיאה בטעינת השיעורים');
     } finally {
@@ -275,6 +279,16 @@ const AdminPage: React.FC = () => {
         </div>
 
         <div className="action-buttons">
+          <button 
+            onClick={() => loadLessons(true)}
+            disabled={loading}
+            className="btn-refresh"
+            title="רענן נתונים מהשרת"
+          >
+            {loading ? <RefreshCw className="spin" size={16} /> : <RefreshCw size={16} />}
+            רענן
+          </button>
+          
           {authService.hasPermission('create_lesson') && (
             <button 
               onClick={handleCreateLesson}
